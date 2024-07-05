@@ -1,5 +1,5 @@
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 
 :root {
     --main-color: #9d9d9d;
@@ -58,17 +58,17 @@ nav {
     align-items: center;
 }
 
-.info-nav-header>li {
+.info-nav-header > li {
     display: flex;
 }
 
-.info-nav-header>li>a {
+.info-nav-header > li > a {
     padding: 5px;
     font-size: 15px;
     transition: all 400ms ease;
 }
 
-.info-nav-header>li>a:hover {
+.info-nav-header > li > a:hover {
     border: 1px solid #ffffff;
     border-radius: 5px;
     padding: 5px;
@@ -101,7 +101,7 @@ main {
     align-items: center;
 }
 
-.main-photo>img {
+.main-photo > img {
     display: flex;
     margin-left: calc(50% - 75px);
     margin-top: 75px;
@@ -154,7 +154,7 @@ main {
     border-radius: 50%;
 }
 
-.img-fly>span {
+.img-fly > span {
     display: flex;
     position: absolute;
     top: -7px;
@@ -198,41 +198,41 @@ main {
     width: 50%;
 }
 
-.contacts>ul {
+.contacts > ul {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     list-style: none;
 }
 
-.contacts>ul>li {
+.contacts > ul > li {
     margin-bottom: 20px;
     color: var(--text-color);
     font: 15px/1.8 'Roboto', Arial, sans-serif;
 }
 
-.contacts>ul>li>p>span {
+.contacts > ul > li > p > span {
     color: var(--main-color);
 }
 
-.contacts>ul>li>p>img {
+.contacts > ul > li > p > img {
     width: 18px;
 }
 
-.contacts>ul>li>p>i {
+.contacts > ul > li > p > i {
     margin-right: 10px;
 }
 
-.contacts>ul>li>i {
+.contacts > ul > li > i {
     margin-right: 10px;
 }
 
-.contacts>ul>li>a {
+.contacts > ul > li > a {
     color: var(--main-color);
     font: 15px/1.8 'Roboto', Arial, sans-serif;
 }
 
-.contacts> h2 {
+.contacts > h2 {
     letter-spacing: 3px;
     color: var(--main-color);
 }
@@ -246,12 +246,12 @@ main {
     margin-top: 30px;
 }
 
-.summary> h2 {
+.summary > h2 {
     letter-spacing: 3px;
     color: var(--main-color);
 }
 
-.summary>p {
+.summary > p {
     text-align: justify;
     color: var(--text-color);
     margin-bottom: 10px;
@@ -277,7 +277,7 @@ main {
     font-weight: 400;
 }
 
-.skills>ul {
+.skills > ul {
     width: 100%;
     justify-content: start;
     margin-bottom: 1px;
@@ -339,7 +339,7 @@ footer {
     align-items: center;
 }
 
-.info-footer>li>img {
+.info-footer > li > img {
     height: 30px;
 }
 
