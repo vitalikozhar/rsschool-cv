@@ -1,9 +1,10 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
   --main-color: #d2cbb8;
-  --text-color: #b0b0b0;
+  --text-color: #dcdbd8;
 }
 
 * {
@@ -55,15 +56,13 @@ header {
 .info-nav-header > li > a {
   padding: 5px;
   font-size: 15px;
-  transition: all 400ms ease;
+  transition: all 600ms ease;
 }
 
 .info-nav-header > li > a:hover {
-  border: 1px solid #ffffff;
   border-radius: 5px;
   padding: 5px;
-  background-color: #ffffff;
-  color: #9d9d9d;
+  color: #dcdbd8;
 }
 
 .info-nav-header > li > .cont:hover .summ {
@@ -114,9 +113,9 @@ main {
     margin-top: 75px;
     width: 120px;
     height: 120px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 3px solid #ffffff;
-    opacity: 0.9;
+    opacity: 0.8;
   }
 
   .main-photo {
@@ -154,7 +153,7 @@ main {
     position: fixed;
     flex-direction: column;
     width: 100%;
-    border-bottom: 3px solid #ffffff;
+    border-bottom: 4px solid #ffffff;
     align-items: center;
     background-color: #fcf9f4;
     opacity: 0.9;
@@ -164,11 +163,10 @@ main {
     display: flex;
     margin-left: calc(50% - 75px);
     margin-top: 60px;
-    width: 120px;
-    height: 120px;
-    border-radius: 5px;
+    width: 100px;
+    height: 100px;
+    border-radius: 40%;
     border: 3px solid #ffffff;
-    opacity: 0.9;
   }
 
   .main-photo {
@@ -199,11 +197,12 @@ main {
 
 .main-name {
   display: flex;
-  letter-spacing: 3px;
-  color: #828282;
+  letter-spacing: 4px;
+  color: #dcdbd8;
   font-weight: 300;
   margin-top: 10px;
   margin-bottom: 50px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .line {
@@ -216,16 +215,17 @@ main {
 
 .job-title {
   color: var(--text-color);
-  font-size: 0.9em;
-  letter-spacing: 3px;
+  font-size: 0.6em;
   display: flex;
-  font-size: 11px;
+  font-family: "Montserrat", sans-serif;
+
 }
 
 .white-text {
-  color: #e5d093;
+  color: #3e8f43;
   -webkit-text-stroke: 1px #b9b9b9;
   margin-right: 8px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .main-body {
@@ -285,7 +285,7 @@ main {
 h2 {
   letter-spacing: 3px;
   color: var(--main-color);
-  font-family: 'Roboto', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
 }
 
@@ -389,6 +389,7 @@ footer {
 
 .info-footer > li > img {
   height: 30px;
+  align-items: center;
 }
 
 .fa-hand-point-right {
