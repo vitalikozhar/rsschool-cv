@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 
 :root {
-  --main-color: #9d9d9d;
+  --main-color: #d2cbb8;
   --text-color: #b0b0b0;
 }
 
@@ -22,6 +22,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #ffffff;
   width: 100%;
   height: 190vh;
   font-family: "Roboto", sans-serif;
@@ -82,18 +83,23 @@ main {
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: #f0f0f0;
+  background-color: #fcf9f4;
+}
+
+.main-top{
+  margin-top: 45vh;
 }
 
 .main-conteiner {
   display: flex;
   position: fixed;
+  flex-direction: row-reverse;
   width: 80%;
   height: 35vh;
   border-bottom: 1px solid var(--main-color);
   align-items: center;
   margin-bottom: 60px;
-  background-color: #f0f0f0;
+  background-color: #fcf9f4;
   opacity: 0.9;
 }
 
@@ -110,8 +116,8 @@ main {
   margin-top: 75px;
   width: 120px;
   height: 120px;
-  border-radius: 50%;
-  border: 5px solid var(--text-color);
+  border-radius: 5px;
+  border: 3px solid var(--main-color);
   opacity: 0.9;
 }
 
@@ -128,7 +134,8 @@ main {
 .main-name {
   display: flex;
   letter-spacing: 3px;
-  color: var(--text-color);
+  color: #828282;
+  font-weight: 300;
   margin-top: 10px;
   margin-bottom: 50px;
 }
@@ -136,10 +143,10 @@ main {
 .line {
   display: fix;
   position: fixed;
-  width: 10px;
-  height: 10px;
-  background: var(--text-color);
-  border-radius: 50%;
+  width: 30px;
+  height: 1px;
+  background: #ff0000;
+  opacity: 1;
 }
 
 .job-title {
@@ -165,14 +172,6 @@ main {
   border-radius: 50%;
 }
 
-.img-fly > span {
-  display: flex;
-  position: absolute;
-  top: -7px;
-  left: 5px;
-  width: 100px;
-}
-
 .main-body {
   display: flex;
   width: 80%;
@@ -183,11 +182,7 @@ main {
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  height: 45vh;
-}
-
-.main-top{
-  margin-top: 300px;
+  height: 55vh;
 }
 
 .contacts {
@@ -201,6 +196,7 @@ main {
 .contacts > ul {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   list-style: none;
 }
 
@@ -234,13 +230,14 @@ main {
 h2 {
   letter-spacing: 3px;
   color: var(--main-color);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
 }
 
 .summary {
   display: flex;
   width: 50%;
   flex-direction: column;
-  justify-content: space-between;
   margin-bottom: 30px;
   margin-top: 30px;
 }
@@ -248,7 +245,7 @@ h2 {
 .summary > p {
   text-align: justify;
   color: var(--text-color);
-  margin-bottom: 10px;
+  margin-top: 30px;
   font: 15px/1.8 'Roboto', Arial, sans-serif;
 }
 
@@ -286,6 +283,7 @@ h2 {
 }
 
 .code pre {
+  margin-top: 30px;
   margin-bottom: 200px;
   text-align: left;
   color: var(--text-color);
@@ -349,4 +347,8 @@ footer a:hover .fa-hand-point-right {
 footer a {
   margin-left: 5px;
   margin-right: 5px;
+}
+
+i{
+  margin-left: 5px;
 }
