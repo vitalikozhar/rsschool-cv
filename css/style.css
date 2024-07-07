@@ -5,17 +5,19 @@
 :root {
   --main-color: #d2cbb8;
   --text-color: #dbdad7;
+  --link-color: #ffffff;
 }
 
 * {
   margin: 0;
   padding: 0;
   outline: none;
+  text-decoration: none;
+
 }
 
 a {
-  text-decoration: none;
-  color: #ffffff;
+  color: var(--link-color);
 }
 
 body {
@@ -36,7 +38,7 @@ header {
   justify-content: center;
   width: 100%;
   background-color: var(--main-color);
-  color: #ffffff;
+  color: var(--link-color);
   z-index: 2;
 }
 
@@ -62,7 +64,7 @@ header {
 .info-nav-header > li > a:hover {
   border-radius: 5px;
   padding: 5px;
-  color: #dcdbd8;
+  color: var(--text-color);
 }
 
 .info-nav-header > li > .cont:hover .summ {
@@ -198,7 +200,7 @@ main {
 .main-name {
   display: flex;
   letter-spacing: 4px;
-  color: #dcdbd8;
+  color: var(--text-color);
   font-weight: 300;
   margin-top: 10px;
   margin-bottom: 40px;
@@ -219,7 +221,6 @@ main {
   font-size: 0.6em;
   display: flex;
   font-family: "Montserrat", sans-serif;
-
 }
 
 .white-text {
