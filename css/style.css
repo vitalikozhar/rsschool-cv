@@ -4,7 +4,7 @@
 
 :root {
   --main-color: #d2cbb8;
-  --text-color: #dcdbd8;
+  --text-color: #dbdad7;
 }
 
 * {
@@ -201,14 +201,15 @@ main {
   color: #dcdbd8;
   font-weight: 300;
   margin-top: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   font-family: "Montserrat", sans-serif;
 }
 
 .line {
   position: fixed;
-  width: 30px;
+  width: 20px;
   height: 1px;
+  margin-right: 5px;
   background: #ff0000;
   opacity: 1;
 }
@@ -222,8 +223,7 @@ main {
 }
 
 .white-text {
-  color: #3e8f43;
-  -webkit-text-stroke: 1px #b9b9b9;
+  color: #7db780;
   margin-right: 8px;
   font-family: "Montserrat", sans-serif;
 }
