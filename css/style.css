@@ -15,9 +15,9 @@
 }
 
 a {
+  color: var(--link-color);
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: var(--link-color);
 }
 
 body {
