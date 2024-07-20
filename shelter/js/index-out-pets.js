@@ -116,133 +116,56 @@ pet8.inoculations = 'none';
 pet8.diseases = 'none';
 pet8.parasites = 'none';
 
-let petArr = [pet1, pet2, pet3, pet4, pet5, pet6, pet7, pet8];
 
-function addInfo() {
-	for (let i = 0; i < petArr.length; i++) {
-		if (i === 0) {
-			const pictureDiv = document.querySelector('.picture');
-			pictureDiv.innerHTML = '';
-			pictureDiv.appendChild(petArr[i].image);
-			const pictureDivName = document.createElement('span');
-			pictureDivName.className = 'picture-name';
-			pictureDivName.textContent = petArr[i].name;
-			pictureDiv.appendChild(pictureDivName);
-		}
-		if (i === 1) {
-			const pictureDiv2 = document.querySelector('.picture-two');
-			pictureDiv2.innerHTML = '';
-			pictureDiv2.appendChild(petArr[i].image);
-			const pictureDivName2 = document.createElement('span');
-			pictureDivName2.className = 'picture-name-two';
-			pictureDivName2.textContent = petArr[i].name;
-			pictureDiv2.appendChild(pictureDivName2);
 
-		}
-		if (i === 2) {
-			const pictureDiv3 = document.querySelector('.picture-three');
-			pictureDiv3.innerHTML = '';
-			pictureDiv3.appendChild(petArr[i].image);
-			const pictureDivName3 = document.createElement('span');
-			pictureDivName3.className = 'picture-name-three';
-			pictureDivName3.textContent = petArr[i].name;
-			pictureDiv3.appendChild(pictureDivName3);
+const deactivNavOP = document.querySelector('.nav-menu-2-op');
+const deactivNavsOP = document.querySelector('.nav-menu-op');
+deactivNavsOP.addEventListener('mouseover', () => {
+	deactivNavOP.style.border = '0';
+});
+deactivNavsOP.addEventListener('mouseout', () => {
+	deactivNavOP.style.borderBottom = '3px solid #F1CDB3';
+});
 
+
+const pets = {
+	pet1,
+	pet2,
+	pet3,
+	pet4,
+	pet5,
+	pet6,
+	pet7,
+	pet8
+};
+let arrArr = [];
+
+function newrandomArray() {
+
+	for (let i = 0; i < 6; i++) {
+		let petArr = [];
+		let arrayRund = [];
+
+		for (let arrayRundLength = 0; arrayRundLength < 8;) {
+			let rund = (Math.floor(Math.random() * 8)) + 1;
+			if (!arrayRund.includes(rund)) {
+				arrayRundLength = arrayRund.push(rund);
+				petArr.push(pets['pet' + rund]);
+			}
 		}
+		arrArr.push(petArr);
 	}
 }
+newrandomArray();
+console.log(arrArr);
 
-addInfo();
-
-const buttonArrowLeft = document.querySelector('.button-arrow-left');
-buttonArrowLeft.addEventListener('click', () => {
-	for (let i = 0; i < 3; i++) {
-		petArr.unshift(petArr.pop());
+function writeCard() {
+	for (let i = 0; i < 8; i++) {
+		const cardNumber = document.querySelector(`.conteiner-op-line-${i + 1}`);
+		cardNumber.appendChild(arrArr[0][i].image);
+		const newSpan = document.createElement('span');
+		newSpan.textContent = arrArr[0][i].name;
+		cardNumber.appendChild(newSpan);
 	}
-	addInfo();
-});
-
-const buttonArrowRight = document.querySelector('.button-arrow-right');
-buttonArrowRight.addEventListener('click', () => {
-	for (let i = 0; i < 3; i++) {
-		petArr.push(petArr.shift());
-	}
-	addInfo();
-});
-
-const buttonsArrow = document.querySelectorAll('.button-arrow-right, .button-arrow-left');
-
-
-buttonsArrow.forEach(arr => {
-	arr.addEventListener('mousedown', () => {
-		arr.style.boxShadow = '0px 2px 35px 14px rgba(240, 124, 124, 0.6)';
-	});
-	arr.addEventListener('mouseup', () => {
-		arr.style.boxShadow = '0px 2px 35px 14px rgba(13, 13, 13, 0.0)';
-	});
-});
-
-
-const showWindow = document.querySelector('.modal-window-example-1280');
-const buttonLearnMoreOne = document.querySelector('.card-one');
-const changeCardPosition = document.querySelector('.modal-window-1280');
-buttonLearnMoreOne.addEventListener('click', () => {
-	showWindow.style.display = 'flex';
-	const pictureDivN = document.querySelector('.pets-name');
-	pictureDivN.innerHTML = '';
-	pictureDivN.appendChild(petArr[0].image);
-	writeContent(0);
-});
-
-const buttonLearnMoreTwo = document.querySelector('.card-two');
-buttonLearnMoreTwo.addEventListener('click', () => {
-	showWindow.style.display = 'flex';
-	const pictureDivN = document.querySelector('.pets-name');
-	pictureDivN.innerHTML = '';
-	pictureDivN.appendChild(petArr[1].image);
-	writeContent(1);
-});
-
-const buttonLearnMoreThree = document.querySelector('.card-three');
-buttonLearnMoreThree.addEventListener('click', () => {
-	showWindow.style.display = 'flex';
-	const pictureDivN = document.querySelector('.pets-name');
-	pictureDivN.innerHTML = '';
-	pictureDivN.appendChild(petArr[2].image);
-	writeContent(2);
-});
-
-const buttonLearnMoreClose = document.querySelector('.modal-close-button');
-buttonLearnMoreClose.addEventListener('click', () => {
-	showWindow.style.display = 'none';
-	addInfo();
-});
-
-function writeContent(i) {
-	let name = document.querySelector('.modal-window-title');
-	let breed = document.querySelector('.modal-window-subtitle');
-	let info = document.querySelector('.modal-window-text');
-	let age = document.querySelector('.age');
-	let inoculations = document.querySelector('.inoculations');
-	let diseases = document.querySelector('.diseases');
-	let parasites = document.querySelector('.parasites');
-	name.textContent = petArr[i].name;
-	breed.textContent = petArr[i].breed;
-	info.textContent = petArr[i].info;
-	age.textContent = petArr[i].age;
-	inoculations.textContent = petArr[i].inoculations;
-	console.log(petArr[i].inoculations);
-	diseases.textContent = petArr[i].diseases;
-	parasites.textContent = petArr[i].parasites;
 }
-
-const deactivNav = document.querySelector('.nav-menu-1');
-const deactivNavs = document.querySelector('.nav-menu');
-deactivNavs.addEventListener('mouseover', () => {
-	deactivNav.style.border = '0';
-});
-deactivNavs.addEventListener('mouseout', () => {
-	deactivNav.style.borderBottom = '3px solid #F1CDB3';
-});
-
-console.log('Согласно предложенным Критериям оценки, \nс учётом Особенностей проверки вёрстки на соответствие макету,\nв ходе самопроверки была выставлен оценка: 100 ');
+writeCard();
