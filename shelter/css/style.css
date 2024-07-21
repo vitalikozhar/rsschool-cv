@@ -1153,10 +1153,10 @@ height: 100%;
   background-color: #FFFFFF;
 }
 
-header.our-pets{
+.our-pats-op{
   position: absolute;
   top: 30px;
-  left: 140px;
+  margin: 0 40px;
   width: 1200px;
   height: 60px;
 }
