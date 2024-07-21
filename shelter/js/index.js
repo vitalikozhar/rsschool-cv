@@ -226,8 +226,11 @@ function writeContent(i) {
 	let inoculations = document.querySelector('.inoculations');
 	let diseases = document.querySelector('.diseases');
 	let parasites = document.querySelector('.parasites');
+  name.textContent = '';
 	name.textContent = petArr[i].name;
+  breed.textContent = '';
 	breed.textContent = petArr[i].breed;
+  info.textContent = '';
 	info.textContent = petArr[i].info;
 	age.textContent = petArr[i].age;
 	inoculations.textContent = petArr[i].inoculations;

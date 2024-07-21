@@ -193,7 +193,7 @@ li{
   font-weight: 400;
   z-index: 4;
 }
-  
+
 .content-button:hover{
   background-color: #FDDCC4;
   cursor: pointer;
@@ -247,6 +247,7 @@ z-index: 2;
   font-size: 17px;
   line-height: 22.1px;
   letter-spacing: 1px;
+  white-space: nowrap;
   transition: all 0.4s ease;
   z-index: 4;
 }
@@ -300,7 +301,7 @@ z-index: 2;
   position: fixed;
   width: 1280px;
   height: 877px;
-  top: 50%; 
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(41, 41, 41, 0.6);
@@ -326,7 +327,7 @@ z-index: 2;
 }
 
 .modal-window-1280.visible {
-  animation: newPosition 0.2s ease forwards; 
+  animation: newPosition 0.2s ease forwards;
 }
 
 .modal-close-button{
@@ -348,7 +349,7 @@ z-index: 2;
 }
 
 .modal-window{
-  position: absolute; 
+  position: absolute;
   width: 900px;
   height: 500px;
   left: 300;
@@ -763,7 +764,7 @@ border: 2px solid #FDDCC4;
 .help{
   position: relative;
   width: 1280px;
-  height: 611px;  
+  height: 611px;
   background-color: #FFFFFF;
 }
 
