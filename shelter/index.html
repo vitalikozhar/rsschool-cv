@@ -14,10 +14,12 @@
   <section class="start-screen">
     <!-- Блок header -->
     <header>
-      <a href="#"><div class="logo">
-        <h1>Cozy House</h1>
-        <p>Shelter for pets in Boston</p>
-      </div></a>
+      <a href="#">
+        <div class="logo">
+          <h1>Cozy House</h1>
+          <p>Shelter for pets in Boston</p>
+        </div>
+      </a>
       <nav>
         <ul class="nav-menu">
           <li><a class="nav-menu-1" href="#">About the shelter</a></li>
@@ -38,7 +40,7 @@
             will
             love you more than anybody else<br> in the world, you will see!</p>
         </div>
-        <a href="#link-one" id="a1"><input class="content-button" type="button" value="Make a friend"></a>
+        <a href="#link-one" class="content-button" id="a1">Make a friend</a>
       </div>
       <div class="start-screen-puppy">
       </div>
@@ -76,17 +78,17 @@
         <div class="modal-window">
           <div class="pets-name"></div>
           <div class="modal-window-content">
-            <h3 class="modal-window-title"></h3>
-            <h4 class="modal-window-subtitle"></h4>
-            <h5 class="modal-window-text"></h5>
-            <h5 class="modal-window-list">
+            <h3 class="modal-window-title">name</h3>
+            <h4 class="modal-window-subtitle">breed</h4>
+            <h5 class="modal-window-text">info</h5>
+            <div class="modal-window-list">
               <ul class="modal-list">
                 <li>Age: <span class="age"></span></li>
                 <li>Inoculations: <span class="inoculations"></span></li>
                 <li>Diseases: <span class="diseases"></span></li>
                 <li>Parasites: <span class="parasites"></span></li>
               </ul>
-            </h5>
+            </div>
           </div>
         </div>
       </div>
@@ -114,7 +116,7 @@
           <input type="button" class="input-button-secondary-three" value="Learn more">
         </div>
       </div>
-      <a href="our-pets.html"><input class="pets-button-primary" type="button" value="Get to know the rest"></a>
+      <a href="our-pets.html" class="pets-button-primary">Get to know the rest</a>
     </div>
   </section>
   <!-- Блок Help -->
@@ -157,7 +159,7 @@
     </div>
   </section>
   <!-- Блок In addition -->
-  <selector class="donation">
+  <section class="donation">
     <div class="donation-contents">
       <div class="donation-dog"><img class="donation-dog-img" src="img/donationDod.png" alt="pic donation dog"></div>
       <div class="donation-content-info">
@@ -170,9 +172,11 @@
         <div class="credit-card">
 
           <img class="credit-card-info-icon" src="img/credit-card.svg" alt="pic credit card">
-          <a href="#."><div class="credit-card-number">
-            <h4>8380 2880 8028 8791 7435</h4>
-          </div></a>
+          <a href="#.">
+            <div class="credit-card-number">
+              <h4>8380 2880 8028 8791 7435</h4>
+            </div>
+          </a>
         </div>
         <div class="Legal-information">
           <p>Legal information and lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ipsum at libero
@@ -181,7 +185,7 @@
         </div>
       </div>
     </div>
-  </selector>
+  </section>
   <!-- Блок footer -->
   <section class="footer" id="contacts">
     <div class="footer-content">
@@ -220,7 +224,8 @@
       <div class="footer-img"><img src="img/footer-dog.png" alt="pic dog"></div>
     </div>
   </section>
+
+  <script src="js/index.js"></script>
 </body>
-<script src="js/index.js"></script>
 
 </html>
