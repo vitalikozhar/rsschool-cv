@@ -1,23 +1,23 @@
 @font-face {
   font-family: 'Arial';
-  src: url('../fonts/arial-italic.ttf') format('truetype');
+  src: url('../fonts/arial/arial-italic.ttf') format('truetype');
   font-style: italic;
   font-weight: 400;
 }
 @font-face {
   font-family: 'Arial';
-  src: url('../fonts/arial-normal.ttf') format('truetype');
+  src: url('../fonts/arial/arial-regular.ttf') format('truetype');
   font-style: normal;
   font-weight: 400;
 }
 @font-face {
   font-family: 'Georgia';
-  src: url('../fonts/georgia-regular.ttf') format('truetype');
+  src: url('../fonts/georgia/georgia-regular.ttf') format('truetype');
   font-style: normal;
 }
 @font-face {
   font-family: 'Georgia';
-  src: url('../fonts/georgia-bold.ttf') format('truetype');
+  src: url('../fonts/georgia/georgia-bold.ttf') format('truetype');
   font-style: normal;
   font-weight: 700;
 }
