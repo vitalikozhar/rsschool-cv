@@ -11,41 +11,47 @@
 </head>
 
 <body>
-  <section class="start-screen">
-    <!-- Блок header -->
-    <header>
-      <a href="#">
+  <div class="under-cover">
+    <section class="start-screen">
+      <!-- Блок header -->
+      <header>
         <div class="logo">
-          <h1>Cozy House</h1>
-          <p>Shelter for pets in Boston</p>
+          <a href="#">
+            <h1>Cozy House</h1>
+            <p>Shelter for pets in Boston</p>
+          </a>
         </div>
-      </a>
-      <nav>
-        <ul class="nav-menu">
-          <li><a class="nav-menu-1" href="#">About the shelter</a></li>
-          <li><a class="nav-menu-2" href="our-pets.html">Our pets</a></li>
-          <li><a class="nav-menu-3" href="#help-the-shelter">Help the shelter</a></li>
-          <li><a class="nav-menu-4" href="#contacts">Contacts</a></li>
-        </ul>
-      </nav>
-    </header>
-    <!-- Блок Not only -->
-    <div class="not-only start-screen-content">
-      <div class="content">
-        <div class="heading">
-          <p>Not only people<br> need a house</p>
+        <nav>
+          <ul class="nav-menu">
+            <li>
+              <div class="nav-menu-1">About the shelter</div>
+            </li>
+            <li><a class="nav-menu-2" href="our-pets.html">Our pets</a></li>
+            <li><a class="nav-menu-3" href="#help-the-shelter">Help the shelter</a></li>
+            <li><a class="nav-menu-4" href="#contacts">Contacts</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Блок Not only -->
+      <div class="not-only start-screen-content">
+        <div class="content">
+          <div class="heading">
+            <p>Not only people<br> need a house</p>
+          </div>
+          <div class="subheading">
+            <p>We offer to give a chance to a little and nice puppy with an extremely<br> wide and open heart. He or she
+              will
+              love you more than anybody else<br> in the world, you will see!</p>
+          </div>
+          <a href="#link-one" class="content-button" id="a1">Make a friend</a>
         </div>
-        <div class="subheading">
-          <p>We offer to give a chance to a little and nice puppy with an extremely<br> wide and open heart. He or she
-            will
-            love you more than anybody else<br> in the world, you will see!</p>
+        <div class="start-screen-puppy">
         </div>
-        <a href="#link-one" class="content-button" id="a1">Make a friend</a>
       </div>
-      <div class="start-screen-puppy">
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
+
   <!-- Блок About -->
   <section class="about">
     <div class="about-content">
@@ -70,55 +76,59 @@
       </div>
     </div>
   </section>
+
   <!-- Блок Our Friends -->
-  <section class="our-frend pets">
-    <div class="modal-window-example-1280">
-      <div class="modal-window-1280 visible">
-        <div class="modal-close-button"><img src="img/Vector.svg" alt="pic button X"></div>
-        <div class="modal-window">
-          <div class="pets-name"></div>
-          <div class="modal-window-content">
-            <h3 class="modal-window-title">name</h3>
-            <h4 class="modal-window-subtitle">breed</h4>
-            <h5 class="modal-window-text">info</h5>
-            <div class="modal-window-list">
-              <ul class="modal-list">
-                <li>Age: <span class="age"></span></li>
-                <li>Inoculations: <span class="inoculations"></span></li>
-                <li>Diseases: <span class="diseases"></span></li>
-                <li>Parasites: <span class="parasites"></span></li>
-              </ul>
+  <div class="our-frend-cover">
+    <section class="our-frend pets">
+      <div class="modal-window-example-1280">
+        <div class="modal-window-1280 visible">
+          <div class="modal-close-button"><img src="img/Vector.svg" alt="pic button X"></div>
+          <div class="modal-window">
+            <div class="pets-name"></div>
+            <div class="modal-window-content">
+              <h3 class="modal-window-title">name</h3>
+              <h4 class="modal-window-subtitle">breed</h4>
+              <h5 class="modal-window-text">info</h5>
+              <div class="modal-window-list">
+                <ul class="modal-list">
+                  <li>Age: <span class="age"></span></li>
+                  <li>Inoculations: <span class="inoculations"></span></li>
+                  <li>Diseases: <span class="diseases"></span></li>
+                  <li>Parasites: <span class="parasites"></span></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="pets-content">
-      <div class="our-friends">
-        <h3 id="link-one">Our friends who<br>
-          are looking for a house</h3>
+      <div class="pets-content">
+        <div class="our-friends">
+          <h3 id="link-one">Our friends who<br>
+            are looking for a house</h3>
+        </div>
+        <div class="pets-slider">
+          <button class="button-arrow-left"><img class="arrow-left" src="img/Arrow.svg" alt="arrow"></button>
+          <button class="button-arrow-right"><img class="arrow-right" src="img/Arrow.svg" alt="arrow"></button>
+          <div class="card-one">
+            <div class="picture"><span class="picture-name"></span></div>
+            <input type="button" class="input-button-secondary" value="Learn more">
+          </div>
+          <div class="card-two">
+            <div class="picture-two"></div>
+            <div class="name-two"><span class="picture-name-two"></span></div>
+            <input type="button" class="input-button-secondary-two" value="Learn more">
+          </div>
+          <div class="card-three">
+            <div class="picture-three"></div>
+            <div class="name-three"><span class="picture-name-three"></span></div>
+            <input type="button" class="input-button-secondary-three" value="Learn more">
+          </div>
+        </div>
+        <a href="our-pets.html" class="pets-button-primary">Get to know the rest</a>
       </div>
-      <div class="pets-slider">
-        <button class="button-arrow-left"><img class="arrow-left" src="img/Arrow.svg" alt="arrow"></button>
-        <button class="button-arrow-right"><img class="arrow-right" src="img/Arrow.svg" alt="arrow"></button>
-        <div class="card-one">
-          <div class="picture"><span class="picture-name"></span></div>
-          <input type="button" class="input-button-secondary" value="Learn more">
-        </div>
-        <div class="card-two">
-          <div class="picture-two"></div>
-          <div class="name-two"><span class="picture-name-two"></span></div>
-          <input type="button" class="input-button-secondary-two" value="Learn more">
-        </div>
-        <div class="card-three">
-          <div class="picture-three"></div>
-          <div class="name-three"><span class="picture-name-three"></span></div>
-          <input type="button" class="input-button-secondary-three" value="Learn more">
-        </div>
-      </div>
-      <a href="our-pets.html" class="pets-button-primary">Get to know the rest</a>
-    </div>
-  </section>
+    </section>
+  </div>
+
   <!-- Блок Help -->
   <section id="help-the-shelter" class="help">
     <div class="help-content">
@@ -126,7 +136,7 @@
       <div class="help-list">
         <ul class="help-list-first">
           <li class="help-list-first-line"><img src="img/PetFood.svg" alt="icon pet food">
-            <h4>Pet Food</h4>
+            <h4>Pet food</h4>
           </li>
           <li class="help-list-first-line line-1"><img src="img/transportation.svg" alt="icon pet transportation">
             <h4>Transportation</h4>
@@ -138,7 +148,7 @@
             <h4>Bowls and cups</h4>
           </li>
           <li class="help-list-first-line line-4"><img src="img/shampoos.svg" alt="icon pet shampoos">
-            <h4>Shampos</h4>
+            <h4>Shampoos</h4>
           </li>
         </ul>
         <ul class="help-list-second">
@@ -158,72 +168,79 @@
       </div>
     </div>
   </section>
-  <!-- Блок In addition -->
-  <section class="donation">
-    <div class="donation-contents">
-      <div class="donation-dog"><img class="donation-dog-img" src="img/donationDod.png" alt="pic donation dog"></div>
-      <div class="donation-content-info">
-        <div class="heading-content">
-          <h3>You can also<br> make a donation</h3>
-        </div>
-        <div class="subheading-content">
-          <h5>Name of the bank / Type of bank account</h5>
-        </div>
-        <div class="credit-card">
 
-          <img class="credit-card-info-icon" src="img/credit-card.svg" alt="pic credit card">
-          <a href="#.">
-            <div class="credit-card-number">
-              <h4>8380 2880 8028 8791 7435</h4>
-            </div>
-          </a>
-        </div>
-        <div class="Legal-information">
-          <p>Legal information and lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ipsum at libero
-            sagittis dignissim sed ac diam. Praesent ultrices maximus tortor et vulputate. Interdum et malesuada fames
-            ac ante ipsum primis in faucibus.</p>
+  <!-- Блок In addition -->
+  <div class="donation-cover">
+    <section class="donation">
+      <div class="donation-contents">
+        <div class="donation-dog"><img class="donation-dog-img" src="img/donationDod.png" alt="pic donation dog"></div>
+        <div class="donation-content-info">
+          <div class="heading-content">
+            <h3>You can also<br> make a donation</h3>
+          </div>
+          <div class="subheading-content">
+            <h5>Name of the bank / Type of bank account</h5>
+          </div>
+          <div class="credit-card">
+
+            <img class="credit-card-info-icon" src="img/credit-card.svg" alt="pic credit card">
+            <a href="#.">
+              <div class="credit-card-number">
+                <h4>8380 2880 8028 8791 7435</h4>
+              </div>
+            </a>
+          </div>
+          <div class="Legal-information">
+            <p>Legal information and lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ipsum at libero
+              sagittis dignissim sed ac diam. Praesent ultrices maximus tortor et vulputate. Interdum et malesuada fames
+              ac ante ipsum primis in faucibus.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
+
   <!-- Блок footer -->
-  <section class="footer" id="contacts">
-    <div class="footer-content">
-      <div class="contact-box">
-        <h3 class="box-title">For questions<br> and suggestions</h3>
-        <a class="email-link" href="mailto:example@example.com">
-          <div class="box-mail">
-            <img class="mail-icon" src="img/icon-email.svg" alt="icon email">
-            <h4 class="mail-subtitle">email@shelter.com</h4>
-          </div>
-        </a>
-        <a class="phone-link" href="tel:+136745677554">
-          <div class="box-phone">
-            <img class="phone-icon" src="img/phone.svg" alt="icon email">
-            <h4 class="phone-subtitle">+13 674 567 75 54</h4>
-          </div>
-        </a>
-      </div>
-      <div class="footer-location">
-        <div class="location-box">
-          <h3 class="box-location-title">We are waiting<br> for your visit</h3>
-          <a class="contact-link" href="https://www.google.com/maps/place/1%20Central%20Street,Boston" target="_blank">
-            <div class="box-location-position-first">
-              <img class="location-icon" src="img/pin.svg" alt="icon location">
-              <h4 class="location-subtitle">1 Central Street, Boston<br> (entrance from the store)</h4>
+  <div class="footer-cover">
+    <section class="footer" id="contacts">
+      <div class="footer-content">
+        <div class="contact-box">
+          <h3 class="box-title">For questions<br> and suggestions</h3>
+          <a class="email-link" href="mailto:example@example.com">
+            <div class="box-mail">
+              <img class="mail-icon" src="img/icon-email.svg" alt="icon email">
+              <h4 class="mail-subtitle">email@shelter.com</h4>
             </div>
           </a>
-          <a class="contact-link" href="https://maps.app.goo.gl/mJvZmvii4XNgU2QF8" target="_blank">
-            <div class="box-location-position-second">
-              <img class="location-icon-two" src="img/pin.svg" alt="icon location">
-              <h4 class="location-subtitle-two">18 South Park, London</h4>
+          <a class="phone-link" href="tel:+136745677554">
+            <div class="box-phone">
+              <img class="phone-icon" src="img/phone.svg" alt="icon email">
+              <h4 class="phone-subtitle">+13 674 567 75 54</h4>
             </div>
           </a>
         </div>
+        <div class="footer-location">
+          <div class="location-box">
+            <h3 class="box-location-title">We are waiting<br> for your visit</h3>
+            <a class="contact-link" href="https://www.google.com/maps/place/1%20Central%20Street,Boston"
+              target="_blank">
+              <div class="box-location-position-first">
+                <img class="location-icon" src="img/pin.svg" alt="icon location">
+                <h4 class="location-subtitle">1 Central Street, Boston<br> (entrance from the store)</h4>
+              </div>
+            </a>
+            <a class="contact-link" href="https://maps.app.goo.gl/mJvZmvii4XNgU2QF8" target="_blank">
+              <div class="box-location-position-second">
+                <img class="location-icon-two" src="img/pin.svg" alt="icon location">
+                <h4 class="location-subtitle-two">18 South Park, London</h4>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="footer-img"><img src="img/footer-dog.png" alt="pic dog"></div>
       </div>
-      <div class="footer-img"><img src="img/footer-dog.png" alt="pic dog"></div>
-    </div>
-  </section>
+    </section>
+  </div>
 
   <script src="js/index.js"></script>
 </body>
