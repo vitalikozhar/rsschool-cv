@@ -14,16 +14,16 @@
   <!-- Блок header -->
   <header class="header-our-pets">
     <section class="our-pats-op">
-      <a href="index.html">
         <div class="our-pets-logo">
+          <a href="index.html">
           <h1>Cozy House</h1>
           <p>Shelter for pets in Boston</p>
+        </a>
         </div>
-      </a>
       <nav>
         <ul class="nav-menu-op">
           <li><a class="nav-menu-1-op" href="index.html">About the shelter</a></li>
-          <li><a class="nav-menu-2-op" href="#">Our pets</a></li>
+          <li><div class="nav-menu-2-op" >Our pets</div></li>
           <li><a class="nav-menu-3-op" href="index.html#help-the-shelter">Help the shelter</a></li>
           <li><a class="nav-menu-4-op" href="#contacts">Contacts</a></li>
         </ul>
@@ -31,7 +31,9 @@
     </section>
   </header>
   <!-- Блок Our Friends -->
-  <main class="our-frends-op pets-op">
+    <div class="cover-our-frends-op">
+      <!-- <main class="cover-our-frends-op"> -->
+    <main class="our-frends-op pets-op">
     <section class="pets-content-op">
       <h3 class="content-heading-op">Our friends who<br> are looking for a house</h3>
       <div class="cards-conteiner-op">
@@ -57,9 +59,12 @@
       </nav>
     </section>
   </main>
+</div>
+    <!-- </main> -->
   <!-- Блок footer -->
-    <section class="footer" id="contacts">
-      <div class="footer-content">
+  <div class="footer-cover-op">
+    <section class="footer-op" id="contacts">
+      <div class="footer-content-op">
         <div class="contact-box">
           <h3 class="box-title">For questions<br> and suggestions</h3>
           <a class="email-link" href="mailto:example@example.com">
@@ -96,6 +101,7 @@
         <div class="footer-img"><img src="img/footer-dog.png" alt="pic dog"></div>
       </div>
     </section>
+  </div>
 
   <script src="js/index-out-pets.js"></script>
 </body>
