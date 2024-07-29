@@ -80,7 +80,6 @@ header{
   display: flex;
   width: 186px;
   height: 60px;
-
 }
 
 .logo a{
@@ -123,11 +122,17 @@ header{
   list-style: none;
   right: 0px;
   top: 16px;
-  color: #CDCDCD;
   font-size: 15px;
   line-height: 27px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
+}
+
+.nav-menu-2,
+.nav-menu-3,
+.nav-menu-4{
+  color: #CDCDCD;
+  transition: all 0.4s ease;
 }
 
 .nav-menu-2:hover,
@@ -608,8 +613,11 @@ z-index: 2;
   height: 435px;
   top: 0;
   left: 105px;
+  overflow: hidden;
   background-color: #FAFAFA;
   border-radius: 9px;
+  transition: transform 0.4s ease;
+
 }
 
 .card-three:hover .input-button-secondary-three,
@@ -623,9 +631,9 @@ z-index: 2;
 .card-one:hover,
 .card-two:hover,
 .card-three:hover{
-background-color: #FAFAFA;
+background-color: #FFFFFF;
 cursor: pointer;
-overflow: hidden;
+box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 }
 
 .picture-name{
@@ -671,6 +679,8 @@ overflow: hidden;
   left: 465px;
   border-radius: 9px;
   background-color: #FAFAFA;
+  overflow: hidden;
+  transition: all 0.6s ease;
 }
 
 .picture,
@@ -687,6 +697,12 @@ overflow: hidden;
 .pets-slider img{
   border-top-right-radius: 9px;
   border-top-left-radius: 9px;
+  transition: transform 0.4s ease;
+}
+
+.picture img,
+.picture-two img,
+.picture-three img{
   transition: transform 0.4s ease;
 }
 
@@ -739,6 +755,7 @@ transform: scale(1.1);
   left: 825px;
   border-radius: 9px;
   background-color: #FAFAFA;
+  overflow: hidden;
 }
 
 .picture-name-three{
@@ -1250,6 +1267,7 @@ height: 100%;
 
 .nav-menu-op li a{
 color: #545454;
+transition: all 0.4s ease;
 }
 
 .nav-menu-1-op:hover,
@@ -1339,6 +1357,8 @@ color: #545454;
 
 .line-op:hover{
   cursor: pointer;
+  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+  background-color: #FFFFFF;
 }
 
 .line-op:hover input{
@@ -1421,6 +1441,7 @@ color: #545454;
   width: 52px;
   height: 52px;
   border-radius: 100px;
+  transition: all 0.4s ease;
 }
 
 .down-button:hover{
