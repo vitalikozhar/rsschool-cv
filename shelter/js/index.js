@@ -226,11 +226,11 @@ function writeContent(i) {
 	let inoculations = document.querySelector('.inoculations');
 	let diseases = document.querySelector('.diseases');
 	let parasites = document.querySelector('.parasites');
-  name.textContent = '';
+	name.textContent = '';
 	name.textContent = petArr[i].name;
-  breed.textContent = '';
+	breed.textContent = '';
 	breed.textContent = petArr[i].breed;
-  info.textContent = '';
+	info.textContent = '';
 	info.textContent = petArr[i].info;
 	age.textContent = petArr[i].age;
 	inoculations.textContent = petArr[i].inoculations;
@@ -238,14 +238,5 @@ function writeContent(i) {
 	diseases.textContent = petArr[i].diseases;
 	parasites.textContent = petArr[i].parasites;
 }
-
-// const deactivNav = document.querySelector('.nav-menu-1');
-// const deactivNavs = document.querySelector('.nav-menu');
-// deactivNavs.addEventListener('mouseover', () => {
-// 	deactivNav.style.border = '0';
-// });
-// deactivNavs.addEventListener('mouseout', () => {
-// 	deactivNav.style.borderBottom = '3px solid #F1CDB3';
-// });
 
 console.log('Согласно предложенным Критериям оценки, \nс учётом Особенностей проверки вёрстки на соответствие макету,\nв ходе самопроверки была выставлен оценка: 100 ');
