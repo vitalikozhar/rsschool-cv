@@ -116,18 +116,6 @@ pet8.inoculations = 'none';
 pet8.diseases = 'none';
 pet8.parasites = 'none';
 
-
-
-// const deactivNavOP = document.querySelector('.nav-menu-2-op');
-// const deactivNavsOP = document.querySelector('.nav-menu-op');
-// deactivNavsOP.addEventListener('mouseover', () => {
-// 	deactivNavOP.style.border = '0';
-// });
-// deactivNavsOP.addEventListener('mouseout', () => {
-// 	deactivNavOP.style.borderBottom = '3px solid #F1CDB3';
-// });
-
-
 const pets = {
 	pet1,
 	pet2,
