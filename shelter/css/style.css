@@ -150,6 +150,11 @@ li{
   white-space: nowrap;
 }
 
+.menu-burger{
+  position: absolute;
+  display: none;
+}
+
 .start-screen-content{
   position: absolute;
   width: 1200px;
@@ -877,7 +882,6 @@ transform: scale(1.1);
   width: 100%;
   height: 462px;
   background-color: #F6F6F6;
-
 }
 
 .donation{
@@ -931,7 +935,6 @@ transform: scale(1.1);
   font-weight: 400;
   color: #545454;
   white-space: nowrap;
-
 }
 
 .subheading-content h5{
@@ -1755,3 +1758,515 @@ cursor: default;
       right: 234px;
     }
   }
+
+  /* -----------  @media (min-width: 320px) and (max-width: 768px)------------------------- */
+
+
+  @media (min-width: 320px) and (max-width: 767px){
+
+    body{
+      height: 4684px;
+    }
+
+    .under-cover{
+      width: 100%;
+      height: 823px;
+    }
+
+    .start-screen{
+      position: relative;
+      top:  0;
+      left: 0;
+      margin: 0 auto;
+      width: 320px;
+      height: 823px;
+    }
+
+    header{
+      top: 30px;
+      left: 20px;
+      width: 280px;
+      height: 60px;
+      margin: 0 0;
+    }
+
+    .logo{
+      position: absolute;
+      width: 184px;
+      height: 60px;
+      top: 0;
+      left: 0;
+    }
+
+    .logo h1{
+      top: 0;
+      left: 0;
+      line-height: 35.2px;
+      width: 186px;
+      height: 35px;
+    }
+
+    .logo p{
+      width: 180px;
+      height: 15px;
+      bottom: 0;
+      left: 4px;
+    }
+
+    .nav-menu{
+      display: none;
+    }
+
+    .menu-burger{
+      display: flex;
+      top: 19px;
+      right: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-burger:hover{
+      cursor: pointer;
+      transform: scale(1.1)
+    }
+
+    .menu-burger img{
+      transition: transform 0.3s ease;
+    }
+
+    .menu-burger img:hover{
+      transform: scale(1.1)
+    }
+
+    .start-screen-content{
+      width: 300px;
+      height: 673px;
+      bottom: 0px;
+      left: 10px;
+      margin: 0 0;
+    }
+
+    .content{
+      width: 300px;
+      height: 296px;
+      left: 0;
+      bottom: 377px;
+    }
+
+    .content .heading{
+      width: 300px;
+      height: 64px;
+      font-size: 25px;
+      line-height: 32.5px;
+      letter-spacing: 1.5px;
+      font-weight: 400;
+      text-align: center;
+    }
+
+    .content .subheading{
+      width: 300px;
+      height: 96px;
+      bottom: 94px;
+      left: 0;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 24px;
+      text-align: center;
+    }
+
+    .content-button{
+      width: 207px;
+      height: 52px;
+      padding: 15px 45px;
+      left: 46px;
+      bottom: 0;
+    }
+
+    .start-screen-puppy{
+      width: 260px;
+      height: 271.77px;
+      right: 0;
+      bottom: 0px;
+      background-size: cover;
+    }
+
+    .about{
+      width: 320px;
+      height: 974px;
+    }
+    
+    .about-content{
+    width: 300px;
+    height: 890px;
+    left: 10px;
+    top: 42px;
+    }
+
+    .about-pets-content{
+      width: 300px;
+      height: 494px;
+      left: 0;
+      bottom: 396px;
+    }
+
+    .content-head h3{
+      width: 300px;
+      height: 64px;
+      font-weight: 400;
+      font-size: 25px;
+      line-height: 32.5px;
+      letter-spacing: 1.5px;
+      text-align: center;
+    }
+
+    .about-text-first{
+      width: 270px;
+      height: 144px;
+      top: 89px;
+      left: 15px;
+      text-align: justify;
+    }
+
+    .about-text-second{
+      width: 270px;
+      height: 239px;
+      bottom: 0;
+      left: 15px;
+      text-align: justify;
+    }
+
+    .about-pets{
+      width: 260px;
+      height: 353.6px;
+      left: 20px;
+      bottom: 0.4px;
+      background-size: cover;
+    }
+
+    .our-frend-cover{
+      width: 100%;
+      height: 791px;
+    }
+
+    .pets{
+      width: 320px;
+      height: 791px;
+      margin: 0 auto;
+    }
+
+    .pets-content{
+      width: 300px;
+      height: 707px;
+      top: 42px;
+      left: 10px;
+    }
+
+    .our-friends h3{
+      text-align: center;
+      width: 300px;
+      height: 64px;
+      top: 0;
+      left: 0;
+      font-size: 25px;
+      line-height: 32.5px;
+      letter-spacing: 1.5px;
+    }
+
+    .pets-slider{
+      width: 270px;
+      height: 507px;
+      top: 106px;
+      left: 15px;
+    }
+
+    .button-arrow-left{
+      top: 455px;
+      left:43px;
+    }
+
+    .button-arrow-right{
+      top: 455px;
+      right: 43px;
+    }
+
+    .card-one{
+      width: 270px;
+      height: 435px;
+      top: 0;
+      left: 0;
+    }
+
+    .card-two,
+    .card-three{
+      display: none;
+  }
+
+  .pets-button-primary{
+    bottom: 0;
+    left: 20px;
+    width: 260px;
+    height: 52px;
+  }
+
+  .help{
+    width: 320px;
+    height: 745px;
+  }
+
+  .help-content{
+    width: 320px;
+    height: 745px;
+    top: 0;
+    left: 0;
+  }
+
+  .help-heading{
+    width: 220px;
+    height: 64px;
+    top:  42px;
+    left: 50px;
+    text-align: center;
+    font-size: 25px;
+    line-height: 32.5px;
+    letter-spacing: 1.5px;
+  }
+  
+  .help-list{
+    width: 290px;
+    height: 555px;
+    top: 148px;
+    left: 15px;
+    flex-direction: row;
+  }
+
+  .line{
+    width: 130px;
+    height: 87px;
+  }
+
+  .help-list-first{
+    justify-content: flex-start;
+    row-gap: 15px;
+    column-gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .help-list-first-line h4{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    line-height: 16.5px;
+    letter-spacing: 0.9px;
+  }
+
+  .donation-cover{
+    width: 100%;
+    height: 542.2px;
+  }
+
+  .donation{
+    width: 320px;
+    height: 542.2px;
+  }
+
+  .donation-contents{
+    width: 320px;
+    height: 542.2px;
+    top:  0;
+    left: 0;
+  }
+
+  .donation-content-info{
+    top: 42px;
+    right: 10px;
+    width: 300px;
+    height: 281px;
+  }
+
+  .donation-dog{
+    width: 260px;
+    height: 135.2px;
+    top: 365px;
+    left: 30px;
+  }
+
+  .heading-content h3{
+    text-align: center;
+    top:  0;
+    left: 0;
+    width: 300px;
+    height: 64px;
+    font-size: 25px;
+    line-height: 32.5px;
+    letter-spacing: 1.5px;
+  }
+  
+  .subheading-content h5{
+    width: 273px;
+    height: 24px;
+    top: 84px;
+    left: 13px;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  .credit-card{
+    top: 128px;
+    left: 9px;
+    width: 281px;
+    height: 43px;
+  }
+
+  .credit-card-number{
+    position: absolute;
+    width: 251px;
+    height: 23px;
+    top: 10px;
+    right: 15px;
+  }
+
+  .credit-card a{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+  }
+
+  .credit-card-number h4{
+    position: absolute;
+    width: 206px;
+    height: 17px;
+    top: 3px;
+    right: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    line-height: 16.5px;
+    letter-spacing: 0.9px;
+  }
+
+  .Legal-information{
+    bottom: 0;
+    right: 10px;
+    width: 280px;
+    height: 90px;
+    text-align: justify;
+    }
+
+    .footer-cover{
+      width: 100%;
+      height: 809px;
+    }
+
+    .footer{
+      width: 320px;
+      height: 809px;
+      /* margin: 0 auto; */
+    }
+
+    .footer-content{
+      left: 10px;
+      bottom: 309px;
+      width: 300px;
+      height: 470px;
+    }
+
+    .footer-img{
+      top: 510px;
+      right: 30px;
+      width: 260px;
+      height: 269px;
+    }
+    
+    .footer-img img{
+    width: 100%;
+    height: 100%;
+    background-size: auto, cover;
+    }
+
+    .contact-box{
+      top: 0;
+      left: 11px;
+      width: 278px;
+      height: 208px;
+    }
+
+    h3.box-title{
+      width: 278px;
+      height: 64px;
+      font-size: 25px;
+      line-height: 32.5px;
+      letter-spacing: 1.5px;
+      text-align: center;
+    }
+  
+    .box-mail{
+      top:  0;
+      left: 0;
+      width: 251px;
+      height: 32px;
+    }
+
+    a.email-link{
+      position: absolute;
+      top:  104px;
+      left: 14px;
+      width: 251px;
+      height: 32px
+    }
+
+    .phone-link{
+      position: absolute;
+      top:  176px;
+      left: 20px;
+      width: 239px;
+      height: 32px;
+    }
+
+    .box-phone{
+      top:  0;
+      left: 0;
+      width: 239px;
+      height: 32px;
+    }
+
+    .footer-location{
+      position: absolute;
+      width: 300px;
+      height: 222px;
+      bottom: 0;
+      left: 0;
+    }
+
+    .location-box{
+      width: 300px;
+      height: 222px;
+      bottom: 0;
+      left: 0;
+    }
+
+    h3.box-location-title{
+      top: 0;
+      left: 15px;
+      width: 270px;
+      height: 64px;
+      font-size: 25px;
+      line-height: 32.5px;
+      letter-spacing: 1.5px;
+      text-align: center;
+    }
+
+    .box-location-position-first{
+      top:  104px;
+      left: 0;
+      width: 300px;
+      height: 46px;
+      align-items: center;
+    }
+
+    .box-location-position-second{
+      top:  190px;
+      left: 0;
+      width: 300px;
+      height: 32px;
+    }
+
+}
