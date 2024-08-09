@@ -145,10 +145,16 @@ function newrandomArray() {
 	}
 }
 newrandomArray();
-console.log(arrArr);
 
 function writeCard() {
-	for (let i = 0; i < 8; i++) {
+	for (let i = 0; i < 8 && window.innerWidth >= 768; i++) {
+		const cardNumber = document.querySelector(`.conteiner-op-line-${i + 1}`);
+		cardNumber.appendChild(arrArr[0][i].image);
+		const newSpan = document.createElement('span');
+		newSpan.textContent = arrArr[0][i].name;
+		cardNumber.appendChild(newSpan);
+	}
+	for (let i = 0; i < 3 && window.innerWidth < 768; i++) {
 		const cardNumber = document.querySelector(`.conteiner-op-line-${i + 1}`);
 		cardNumber.appendChild(arrArr[0][i].image);
 		const newSpan = document.createElement('span');
