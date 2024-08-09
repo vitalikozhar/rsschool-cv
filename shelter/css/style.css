@@ -1183,6 +1183,7 @@ height: 100%;
 
  body.our-pets{
   display: flex;
+  width: 100%;
   height: 1812px;
   position: relative;
   background-color: #FFFFFF;
@@ -1194,6 +1195,11 @@ height: 100%;
   width: 1280px;
   height: 120px;
   background-color: #FFFFFF;
+}
+
+.menu-burger-op{
+  position: absolute;
+  display: none;
 }
 
 .our-pats-op{
@@ -1500,7 +1506,7 @@ cursor: default;
     height: 310px;
   }
 
-  /* -----------  @media (min-width: 768px) and (max-width: 1280px)------------------------- */
+  /* -----------  @media (min-width: 768px) and (max-width: 1280px) for Main------------------------- */
 
   @media (min-width: 768px) and (max-width: 1279px){
   
@@ -1680,8 +1686,8 @@ cursor: default;
 
     .help-list-first{
       justify-content: flex-start;
-      row-gap: 61px;
-      column-gap: 55px;
+      row-gap: 55px;
+      column-gap: 61px;
       flex-wrap: wrap;
     }
 
@@ -1735,34 +1741,161 @@ cursor: default;
 
     .footer-content{
       position: absolute;
-      left: 30px;
-      top: 30px;
-      width: 708px;
-      height: 234px;
+      left: 0;
+      bottom: 0;
+      width: 768px;
+      height: 639px;
     }
 
     .contact-box{
-      top: 0;
-      left: 34px;
+      top: 30px;
+      left: 64px;
+      width: 278px;
+      height: 234px;
     }
 
     .location-box{
-      top: 0;
-      left: 372px;
+      top: 30px;
+      left: 402px;
       width: 302px;
       height: 234px;
     }
 
     .footer-img{
-      top: 298px;
+      top: auto;
+      bottom: 0;
       right: 234px;
     }
+
+
+  /* -----------  @media (min-width: 768px) and (max-width: 1280px) for Our  friends------------------------- */
+
+  body.our-pets{
+    height: 2492px;
+    width: 100%;
+   }
+  
+   .header-our-pets{
+    position: relative;
+    top: 0;
+    left: auto;
+    margin: 0 auto;
+    width: 768px;
+    height: 120px;
+  }
+  
+  .our-pats-op{
+    top: 30px;
+    left: 30px;
+    margin: auto;
+    width: 708px;
+    height: 60px;
+  }
+  
+  .cover-our-frends-op{
+    top: 0;
+    width: 100%;
+    height: 1733px;
+  }
+  
+  .pets-op{
+    position: relative;
+    margin: 0 auto;
+    width: 768px;
+    height: 1733px;
+  }
+  
+  .pets-content-op{
+    width: 708px;
+    height: 1603px;
+    top:  60px;
+    left: 30px;
+  }
+  
+  .pets-content-op h3.content-heading-op{
+    top: 20px;
+    left: 154px;
+  }
+  
+  .cards-conteiner-op{
+    width: 580px;
+    height: 1365px;
+    top:  140px;
+    left: 64px;
+  }
+  
+  .conteiner-op{
+    width: 580px;
+    height: 1365px;          
+    padding: 0 0;
+    row-gap: 30px;
+    column-gap: 20px;
+  }
+
+  .conteiner-op-line-7,
+  .conteiner-op-line-8{
+    display: none;
+  }
+  
+  .remove-button{
+    width: 340px;
+    height: 52px;
+    bottom: 6px;
+    left: 184px;
+  }
+  
+  .footer-cover-op{
+    top: 0;
+    width: 100%;
+    height: 639px;
+    overflow: hidden;
+  }
+  
+    .footer-op{
+      position: relative;
+      width: 768px;
+      height: 639px;
+      margin: 0 auto;
+    }
+
+    .footer-content-op{
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 768px;
+      height: 639px;
+    }
+
+    .contact-box{
+      top: 30px;
+      left: 64px;
+      width: 278px;
+      height: 234px;
+    }
+
+    .location-box{
+      top: 30px;
+      left: 402px;
+      width: 302px;
+      height: 234px;
+    }
+
+    .footer-img{
+      position: absolute;
+      top: auto;
+      right: 234px;
+      bottom: 0;
+      width: 300px;
+      height: 310px;
+    }
+
+    
   }
 
   /* -----------  @media (min-width: 320px) and (max-width: 768px)------------------------- */
 
 
-  @media (min-width: 320px) and (max-width: 767px){
+  @media (min-width: 310px) and (max-width: 767px){
 
     body{
       height: 4684px;
@@ -2045,8 +2178,8 @@ cursor: default;
 
   .help-list-first{
     justify-content: flex-start;
-    row-gap: 15px;
-    column-gap: 30px;
+    row-gap: 30px;
+    column-gap: 15px;
     flex-wrap: wrap;
   }
 
@@ -2269,4 +2402,184 @@ cursor: default;
       height: 32px;
     }
 
+/* -------------------------------- */
+
+body.our-pets{
+  height: 2578px;
+  width: 100%;
+ }
+
+ .header-our-pets{
+  top: 0;
+  left: auto;
+  margin: 0 auto;
+  width: 320px;
+  height: 120px;
 }
+
+.our-pats-op{
+  position: relative;
+  top: 30px;
+  left: 20px;
+  width: 280px;
+  height: 60px;
+  margin: 0;
+}
+
+    .nav-menu-op{
+      display: none;
+    }
+
+    .menu-burger-op{
+      position: absolute;
+      display: flex;
+      width: 30px;
+      height: 22px;
+      top: 19px;
+      right: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-burger-op:hover{
+      cursor: pointer;
+      transform: scale(1.1)
+    }
+
+    .menu-burger-op img{
+      transition: transform 0.3s ease;
+    }
+
+    .menu-burger-op img:hover{
+      transform: scale(1.1)
+    }
+
+    .cover-our-frends-op{
+      width: 100%;
+      height: 1649px;
+    }
+
+    .pets-op{
+      width: 320px;
+      height: 1649px;
+    }
+
+    .pets-content-op{
+      width: 300px;
+      height: 1565px;
+      top:  42px;
+      left: 10px;
+    }
+
+   
+    .pets-content-op h3.content-heading-op{
+      width: 300px;
+      height: 64px;
+      top: 0;
+      left: 0;
+      font-size: 25px;
+      line-height: 32.5px;
+      letter-spacing: 1.5px;
+}
+
+.cards-conteiner-op{
+  width: 270px;
+  height: 1365px;
+  top:  106px;
+  left: 15px;
+}
+
+.conteiner-op{
+  width: 270px;
+  height: 1365px;
+  row-gap: 30px;
+  padding: 0;
+}
+
+.conteiner-op-line-4,
+.conteiner-op-line-5,
+.conteiner-op-line-6,
+.conteiner-op-line-7,
+.conteiner-op-line-8{
+  display: none;
+}
+
+.remove-button{
+  width: 300px;
+  height: 52px;
+  bottom: 0;
+  left: 0;
+  column-gap: 10px;
+}
+
+.button-next-left{
+  left: 62px;
+}
+
+.button-number{
+  top: 0;
+  left: 124px;
+}
+
+.button-number:hover{
+cursor: default;
+}
+
+.button-next-right{
+  right: 62px;
+}
+
+.footer-cover-op{
+  position: relative;
+  top: 120px;
+  width: 100%;
+  height: 809px;
+}
+
+  .footer-op{
+    position: relative;
+    width: 320px;
+    height: 809px;
+    margin: 0 auto;
+  }
+
+  .footer-content-op{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    height: 779px;
+  }
+
+  .contact-box{
+    top: 0;
+    left: 21px;
+    width: 278px;
+    height: 208px;
+  }
+
+  .footer-location{
+    width: 300px;
+    height: 222px;
+    bottom: 309px;
+    left: 10px;
+  }
+
+  .location-box{
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 222px;
+  }
+
+  .footer-img{
+    position: absolute;
+    top: auto;
+    right: 30px;
+    bottom: 0;
+    width: 260px;
+    height: 269px;
+  }
+
+}
+
+
