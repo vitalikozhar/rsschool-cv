@@ -1687,7 +1687,7 @@ cursor: default;
     .help-list-first{
       justify-content: flex-start;
       row-gap: 55px;
-      column-gap: 61px;
+      column-gap: 58px;
       flex-wrap: wrap;
     }
 
@@ -2557,21 +2557,21 @@ cursor: default;
     height: 208px;
   }
 
-  .footer-location{
+  .fl{
     width: 300px;
     height: 222px;
     bottom: 309px;
     left: 10px;
-  }
+  } 
 
-  .location-box{
+  .lb{
     top: 0;
     left: 0;
     width: 300px;
     height: 222px;
   }
 
-  .footer-img{
+  .fi{
     position: absolute;
     top: auto;
     right: 30px;
