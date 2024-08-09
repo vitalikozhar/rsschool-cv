@@ -747,6 +747,7 @@ transform: scale(1.1);
   border: 2px solid #F1CDB3;
   background-color: #FAFAFA;
   border-radius: 100px;
+  padding: 0;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 17px;
   line-height: 22.1px;
@@ -773,7 +774,7 @@ transform: scale(1.1);
   width: 74px;
   height: 23px;
   top: 300px;
-  left: 98px;
+  left: 101px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 20px;
   line-height: 22.72px;
@@ -1043,9 +1044,10 @@ transform: scale(1.1);
 
   h3.box-title{
     position: absolute;
+    display: flex;
     top: 0;
     left: 0;
-    width: 278px;
+    width: 279px;
     height: 90px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 35px;
@@ -1053,7 +1055,7 @@ transform: scale(1.1);
     letter-spacing: 2.1px;
     font-weight: 400;
     color:  #FFFFFF;
-    white-space: nowrap;
+    flex-wrap: wrap;
   }
 
   .box-mail{
@@ -1111,6 +1113,7 @@ transform: scale(1.1);
 
 h3.box-location-title{
   position: absolute;
+  display: flex;
   top: 0;
   left: 0;
   width: 270px;
@@ -1121,7 +1124,7 @@ h3.box-location-title{
   letter-spacing: 2.1px;
   font-weight: 400;
   color:  #FFFFFF;
-  white-space: nowrap;
+  flex-wrap: wrap;
 }
 
 .box-location-position-first{
@@ -1262,7 +1265,6 @@ height: 100%;
   position: absolute;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   width: 443px;
   height: 27px;
   list-style: none;
@@ -1536,7 +1538,7 @@ cursor: default;
   /* -----------  @media (min-width: 768px) and (max-width: 1280px) for Main------------------------- */
 
   @media (min-width: 768px) and (max-width: 1279px){
-  
+
     body{
       display: flex;
       flex-direction: column;
@@ -1616,7 +1618,7 @@ cursor: default;
       z-index: 2;
       }
 
-         
+
     .about-pets{
       width: 300px;
       height: 408px;
@@ -1658,7 +1660,7 @@ cursor: default;
       width: 260px;
       height: 52px;
     }
-  
+
     .pets-slider{
       width: 708px;
       height: 435px;
@@ -1801,7 +1803,7 @@ cursor: default;
     height: 2492px;
     width: 100%;
    }
-  
+
    .header-our-pets{
     position: relative;
     top: 0;
@@ -1810,7 +1812,7 @@ cursor: default;
     width: 768px;
     height: 120px;
   }
-  
+
   .our-pats-op{
     top: 30px;
     left: 30px;
@@ -1818,42 +1820,42 @@ cursor: default;
     width: 708px;
     height: 60px;
   }
-  
+
   .cover-our-frends-op{
     top: 0;
     width: 100%;
     height: 1733px;
   }
-  
+
   .pets-op{
     position: relative;
     margin: 0 auto;
     width: 768px;
     height: 1733px;
   }
-  
+
   .pets-content-op{
     width: 708px;
     height: 1603px;
     top:  60px;
     left: 30px;
   }
-  
+
   .pets-content-op h3.content-heading-op{
     top: 20px;
     left: 154px;
   }
-  
+
   .cards-conteiner-op{
     width: 580px;
     height: 1365px;
     top:  140px;
     left: 64px;
   }
-  
+
   .conteiner-op{
     width: 580px;
-    height: 1365px;          
+    height: 1365px;
     padding: 0 0;
     row-gap: 30px;
     column-gap: 20px;
@@ -1863,21 +1865,21 @@ cursor: default;
   .conteiner-op-line-8{
     display: none;
   }
-  
+
   .remove-button{
     width: 340px;
     height: 52px;
     bottom: 6px;
     left: 184px;
   }
-  
+
   .footer-cover-op{
     top: 0;
     width: 100%;
     height: 639px;
     overflow: hidden;
   }
-  
+
     .footer-op{
       position: relative;
       width: 768px;
@@ -1916,7 +1918,7 @@ cursor: default;
       height: 310px;
     }
 
-    
+
   }
 
   /* -----------  @media (min-width: 320px) and (max-width: 768px)------------------------- */
@@ -2053,7 +2055,7 @@ cursor: default;
       width: 320px;
       height: 974px;
     }
-    
+
     .about-content{
     width: 300px;
     height: 890px;
@@ -2189,7 +2191,7 @@ cursor: default;
     line-height: 32.5px;
     letter-spacing: 1.5px;
   }
-  
+
   .help-list{
     width: 290px;
     height: 555px;
@@ -2263,7 +2265,7 @@ cursor: default;
     line-height: 32.5px;
     letter-spacing: 1.5px;
   }
-  
+
   .subheading-content h5{
     width: 273px;
     height: 24px;
@@ -2293,7 +2295,7 @@ cursor: default;
     position: absolute;
     width: 100%;
     height: 100%;
-    
+
   }
 
   .credit-card-number h4{
@@ -2336,11 +2338,11 @@ cursor: default;
 
     .footer-img{
       top: 510px;
-      right: 30px;
+      right: 20px;
       width: 260px;
       height: 269px;
     }
-    
+
     .footer-img img{
     width: 100%;
     height: 100%;
@@ -2363,7 +2365,7 @@ cursor: default;
       text-align: center;
       white-space: wrap;
     }
-  
+
     .box-mail{
       top:  0;
       left: 0;
@@ -2505,7 +2507,7 @@ body.our-pets{
       left: 10px;
     }
 
-   
+
     .pets-content-op h3.content-heading-op{
       width: 300px;
       height: 64px;
@@ -2597,7 +2599,7 @@ cursor: default;
     height: 222px;
     bottom: 309px;
     left: 10px;
-  } 
+  }
 
   .lb{
     top: 0;
