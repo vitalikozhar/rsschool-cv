@@ -144,6 +144,15 @@ header{
   border-bottom: 3px solid #F1CDB3;
   color: #FAFAFA;
   cursor: default;
+  width: 114px;
+  height: 27px;
+}
+
+.nav-menu-2,
+.nav-menu-3,
+.nav-menu-4{
+  width: 114px;
+  height: 24px;
 }
 
 li{
@@ -658,12 +667,11 @@ box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
   position: absolute;
   width: 187px;
   height: 52px;
-  top:353px;
+  top: 353px;
   left: 41.5px;
   border: 2px solid #F1CDB3;
   background-color: #FAFAFA;
   border-radius: 100px;
-  padding: 15px 45px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 17px;
   line-height: 22.1px;
@@ -715,12 +723,12 @@ box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 transform: scale(1.1);
 }
 
-.picture-name-two{
+.picture-name-two {
   position: absolute;
-  width: 74px;
-  height: 23px;
+  width: 97px;
+  height: 22px;
   top: 300px;
-  left: 98px;
+  left: 94px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 20px;
   line-height: 22.72px;
@@ -739,7 +747,6 @@ transform: scale(1.1);
   border: 2px solid #F1CDB3;
   background-color: #FAFAFA;
   border-radius: 100px;
-  padding: 15px 45px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 17px;
   line-height: 22.1px;
@@ -785,7 +792,6 @@ transform: scale(1.1);
   border: 2px solid #F1CDB3;
   background-color: #FAFAFA;
   border-radius: 100px;
-  padding: 15px 45px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 17px;
   line-height: 22.1px;
@@ -845,7 +851,8 @@ transform: scale(1.1);
   left: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 119px;
+  row-gap: 55px;
+  column-gap: 119px;
   justify-content: center;
   list-style: none;
 }
@@ -875,6 +882,10 @@ transform: scale(1.1);
   width: 60px;
   height:  60px;
   display: flex;
+}
+
+.line{
+  height: 113px;
 }
 
 .donation-cover{
@@ -1274,9 +1285,26 @@ transition: all 0.4s ease;
   color: #292929;
 }
 
+.nav-menu-1-op{
+  width: 114px;
+  height: 24px;
+}
+
+.nav-menu-3-op{
+  width: 106px;
+  height: 24px;
+}
+
+.nav-menu-4-op{
+  width: 60px;
+  height: 24px;
+}
+
 .nav-menu-2-op{
   border-bottom: 3px solid #F1CDB3;
   cursor: default;
+  width: 58px;
+  height: 24px;
 }
 
 .nav-menu-2-op li a{
@@ -1405,7 +1433,6 @@ transition: all 0.4s ease;
   border-radius: 100px;
   border:  2px solid #F1CDB3;
   background-color: #FFFFFF;
-  padding: 15px 45px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 17px;
   line-height: 22.1px;
@@ -1673,7 +1700,7 @@ cursor: default;
     }
 
     .help-list{
-      width: 630px;
+      width: 632px;
       height: 449px;
       bottom: 0;
       left: 0;
@@ -1687,7 +1714,7 @@ cursor: default;
     .help-list-first{
       justify-content: flex-start;
       row-gap: 55px;
-      column-gap: 58px;
+      column-gap: 59px;
       flex-wrap: wrap;
     }
 
@@ -2177,7 +2204,8 @@ cursor: default;
   }
 
   .help-list-first{
-    justify-content: flex-start;
+
+    justify-content: space-between;
     row-gap: 30px;
     column-gap: 15px;
     flex-wrap: wrap;
@@ -2186,8 +2214,12 @@ cursor: default;
   .help-list-first-line h4{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 15px;
-    line-height: 16.5px;
+    line-height: 29.5px;
     letter-spacing: 0.9px;
+  }
+
+  .help-list-first-line img{
+    height: 50px;
   }
 
   .donation-cover{
@@ -2297,9 +2329,9 @@ cursor: default;
 
     .footer-content{
       left: 10px;
-      bottom: 309px;
+      bottom: 0px;
       width: 300px;
-      height: 470px;
+      height: 779px;
     }
 
     .footer-img{
@@ -2329,6 +2361,7 @@ cursor: default;
       line-height: 32.5px;
       letter-spacing: 1.5px;
       text-align: center;
+      white-space: wrap;
     }
   
     .box-mail{
@@ -2365,13 +2398,14 @@ cursor: default;
       position: absolute;
       width: 300px;
       height: 222px;
-      bottom: 0;
+      bottom: 309px;
       left: 0;
     }
 
     .location-box{
       width: 300px;
       height: 222px;
+      top: auto;
       bottom: 0;
       left: 0;
     }
@@ -2385,6 +2419,7 @@ cursor: default;
       line-height: 32.5px;
       letter-spacing: 1.5px;
       text-align: center;
+      white-space: wrap;
     }
 
     .box-location-position-first{
@@ -2552,7 +2587,7 @@ cursor: default;
 
   .contact-box{
     top: 0;
-    left: 21px;
+    left: 11px;
     width: 278px;
     height: 208px;
   }
