@@ -2593,7 +2593,10 @@ cursor: default;
     width: 278px;
     height: 208px;
   }
-
+  .contact-box-op{
+    left: 21px;
+  }
+  
   .fl{
     width: 300px;
     height: 222px;
