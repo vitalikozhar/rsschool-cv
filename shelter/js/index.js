@@ -175,10 +175,10 @@ const buttonsArrow = document.querySelectorAll('.button-arrow-right, .button-arr
 
 buttonsArrow.forEach(arr => {
 	arr.addEventListener('mousedown', () => {
-		arr.style.boxShadow = '0px 2px 35px 14px rgba(240, 124, 124, 0.3)';
+		arr.style.boxShadow = '0px 2px 35px 14px rgba(96, 163, 188, 0.3)';
 	});
 	arr.addEventListener('mouseup', () => {
-		arr.style.boxShadow = '0px 2px 35px 14px rgba(13, 13, 13, 0.0)';
+		arr.style.boxShadow = '0px 2px 35px 14px rgba(96, 163, 188, 0.0)';
 	});
 });
 
