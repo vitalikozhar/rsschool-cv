@@ -1399,7 +1399,7 @@ transition: all 0.4s ease;
   margin: 0;
   border-radius: 9px;
   overflow: hidden;
-  background-color: #FFFFFF;
+  background-color: #FAFAFA;
 }
 
 .line-op:hover{
@@ -1658,7 +1658,8 @@ cursor: default;
     .about-pets{
       width: 300px;
       height: 408px;
-      left: 15.8vw;
+      left: 50%;
+      transform:  translateX(-50%);
       bottom: 0;
     }
 
@@ -1861,7 +1862,7 @@ cursor: default;
     left: 50%;
     transform: translateX(-50%);
     margin: auto;
-    width: 93.7%;
+    width: 92.2%;
     height: 60px;
   }
 
