@@ -63,16 +63,25 @@ body{
 .start-screen{
   position: relative;
   margin: 0 auto;
-  width: 1280px;
+  width: 100vw;
   height: 908px;
 }
 
 header{
   position: absolute;
   top: 30px;
-  width: 1200px;
+  width: 93.7vw;
   height: 60px;
-  margin: 0 40px;
+  margin: 0 3.1%;
+}
+
+header nav{
+  position: absolute;
+  display: flex;
+  width: 443px;
+  height: 27px;
+  top: 16px;
+  right: 0;
 }
 
 .logo{
@@ -119,8 +128,8 @@ header{
   width: 443px;
   height: 27px;
   list-style: none;
-  right: 0px;
-  top: 16px;
+  right: 0;
+  top: 0;
   font-size: 15px;
   line-height: 27px;
   font-family: Arial, Helvetica, sans-serif;
@@ -166,7 +175,7 @@ li{
 
 .start-screen-content{
   position: absolute;
-  width: 1200px;
+  width: 93.7vw;
   height: 728px;
   bottom: 0px;
   margin: 0 40px;
@@ -174,9 +183,10 @@ li{
 
 .content{
   position: absolute;
-  width: 460px;
+  width: 35.95vw;
   height: 322px;
   bottom: 243px;
+  left: 0;
 }
 
 .start-screen-puppy{
@@ -201,7 +211,7 @@ li{
 
 .content .subheading{
   position: absolute;
-  width: 460px;
+  width: 100%;
   height: 72px;
   bottom: 94px;
   left: 0;
@@ -262,7 +272,7 @@ z-index: 2;
 
 .about-pets-content{
   position: absolute;
-  width: 430px;
+  width: 33.6vw;
   height: 380px;
   left: 595px;
   bottom: 14px;
@@ -309,9 +319,8 @@ z-index: 2;
 .about-text-first,
 .about-text-second{
   position: absolute;
-  width: 430px;
+  width: 100%;
   font-family: Arial, Helvetica, sans-serif;
-  width: 400;
   font-size: 15px;
   line-height: 24px;
   color: #545454;
@@ -1206,7 +1215,7 @@ height: 100%;
  .header-our-pets{
   position: absolute;
   top: 0px;
-  width: 1280px;
+  width: 100%;
   height: 120px;
   background-color: #FFFFFF;
 }
@@ -1219,8 +1228,9 @@ height: 100%;
 .our-pats-op{
   position: absolute;
   top: 30px;
-  margin: 0 40px;
-  width: 1200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 93.7vw;
   height: 60px;
 }
 
@@ -1274,6 +1284,15 @@ height: 100%;
   line-height: 24px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
+}
+
+.header-our-pets nav{
+  position: absolute;
+  display: flex;
+  width: 443px;
+  height: 60px;
+  top: 0;
+  right: 0;
 }
 
 .nav-menu-op li a{
@@ -1549,20 +1568,28 @@ cursor: default;
     .start-screen{
       position: relative;
       margin: 0 auto;
-      width: 768px;
+      width: 100%;
       height: 1165px;
     }
 
     header{
       top: 30px;
-      left: 30px;
-      width: 708px;
+      left: 3.9%;
+      width: 92.2%;
       height: 60px;
       margin: 0 0;
     }
 
+    header nav{
+      position: absolute;
+      width: 443px;
+      height: 27px;
+      right: 0px;
+      top: 16px;
+    }
+
     .start-screen-content{
-      width: 569px;
+      width: 74.1vw;
       height: 1015px;
       top: 150px;
       left: 99px;
@@ -1587,6 +1614,14 @@ cursor: default;
       left: 0px;
     }
 
+    .content .subheading{
+      width: 60vw;
+      height: 72px;
+      bottom: 94px;
+      left: 0;
+
+    }
+
     .content-button{
       width: 207px;
       height: 52px;
@@ -1598,22 +1633,23 @@ cursor: default;
     .start-screen-puppy{
       width: 569px;
       height: 593px;
-      left: 70px;
+      left: auto;
+      right: -70px;
       bottom: 0px;
       background-size: cover;
     }
 
     .about{
       position: relative;
-      width: 768px;
+      width: 100vw;
       height: 1048px;
     }
 
     .about-content{
       position: absolute;
-      width: 437px;
+      width: 57%;
       height: 868px;
-      left: 165px;
+      left: 21.5%;
       top: 80px;
       z-index: 2;
       }
@@ -1622,11 +1658,18 @@ cursor: default;
     .about-pets{
       width: 300px;
       height: 408px;
-      left: 69px;
+      left: 15.8vw;
       bottom: 0;
     }
 
+.about-text-first,
+.about-text-second{
+  width: 100%;
+
+}
+
     .about-pets-content{
+      width: 98.4%;
       left: 4px;
       top: 0;
     }
@@ -1809,15 +1852,16 @@ cursor: default;
     top: 0;
     left: auto;
     margin: 0 auto;
-    width: 768px;
+    width: 100%;
     height: 120px;
   }
 
   .our-pats-op{
     top: 30px;
-    left: 30px;
+    left: 50%;
+    transform: translateX(-50%);
     margin: auto;
-    width: 708px;
+    width: 93.7%;
     height: 60px;
   }
 
@@ -1940,14 +1984,15 @@ cursor: default;
       top:  0;
       left: 0;
       margin: 0 auto;
-      width: 320px;
+      width: 100%;
       height: 823px;
     }
 
     header{
       top: 30px;
-      left: 20px;
-      width: 280px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 87.5%;
       height: 60px;
       margin: 0 0;
     }
@@ -1975,6 +2020,10 @@ cursor: default;
       left: 4px;
     }
 
+    header nav{
+      width: 30px;
+    }
+
     .nav-menu{
       display: none;
     }
@@ -2000,22 +2049,22 @@ cursor: default;
     }
 
     .start-screen-content{
-      width: 300px;
+      width: 93.7%;
       height: 673px;
       bottom: 0px;
-      left: 10px;
+      left: 3.1%;
       margin: 0 0;
     }
 
     .content{
-      width: 300px;
+      width: 100%;
       height: 296px;
       left: 0;
       bottom: 377px;
     }
 
     .content .heading{
-      width: 300px;
+      width: 100%;
       height: 64px;
       font-size: 25px;
       line-height: 32.5px;
@@ -2025,7 +2074,7 @@ cursor: default;
     }
 
     .content .subheading{
-      width: 300px;
+      width: 100%;
       height: 96px;
       bottom: 94px;
       left: 0;
@@ -2039,7 +2088,8 @@ cursor: default;
       width: 207px;
       height: 52px;
       padding: 15px 45px;
-      left: 46px;
+      left: 50%;
+      transform: translateX(-50%);
       bottom: 0;
     }
 
@@ -2052,24 +2102,29 @@ cursor: default;
     }
 
     .about{
-      width: 320px;
+      width: 100%;
       height: 974px;
     }
 
     .about-content{
-    width: 300px;
+    width: 93.7%;
     height: 890px;
-    left: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     top: 42px;
     }
 
     .about-pets-content{
-      width: 300px;
+      width: 100%;
       height: 494px;
       left: 0;
       bottom: 396px;
     }
 
+    .content-head{
+      width: 100%;
+      height: 494px;
+    }
     .content-head h3{
       width: 300px;
       height: 64px;
@@ -2078,28 +2133,33 @@ cursor: default;
       line-height: 32.5px;
       letter-spacing: 1.5px;
       text-align: center;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .about-text-first{
-      width: 270px;
+      width: 90%;
       height: 144px;
       top: 89px;
-      left: 15px;
+      left: 50%;
+      transform: translateX(-50%);
       text-align: justify;
     }
 
     .about-text-second{
-      width: 270px;
+      width: 90%;
       height: 239px;
       bottom: 0;
-      left: 15px;
+      left: 50%;
+      transform: translateX(-50%);
       text-align: justify;
     }
 
     .about-pets{
       width: 260px;
       height: 353.6px;
-      left: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       bottom: 0.4px;
       background-size: cover;
     }
@@ -2295,7 +2355,6 @@ cursor: default;
     position: absolute;
     width: 100%;
     height: 100%;
-
   }
 
   .credit-card-number h4{
@@ -2326,7 +2385,6 @@ cursor: default;
     .footer{
       width: 320px;
       height: 809px;
-      /* margin: 0 auto; */
     }
 
     .footer-content{
@@ -2439,7 +2497,7 @@ cursor: default;
       height: 32px;
     }
 
-/* -------------------------------- */
+/* ----------------------------------------------------------------OUR PETS 320px-- */
 
 body.our-pets{
   height: 2578px;
@@ -2448,17 +2506,17 @@ body.our-pets{
 
  .header-our-pets{
   top: 0;
-  left: auto;
   margin: 0 auto;
-  width: 320px;
+  width: 100%;
   height: 120px;
 }
 
 .our-pats-op{
   position: relative;
   top: 30px;
-  left: 20px;
-  width: 280px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 87.5%;
   height: 60px;
   margin: 0;
 }
@@ -2596,7 +2654,7 @@ cursor: default;
   .contact-box-op{
     left: 21px;
   }
-  
+
   .fl{
     width: 300px;
     height: 222px;
@@ -2620,6 +2678,5 @@ cursor: default;
     height: 269px;
   }
 
-}
-
+  }
 
