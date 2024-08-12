@@ -63,7 +63,7 @@ body{
 .start-screen{
   position: relative;
   margin: 0 auto;
-  width: 100vw;
+  width: 100%;
   height: 908px;
 }
 
@@ -1641,7 +1641,7 @@ cursor: default;
 
     .about{
       position: relative;
-      width: 100vw;
+      width: 100%;
       height: 1048px;
     }
 
