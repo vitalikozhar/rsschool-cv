@@ -63,14 +63,14 @@ body{
 .start-screen{
   position: relative;
   margin: 0 auto;
-  width: 100%;
+  width: 1280px;
   height: 908px;
 }
 
 header{
   position: absolute;
   top: 30px;
-  width: 93.7vw;
+  width: 1200px;
   height: 60px;
   margin: 0 3.1%;
 }
@@ -175,7 +175,7 @@ li{
 
 .start-screen-content{
   position: absolute;
-  width: 93.7vw;
+  width: 1200px;
   height: 728px;
   bottom: 0px;
   margin: 0 40px;
@@ -183,7 +183,7 @@ li{
 
 .content{
   position: absolute;
-  width: 35.95vw;
+  width: 460px;
   height: 322px;
   bottom: 243px;
   left: 0;
@@ -272,7 +272,7 @@ z-index: 2;
 
 .about-pets-content{
   position: absolute;
-  width: 33.6vw;
+  width: 430px;
   height: 380px;
   left: 595px;
   bottom: 14px;
@@ -1215,7 +1215,7 @@ height: 100%;
  .header-our-pets{
   position: absolute;
   top: 0px;
-  width: 100%;
+  width: 1280px;
   height: 120px;
   background-color: #FFFFFF;
 }
@@ -1230,7 +1230,7 @@ height: 100%;
   top: 30px;
   left: 50%;
   transform: translateX(-50%);
-  width: 93.7vw;
+  width: 1200px;
   height: 60px;
 }
 
@@ -1663,11 +1663,11 @@ cursor: default;
       bottom: 0;
     }
 
-.about-text-first,
-.about-text-second{
-  width: 100%;
+   .about-text-first,
+   .about-text-second{
+     width: 100%;
 
-}
+   }
 
     .about-pets-content{
       width: 98.4%;
