@@ -13,6 +13,15 @@
 <body>
   <div class="under-cover">
     <section class="start-screen">
+      <div class="mobile-window">
+        <div class="mobile-menu-list">
+          <span class="mobile-window-about-the-shelter close-window">About the shelter</span>
+          <span class="mobile-window-our-pets close-window"><a class="nav-menu-burger2" href="our-pets.html">Our pets</a></span>
+          <span class="mobile-window-help-the-shelter close-window"><a class="nav-menu-burger3" href="#help-the-shelter">Help the shelter</a></span>
+          <span class="mobile-window-contacts close-window"><a class="nav-menu-burger4" href="#contacts">Contacts</a></span>
+        </div>
+      </div>
+      <div class="grey-window"></div>
       <!-- Блок header -->
       <header>
         <div class="logo">
@@ -31,9 +40,12 @@
             <li><a class="nav-menu-4" href="#contacts">Contacts</a></li>
           </ul>
         </nav>
-        <div class="menu-burger"><img src="img/Burger.png" alt="menu"></div>
       </header>
-
+      <div class="menu-burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <!-- Блок Not only -->
       <div class="not-only start-screen-content">
         <div class="content">
@@ -110,20 +122,22 @@
         <div class="pets-slider">
           <button class="button-arrow-left"><img class="arrow-left" src="img/Arrow.svg" alt="arrow"></button>
           <button class="button-arrow-right"><img class="arrow-right" src="img/Arrow.svg" alt="arrow"></button>
-          <div class="card-one">
+          <div class="slider">
+          <div class="card-one fade">
             <div class="picture"><span class="picture-name"></span></div>
             <input type="button" class="input-button-secondary" value="Learn more">
           </div>
-          <div class="card-two">
+          <div class="card-two fade">
             <div class="picture-two"></div>
             <div class="name-two"><span class="picture-name-two"></span></div>
             <input type="button" class="input-button-secondary-two" value="Learn more">
           </div>
-          <div class="card-three">
+          <div class="card-three fade">
             <div class="picture-three"></div>
             <div class="name-three"><span class="picture-name-three"></span></div>
             <input type="button" class="input-button-secondary-three" value="Learn more">
           </div>
+        </div>
         </div>
         <a href="our-pets.html" class="pets-button-primary">Get to know the rest</a>
       </div>
@@ -151,14 +165,15 @@
           <li class="help-list-first-line line-4 line"><img src="img/shampoos.svg" alt="icon pet shampoos">
             <h4>Shampoos</h4>
           </li>
-        
+
           <li class="help-list-first-line line-5 line"><img src="img/vitamins.svg" alt="icon pet vitamins">
             <h4>Vitamins</h4>
           </li>
           <li class="help-list-first-line line-6 line"><img src="img/medicines.svg" alt="icon pet medicines">
             <h4>Medicines</h4>
           </li>
-          <li class="help-list-first-line line-7 line"><img src="img/collars-or-leashes.svg" alt="con pet collars / leashes">
+          <li class="help-list-first-line line-7 line"><img src="img/collars-or-leashes.svg"
+              alt="con pet collars / leashes">
             <h4>Collars / leashes</h4>
           </li>
           <li class="help-list-first-line line-8 line"><img src="img/sleeping-area.svg" alt="icon pet sleeping areas">
