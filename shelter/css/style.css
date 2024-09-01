@@ -63,14 +63,14 @@ body{
 .start-screen{
   position: relative;
   margin: 0 auto;
-  width: 100%;
+  width: 1280px;
   height: 908px;
 }
 
 header{
   position: absolute;
   top: 30px;
-  width: 93.7vw;
+  width: 1200px;
   height: 60px;
   margin: 0 3.1%;
 }
@@ -140,7 +140,7 @@ header nav{
 .nav-menu-3,
 .nav-menu-4{
   color: #CDCDCD;
-  transition: all 0.4s ease;
+  transition: color 0.4s ease;
 }
 
 .nav-menu-2:hover,
@@ -168,6 +168,12 @@ li{
   white-space: nowrap;
 }
 
+.mobile-window{
+  position: absolute;
+  display: none;
+}
+
+
 .menu-burger{
   position: absolute;
   display: none;
@@ -175,7 +181,7 @@ li{
 
 .start-screen-content{
   position: absolute;
-  width: 93.7vw;
+  width: 1200px;
   height: 728px;
   bottom: 0px;
   margin: 0 40px;
@@ -183,7 +189,7 @@ li{
 
 .content{
   position: absolute;
-  width: 35.95vw;
+  width: 460px;
   height: 322px;
   bottom: 243px;
   left: 0;
@@ -238,12 +244,15 @@ li{
   line-height: 22.1px;
   letter-spacing: 1px;
   font-weight: 400;
-  z-index: 4;
 }
 
 .content-button:hover{
   background-color: #FDDCC4;
   cursor: pointer;
+}
+
+.mobile-menu-list{
+  display: none;
 }
 
 .about{
@@ -272,7 +281,7 @@ z-index: 2;
 
 .about-pets-content{
   position: absolute;
-  width: 33.6vw;
+  width: 430px;
   height: 380px;
   left: 595px;
   bottom: 14px;
@@ -295,7 +304,7 @@ z-index: 2;
   line-height: 22.1px;
   letter-spacing: 1px;
   white-space: nowrap;
-  transition: all 0.4s ease;
+  transition: background-color 0.4s ease;
   z-index: 4;
 }
 
@@ -353,8 +362,8 @@ z-index: 2;
 .modal-window-example-1280{
   display: none;
   position: fixed;
-  width: 1280px;
-  height: 877px;
+  width: 100%;
+  height: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -366,7 +375,7 @@ z-index: 2;
   position: absolute;
   width: 952px;
   height: 552px;
-  top: 136px;
+  top: calc(50% - 26px);
   left: -9999px;
   z-index: 8;
 }
@@ -376,7 +385,8 @@ z-index: 2;
     left : -9999px;
   }
   100%{
-    left : 190px;
+    left : calc(50% + 26px);
+    transform:  translate(-50% , -50%);
   }
 }
 
@@ -406,7 +416,7 @@ z-index: 2;
   position: absolute;
   width: 900px;
   height: 500px;
-  left: 300;
+  left: 0;
   bottom: 0;
   box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
   border-radius: 10px;
@@ -509,7 +519,7 @@ z-index: 2;
 }
 .modal-list li{
   position: relative;
-  left: -8px;
+  left: 11px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: 700;
   font-size: 15px;
@@ -552,6 +562,7 @@ z-index: 2;
   height: 435px;
   top: 150px;
   left: 0;
+  overflow: hidden;
 }
 
 .button-arrow-left{
@@ -563,7 +574,8 @@ z-index: 2;
   background-color: #F6F6F6;
   top: 192px;
   left: 0;
-  transition: all 0.4s ease;
+  transition: background-color 0.4s ease;
+  z-index: 7;
 }
 
 .arrow-left{
@@ -600,7 +612,8 @@ z-index: 2;
   background-color: #F6F6F6;
   top: 192px;
   right: 0;
-  transition: all 0.4s ease;
+  transition: background-color 0.4s ease;
+  z-index: 7;
 }
 
 .arrow-right{
@@ -638,7 +651,12 @@ z-index: 2;
   overflow: hidden;
   background-color: #FAFAFA;
   border-radius: 9px;
-  transition: transform 0.4s ease;
+}
+
+.slider{
+  width: 100%;
+  height: 435px;
+  transition: transform 2s ease, opacity 0.6s ease;
 }
 
 .card-three:hover .input-button-secondary-three,
@@ -687,7 +705,7 @@ box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
   letter-spacing: 1px;
   font-weight: 400;
   color: #292929;
-  transition: all 0.4s ease;
+  transition: background-color 0.4s ease;
   z-index: 6;
 }
 
@@ -700,7 +718,6 @@ box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
   border-radius: 9px;
   background-color: #FAFAFA;
   overflow: hidden;
-  transition: all 0.6s ease;
 }
 
 .picture,
@@ -717,13 +734,12 @@ box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 .pets-slider img{
   border-top-right-radius: 9px;
   border-top-left-radius: 9px;
-  transition: transform 0.4s ease;
 }
 
 .picture img,
 .picture-two img,
 .picture-three img{
-  transition: transform 0.4s ease;
+  transition: transform 0.6s ease;
 }
 
 .picture img:hover,
@@ -763,7 +779,7 @@ transform: scale(1.1);
   letter-spacing: 1px;
   font-weight: 400;
   color: #292929;
-  transition: all 0.5s ease;
+  transition: background-color 0.5s ease;
   z-index: 6;
 }
 
@@ -808,7 +824,7 @@ transform: scale(1.1);
   letter-spacing: 1px;
   font-weight: 400;
   color: #292929;
-  transition: all 0.4s ease;
+  transition: background-color 0.4s ease;
   z-index: 6;
 }
 
@@ -1215,7 +1231,7 @@ height: 100%;
  .header-our-pets{
   position: absolute;
   top: 0px;
-  width: 100%;
+  width: 1280px;
   height: 120px;
   background-color: #FFFFFF;
 }
@@ -1230,7 +1246,7 @@ height: 100%;
   top: 30px;
   left: 50%;
   transform: translateX(-50%);
-  width: 93.7vw;
+  width: 1200px;
   height: 60px;
 }
 
@@ -1297,7 +1313,7 @@ height: 100%;
 
 .nav-menu-op li a{
 color: #545454;
-transition: all 0.4s ease;
+transition: color 0.4s ease;
 }
 
 .nav-menu-1-op:hover,
@@ -1487,11 +1503,7 @@ transition: all 0.4s ease;
   width: 52px;
   height: 52px;
   border-radius: 100px;
-  transition: all 0.4s ease;
-}
-
-.down-button:hover{
-  cursor: not-allowed;
+  transition: background-color 0.4s ease;
 }
 
 .button-next-right:hover,
@@ -1501,27 +1513,73 @@ cursor: pointer;
 }
 
 .button-start-left{
+  width: 52px;
+  height: 52px;
   top: 0;
   left: 0;
 }
 
+.button-start-left{
+  border: 2px solid #CDCDCD;
+}
 .button-next-left{
+  width: 52px;
+  height: 52px;
   top: 0;
   left: 72px;
+  border: 2px solid #CDCDCD;
 }
 
 .button-number{
+  width: 52px;
+  height: 52px;
+  background-color:#F1CDB3;
+  text-align: end;
   top: 0;
   left: 144px;
+}
+
+.button-key-number{
+  position: absolute;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 1.2px;
+  font-weight: 400;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50% , -50%);
+}
+
+.button-key-start-left,
+.button-key-last-right,
+.button-key-next-right,
+.button-key-next-left{
+  position: absolute;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 1.2px;
+  font-weight: 400;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50% , -50%);
 }
 
 .button-number:hover{
 cursor: default;
 }
 
+
+.button-last-right,
 .button-next-right{
+  width: 52px;
+  height: 52px;
   top: 0;
   right: 72px;
+  border: 2px solid #CDCDCD;
 }
 
 .button-last-right{
@@ -1663,16 +1721,97 @@ cursor: default;
       bottom: 0;
     }
 
-.about-text-first,
-.about-text-second{
-  width: 100%;
+   .about-text-first,
+   .about-text-second{
+     width: 100%;
 
-}
+   }
 
     .about-pets-content{
       width: 98.4%;
       left: 4px;
       top: 0;
+    }
+
+    .modal-window-example-1280{
+      height: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .modal-window-1280{
+      width: 682px;
+      height: 402px;
+    }
+
+    .modal-window{
+      width: 630px;
+      height: 350px;
+      left: 0;
+      bottom: 0;
+    }
+
+    .pets-name{
+      width: 350px;
+      height: 350px;
+      object-fit: cover;
+      top: 0;
+      left: 0;
+    }
+
+    .modal-window-content{
+      width: 260px;
+      height: 303px;
+      top: 10px;
+      right: 9px;
+    }
+
+    .modal-window-title{
+      position: absolute;
+      width: 145px;
+      height: 45px;
+      top: 0;
+      left: 1px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-weight: 400;
+      font-size: 35px;
+      line-height: 45.5px;
+      letter-spacing: 2.1px;
+      color: #000000;
+    }
+
+    .modal-window-subtitle{
+      position: absolute;
+      width: 151px;
+      height: 23px;
+      top: 55px;
+      left: 1px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 23px;
+      letter-spacing: 1.2px;
+      white-space: nowrap;
+      color: #000000;
+    }
+
+    .modal-window-text{
+      position: absolute;
+      width: 260px;
+      height: 98px;
+      top: 98px;
+      left:  0;
+      font-size: 13px;
+      line-height: 14.3px;
+      letter-spacing: 0.8px;
+    }
+
+    .modal-window-list{
+      width: 154px;
+      height: 87px;
+      left: 0;
+      bottom: 0;
     }
 
     .our-frend-cover{
@@ -2029,11 +2168,164 @@ cursor: default;
       display: none;
     }
 
-    .menu-burger{
-      display: flex;
-      top: 19px;
+
+    .modal-window-example-1280{
+      width: 100%;
+      height: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .modal-window-1280{
+      width: 271px;
+      height: 393px;
+    }
+
+    .modal-window{
+      width: 240px;
+      height: 341px;
+      left: 0;
+      bottom: 0;
+    }
+
+    .pets-name{
+      display: none;
+    }
+
+    .modal-window-content{
+      position: absolute;
+      width: 220px;
+      height: 321px;
+      top: 10px;
+      right: 10px;
+    }
+
+    .modal-window-title{
+      position: absolute;
+      width: 145px;
+      height: 45px;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .modal-window-subtitle{
+      position: absolute;
+      top: 55px;
+      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      white-space: wrap;
+    }
+
+    .modal-window-text{
+      position: absolute;
+      width: 220px;
+      height: 112px;
+      top: 98px;
+      left: 0;
+      overflow-x: auto;
+    }
+
+    .modal-window-list{
+      width: 154px;
+      height: 87px;
+      left: 1px;
+      bottom: 0;
+    }
+
+    .mobile-window{
+      position: fixed;
+      display: none;
+      top: 0;
       right: 0;
+      width: 320px;
+      height: 100vh;
+      align-items: center;
+      transform: translateX(300%);
+      background-image:  url('../img/bg-gradient.png'), url('../img/c5b8a886026e848cb10cec0e5f7245d0.png');
+      background-repeat: repeat, no-repeat;
+      background-size: auto, cover;
+      z-index: 14;
+    }
+
+    .mobile-menu-list{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 40px;
+      width: 243px;
+      height: 327px;
+      left: 39px;
+    }
+
+    .mobile-window-about-the-shelter ,
+    .mobile-window-our-pets a,
+    .mobile-window-help-the-shelter a,
+    .mobile-window-contacts a{
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 51.2px;
+      color: #CDCDCD
+    }
+
+    .mobile-window-about-the-shelter{
+      width: 243px;
+      height: 51px;
+      top: 0;
+      left: 0;
+      border-bottom: 3px solid #F1CDB3;
+    }
+
+    .mobile-window-our-pets a{
+      width: 123px;
+      height: 51px;
+      top: 94px;
+      left: 60px;
+      }
+
+    .mobile-window-help-the-shelter a{
+      width: 225px;
+      height: 51px;
+      top: 185px;
+      left:  9px;
+    }
+
+    .mobile-window-contacts a{
+      width: 127px;
+      height: 51px;
+      top: 276px;
+      left: 58px;
+    }
+
+    .grey-window{
+      position: absolute;
+      display: none;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 4684px;
+      background-color: #292929;
+      transition: opacity ease 0.6s;
+      z-index: 13;
+    }
+
+
+    .menu-burger{
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      width: 30px;
+      height: 22px;
+      top: 49px;
+      right: 6.2%;
+      row-gap: 8px;
       transition: transform 0.3s ease;
+      z-index: 16;
     }
 
     .menu-burger:hover{
@@ -2041,11 +2333,16 @@ cursor: default;
       transform: scale(1.1)
     }
 
-    .menu-burger img{
+    .menu-burger span {
+      display: block;
+      width: 30px;
+      height: 2px;
+      background-color: #F1CDB3;
+      z-index: 16;
       transition: transform 0.3s ease;
     }
 
-    .menu-burger img:hover{
+    .menu-burger span:hover{
       transform: scale(1.1)
     }
 
@@ -2171,7 +2468,7 @@ cursor: default;
     }
 
     .pets{
-      width: 320px;
+      width: 100%;
       height: 791px;
       margin: 0 auto;
     }
@@ -2180,7 +2477,12 @@ cursor: default;
       width: 300px;
       height: 707px;
       top: 42px;
-      left: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .modal-close-button{
+      right: 0;
     }
 
     .our-friends h3{
@@ -2221,6 +2523,7 @@ cursor: default;
     .card-two,
     .card-three{
       display: none;
+      left: -9999px;
   }
 
   .pets-button-primary{
@@ -2512,6 +2815,11 @@ body.our-pets{
   height: 120px;
 }
 
+.our-pets-logo{
+  position: absolute;
+  z-index: 4;
+}
+
 .our-pats-op{
   position: relative;
   top: 30px;
@@ -2526,28 +2834,61 @@ body.our-pets{
       display: none;
     }
 
+
     .menu-burger-op{
       position: absolute;
       display: flex;
+      flex-direction: column;
       width: 30px;
       height: 22px;
-      top: 19px;
-      right: 0;
-      transition: transform 0.3s ease;
+      top: 49px;
+      right: 6.2%;
+      row-gap: 8px;
+      transition: transform 0.4s ease;
+      z-index: 16;
     }
 
-    .menu-burger-op:hover{
+    .menu-burger-op span:hover{
       cursor: pointer;
-      transform: scale(1.1)
+      transform: scale(1.2)
     }
 
-    .menu-burger-op img{
-      transition: transform 0.3s ease;
+    .menu-burger-op span {
+      display: block;
+      width: 30px;
+      height: 2px;
+      background-color: #F1CDB3;
+      z-index: 16;
+      transition: transform 0.4s ease;
     }
 
-    .menu-burger-op img:hover{
-      transform: scale(1.1)
+
+    .mobile-window-about-the-shelter-op a{
+      width: 243px;
+      height: 51px;
+      top: 0;
+      left: 0;
+      border-bottom: 0;
     }
+
+    .mobile-window-our-pets-op {
+      width: 123px;
+      height: 51px;
+      top: 94px;
+      left: 60px;
+      border-bottom: 3px solid #F1CDB3;
+      }
+
+      .mobile-window-about-the-shelter-op a,
+      .mobile-window-our-pets-op ,
+      .mobile-window-help-the-shelter-op a,
+      .mobile-window-contacts-op a{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 32px;
+        font-weight: 400;
+        line-height: 51.2px;
+        color: #CDCDCD
+      }
 
     .cover-our-frends-op{
       width: 100%;
