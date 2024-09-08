@@ -13,7 +13,7 @@ class SelectorPet {
 let pets = [];
 
 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-const jsonPath = isLocal ? '../data.json' : '/data.json';
+const jsonPath = isLocal ? '../data.json' : '/rsschool-cv/shelter/data.json';
 fetch(jsonPath)
   .then(response => response.json())
   .then(data => {
