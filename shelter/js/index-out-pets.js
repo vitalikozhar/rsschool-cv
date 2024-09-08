@@ -22,7 +22,7 @@ fetch(jsonPath)
         alt: pet.image.alt
       });
 
-      
+
       acc[`pet${index + 1}`] = new SelectorPet(
         image,
         pet.name,
