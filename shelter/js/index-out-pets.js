@@ -11,6 +11,14 @@ class SelectorPet {
   }
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const jsonPath = isLocal ? '../data.json' : '/data.json';
+>>>>>>> shelter-part3
+>>>>>>> shelter
 fetch('../data.json')
   .then(response => response.json())
   .then(data => {
