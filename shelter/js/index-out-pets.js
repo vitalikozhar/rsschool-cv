@@ -22,7 +22,7 @@ fetch(jsonPath)
         alt: pet.image.alt
       });
 
-      // Создаем ключи pet1, pet2 и т.д.
+      
       acc[`pet${index + 1}`] = new SelectorPet(
         image,
         pet.name,
