@@ -15,10 +15,10 @@ const textInside = document.querySelector('.text-inside');
 function addHover(dotIndex) {
   for (let i = 0; i < 6; i += 2) {
     dotIndex[i].addEventListener('mouseover', () => {
-      dotIndex[i+1].style.backgroundColor = '#FFFFFF';
+      dotIndex[i + 1].style.backgroundColor = '#FFFFFF';
     });
     dotIndex[i].addEventListener('mouseout', () => {
-      dotIndex[i+1].style.backgroundColor = '#3FBCF6';
+      dotIndex[i + 1].style.backgroundColor = '#3FBCF6';
     });
   }
 }
