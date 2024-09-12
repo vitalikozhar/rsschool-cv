@@ -23,17 +23,23 @@ function addHover(dotIndex) {
   }
 }
 
-function allCleaner() {
+const imageArray = function preloadImage(...urls){
+  let imgArr = [];
+  urls.forEach((element) => {
+    const img = new Image();
+    imgArr.push(img.src = element);
+  })
+  return imgArr;
+}
+preloadImage('img/1.png', 'img/2.png', 'img/3.jpeg', 'img/4.png');
+
+function allCleaner(dotArray) {
   slider.style.backgroundImage = 'none';
   textInside.textContent = '';
-  dot1.style.backgroundColor = '#3FBCF6';
-  dot1.style.border = '0';
-  dot2.style.backgroundColor = '#3FBCF6';
-  dot2.style.border = '0';
-  dot3.style.backgroundColor = '#3FBCF6';
-  dot3.style.border = '0';
-  dot4.style.backgroundColor = '#3FBCF6';
-  dot4.style.border = '0';
+  dotArray.forEach((element) => {
+    element.style.backgroundColor = '#3FBCF6';
+    element.style.border = '0';
+  });
 }
 
 d1.addEventListener('mousedown', () => {
@@ -41,8 +47,8 @@ d1.addEventListener('mousedown', () => {
   dot1.style.backgroundColor = '#000000';
 });
 d1.addEventListener('click', () => {
-  allCleaner();
-  slider.style.backgroundImage = `url('img/1.png')`;
+  allCleaner([dot1, dot2, dor3, dot4]);
+  slider.style.backgroundImage = `url('imgArr[0]')`;
   slider.classList.add('move');
   textInside.classList.add('move');
   textInside.textContent = 'Cats love boxes!';
@@ -69,7 +75,7 @@ d2.addEventListener('mousedown', () => {
 });
 d2.addEventListener('click', () => {
   allCleaner();
-  slider.style.backgroundImage = `url('img/2.png')`;
+  slider.style.backgroundImage = `url('imgArr[1]')`;
   slider.classList.add('move');
   textInside.classList.add('move');
   textInside.textContent = 'Why did the lights go out?';
@@ -96,7 +102,7 @@ d3.addEventListener('mousedown', () => {
 });
 d3.addEventListener('click', () => {
   allCleaner();
-  slider.style.backgroundImage = `url('img/3.jpeg')`;
+  slider.style.backgroundImage = `url('imgArr[2]')`;
   slider.classList.add('move');
   textInside.classList.add('move');
   textInside.textContent = 'Hop, Hop, Hop ...';
@@ -123,7 +129,7 @@ d4.addEventListener('mousedown', () => {
 });
 d4.addEventListener('click', () => {
   allCleaner();
-  slider.style.backgroundImage = `url('img/4.png')`;
+  slider.style.backgroundImage = `url('imgArr[3]')`;
   slider.classList.add('move');
   textInside.classList.add('move');
   textInside.textContent = '????????????????';
