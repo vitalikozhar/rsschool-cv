@@ -23,15 +23,18 @@ function addHover(dotIndex) {
   }
 }
 
-const imageArray = function preloadImage(...urls){
-  let imgArr = [];
+function preloadImage(...urls) {
+  let imgArray = [];
   urls.forEach((element) => {
     const img = new Image();
-    imgArr.push(img.src = element);
+    img.src = element;
+    imgArray.push(img.src);
   })
-  return imgArr;
+  return imgArray;
 }
-preloadImage('img/1.png', 'img/2.png', 'img/3.jpeg', 'img/4.png');
+const isLocal = window.location.hostname === '';
+const selectPath = (isLocal) ? 'img/' : '/rsschool-cv/cssMemeSlider/image/';
+const imgArr = preloadImage(`${selectPath}1.png`, `${selectPath}2.png`, `${selectPath}3.jpeg`, `${selectPath}4.png`);
 
 function allCleaner(dotArray) {
   slider.style.backgroundImage = 'none';
@@ -47,8 +50,8 @@ d1.addEventListener('mousedown', () => {
   dot1.style.backgroundColor = '#000000';
 });
 d1.addEventListener('click', () => {
-  allCleaner([dot1, dot2, dor3, dot4]);
-  slider.style.backgroundImage = `url('imgArr[0]')`;
+  allCleaner([dot1, dot2, dot3, dot4]);
+  slider.style.backgroundImage = `url(${imgArr[0]})`;
   slider.classList.add('move');
   textInside.classList.add('move');
   textInside.textContent = 'Cats love boxes!';
@@ -74,8 +77,8 @@ d2.addEventListener('mousedown', () => {
   dot2.style.backgroundColor = '#000000';
 });
 d2.addEventListener('click', () => {
-  allCleaner();
-  slider.style.backgroundImage = `url('imgArr[1]')`;
+  allCleaner([dot1, dot2, dot3, dot4]);
+  slider.style.backgroundImage = `url(${imgArr[1]})`;
   slider.classList.add('move');
   textInside.classList.add('move');
   textInside.textContent = 'Why did the lights go out?';
@@ -101,8 +104,8 @@ d3.addEventListener('mousedown', () => {
   dot3.style.backgroundColor = '#000000';
 });
 d3.addEventListener('click', () => {
-  allCleaner();
-  slider.style.backgroundImage = `url('imgArr[2]')`;
+  allCleaner([dot1, dot2, dot3, dot4]);
+  slider.style.backgroundImage = `url(${imgArr[2]})`;
   slider.classList.add('move');
   textInside.classList.add('move');
   textInside.textContent = 'Hop, Hop, Hop ...';
@@ -128,8 +131,8 @@ d4.addEventListener('mousedown', () => {
   dot4.style.backgroundColor = '#000000';
 });
 d4.addEventListener('click', () => {
-  allCleaner();
-  slider.style.backgroundImage = `url('imgArr[3]')`;
+  allCleaner([dot1, dot2, dot3, dot4]);
+  slider.style.backgroundImage = `url(${imgArr[3]})`;
   slider.classList.add('move');
   textInside.classList.add('move');
   textInside.textContent = '????????????????';
