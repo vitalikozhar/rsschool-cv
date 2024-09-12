@@ -33,7 +33,7 @@ function preloadImage(...urls) {
   return imgArray;
 }
 const isLocal = window.location.hostname === '';
-const selectPath = (isLocal) ? 'img/' : '/rsschool-cv/cssMemeSlider/image/';
+const selectPath = (isLocal) ? 'img/' : '/rsschool-cv/cssMemeSlider/img/';
 const imgArr = preloadImage(`${selectPath}1.png`, `${selectPath}2.png`, `${selectPath}3.jpeg`, `${selectPath}4.png`);
 
 function allCleaner(dotArray) {
