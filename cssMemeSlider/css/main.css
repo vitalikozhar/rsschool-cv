@@ -7,70 +7,67 @@
   background-color: #3FBCF6;
 }
 body{
-  position: relative;
+  display: flex;
   width: 100%;
   height: 100vh;
-  position: relative;
   background-color: #FFFFFF;
 }
 main{
-  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100vh;
+  justify-content: center;
+  row-gap: 4vw;
 }
-@media (min-width: 1980px){
 .frame{
-  position: relative;
-  top: 50vh;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 1980px;
-  height: 1080px;
+  display: flex;
+  margin: 0 auto;
+  width: 119.14em;
+  height: 66.56em;
   background-color: #EDEDED;
-  border: 2px solid #B7DEEE;
-  border-radius: 20px;
+  border: 0.2vw solid #B7DEEE;
+  border-radius: 1%;
+  flex-direction: column;
+  justify-content: center;
 }
 .screen{
-  position: absolute;
+  display: flex;
+  flex-direction: column;
   width: 99%;
   height: 98%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 0 auto;
   background-color: #1E1E1E;
+  justify-content: center;
 }
 .case{
-  position: absolute;
-  width: 800px;
-  height: 800px;
-  top: 40px;
-  left: 50%;
-  transform: translateX(-50%);
+  display: flex;
+  width: 42%;
+  height: 75.5%;
+  margin: 0 auto;
+  margin-top: 2.5%;
 }
 .slider{
-  position: relative;
+  display: flex;
   width: 100%;
   height: 100%;
-  background-color: #f0f0f0;
+  background-color: #000000;
   background-image: url('../img/1.png');
   background-size: cover;
-  border-radius: 20px;
+  border-radius: 10%;
 }
 .text-control{
-  position: relative;
   display: flex;
-  width: 800px;
-  height: 100px;
-  top: 860px;
-  left: 50%;
+  width: 40.4%;
+  height: 20%;
+  margin: 0 auto;
   justify-content: space-between;
-  transform: translateX(-50%);
+
 }
 .text{
   display: flex;
   width: 60%;
-  height: 100%;
-  line-height: 100px;
+  align-self: center;
   overflow: hidden;
 }
 .text-inside{
@@ -78,7 +75,7 @@ main{
   width: 100%;
   height: 100%;
   color: #FFFFFF;
-  letter-spacing: 1.6px;
+  letter-spacing: 0.07em;
 }
 .control-panel{
   display: flex;
@@ -93,8 +90,8 @@ main{
   list-style: none;
 }
 .dot{
-  width: 60px;
-  height: 60px;
+  width: 3.75em;
+  height: 3.75em;
   display: flex;
   border-radius: 50%;
   justify-content: center;
@@ -120,7 +117,7 @@ cursor: pointer;
 }
 .dot1{
   background-color: #000000;
-  border: 3px solid #3FBCF6;
+  border: 0.2vw solid #3FBCF6;
 }
 .d1:hover .dot1{
   border-color: #FFFFFF;
@@ -129,103 +126,91 @@ cursor: pointer;
   overflow: hidden;
 }
 .move{
-  animation: move 0.6s;
+  animation: move 0.2s linear forwards;
 }
 @keyframes move{
   0% {
     transform: translateX(150%);
-    opacity: 0;
   }
   100% {
     transform: translateX(0%);
-    opacity: 1;
   }
 }
 .linkToGitHub{
-  position: absolute;
-  width: 50%;
-  height: 20px;
-  left: 0;
-  bottom: -40px;
   display: flex;
-  align-items: center;
-  font-size: 30px;
+  margin: 0 auto;
+  font-size: 1.6vw;
 }
 a{
   color: #000000;
   text-decoration: none;
 }
+
+@media (max-width: 2000px){ /*------------------------------------ max 2000px*/
+
+  .frame{
+    width: 96%;
+    height: 55vw;
+  }
+
+  .case{
+    display: flex;
+    width: 42%;
+    height: 40vw;
+    margin: 0 auto;
+    margin-top: 2.5%;
+  }
+  .screen{
+    justify-content: center;
+  }
 }
 
-@media (max-width: 1979px){
+@media (max-width: 1439px){  /* ---------------------- max 1024 */
+  main{
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 2vw;
+  }
   .frame{
-    position: relative;
-    width: 320px;
-    height: 400px;
-    top: 50vh;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #EDEDED;
-    border: 2px solid #B7DEEE;
-    border-radius: 6px;
-}
-.screen{
-  position: absolute;
-  width: 98%;
-  height: 99%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #1E1E1E;
+    width: 30.65%;
+    height: 55vw;
+    border-radius: 2%;
 }
 .case{
-  position: absolute;
-  width: 290px;
-  height: 290px;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 92%;
+  height: 27vw;
+  margin: 0 auto;
+}
+.screen{
+  width: 97%;
+  height: 98%;
+  justify-content: center;
 }
 .slider{
-  position: relative;
   width: 100%;
-  height: 100%;
-  background-color: #f0f0f0;
-  background-image: url('../img/1.png');
-  background-size: cover;
-  border-radius: 10px;
+  height: 27vw;
 }
 .text-control{
-  position: relative;
   display: flex;
-  width: 300px;
-  height: 80px;
-  top: 310px;
-  left: 50%;
+  width: 100%;
   justify-content: space-between;
   flex-direction: column;
-  transform: translateX(-50%);
 }
 .text{
   display: flex;
   width: 100%;
   height: 100%;
-  padding-left: 5px;
-  line-height: 40px;
+  padding-left: 2vw;
+  line-height: 3.4vw;
   overflow: hidden;
   order: 2;
 }
 .text-inside{
-  display: flex;
-  width: 100%;
-  height: 100%;
-  color: #FFFFFF;
-  font-size: 14px;
-  letter-spacing: 1.6px;
+  font-size: 1.6vw;
 }
 .control-panel{
   display: flex;
-  height: 100%;
+  height: 5vw;
   align-self: center;
   order: 1;
 }
@@ -237,16 +222,10 @@ a{
   list-style: none;
 }
 .dot{
-  width: 30px;
-  height: 30px;
-  display: flex;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
+  width: 2vw;
+  height: 2vw;
 }
-.dot:hover{
-cursor: pointer;
-}
+
 .dot1,
 .dot2,
 .dot3,
@@ -257,47 +236,18 @@ cursor: pointer;
   background-color: #3FBCF6;
   border-radius: 50%;
 }
-.d2:hover .dot2,
-.d3:hover .dot3,
-.d4:hover .dot4{
- background-color: #FFFFFF;
-}
 .dot1{
   background-color: #000000;
-  border: 3px solid #3FBCF6;
+  border: 0.2vw solid #3FBCF6;
 }
 .d1:hover .dot1{
   border-color: #FFFFFF;
 }
-.slider-move{
-  overflow: hidden;
-}
-.move{
-  animation: move 0.6s;
-}
-@keyframes move{
-  0% {
-    transform: translateX(150%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-}
 .linkToGitHub{
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  left: 0;
-  bottom: -40px;
+  height: 1vw;
   display: flex;
   align-items: center;
-  font-size: 16px;
+  font-size: 1.6vw;
+  text-align: center;
 }
-a{
-  color: #000000;
-  text-decoration: none;
-}
-
 }
