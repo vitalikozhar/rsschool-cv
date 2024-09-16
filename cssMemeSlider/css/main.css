@@ -12,6 +12,10 @@ body{
   height: 100vh;
   background-color: #FFFFFF;
 }
+.comment{
+  color: wheat;
+  font-size: 1vw;
+}
 main{
   display: flex;
   flex-direction: column;
@@ -42,6 +46,7 @@ main{
 }
 .case{
   display: flex;
+  flex-direction: column;
   width: 42%;
   height: 75.5%;
   margin: 0 auto;
@@ -51,22 +56,40 @@ main{
   display: flex;
   width: 100%;
   height: 100%;
-  background-color: #000000;
-  background-image: url('../img/1.png');
+}
+.img{
+  display: flex;
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   border-radius: 10%;
 }
+.img0{
+  background-image: url('../img/1.png');
+}
+.img1{
+  background-image: url('../img/1.png');
+}
+.img2{
+  background-image: url('../img/2.png');
+}
+.img3{
+  background-image: url('../img/3.jpeg');
+}
+.img4{
+  background-image: url('../img/4.png');
+}
 .text-control{
   display: flex;
-  width: 40.4%;
   height: 20%;
-  margin: 0 auto;
   justify-content: space-between;
 
 }
 .text{
   display: flex;
-  width: 60%;
+  width: 100%;
+  flex-direction: column;
   align-self: center;
   overflow: hidden;
 }
@@ -80,47 +103,48 @@ main{
 .control-panel{
   display: flex;
   height: 100%;
-  justify-content: flex-end;
 }
 .panel{
+  display: flex;
   width: 100%;
   height: 100%;
-  display: flex;
+  justify-content: center;
   align-items: center;
   list-style: none;
 }
-.dot{
-  width: 3.75em;
-  height: 3.75em;
+label{
   display: flex;
-  border-radius: 50%;
-  justify-content: center;
+  width: 3em;
+  height: 3em;
   align-items: center;
+  justify-content: center;
 }
-.dot:hover{
-cursor: pointer;
+
+.dot{
+  display: flex;
+  height: 3em;
 }
-.dot1,
-.dot2,
-.dot3,
-.dot4{
+.d1,
+.d2,
+.d3,
+.d4{
   width: 50%;
   height: 50%;
   display: flex;
   background-color: #3FBCF6;
   border-radius: 50%;
 }
-.d2:hover .dot2,
-.d3:hover .dot3,
-.d4:hover .dot4{
- background-color: #FFFFFF;
+
+label{
+ cursor: pointer;
 }
+label:hover .d{
+  background-color: #FFFFFF;
+}
+
 .dot1{
   background-color: #000000;
   border: 0.2vw solid #3FBCF6;
-}
-.d1:hover .dot1{
-  border-color: #FFFFFF;
 }
 .slider-move{
   overflow: hidden;
@@ -145,6 +169,105 @@ a{
   color: #000000;
   text-decoration: none;
 }
+.img{
+  visibility: hidden;
+  opacity: 0;
+  transition: transform 1s ease;
+}
+.text-inside1,
+.text-inside2,
+.text-inside3,
+.text-inside4{
+  visibility: hidden;
+  transform: translateX(-100%);
+  transition: transform 1s ease;
+}
+
+#radio1:checked ~ .text-control .text .text-inside1 {
+  visibility: visible;
+  display: flex;
+  opacity: 1;
+  transform: translateX(0%);
+}
+#radio1:checked ~ .slider .img1 {
+  visibility: visible;
+  display: flex;
+  opacity: 1;
+  transform: translateX(-100%);
+}
+#radio1:checked ~ .text-control .control-panel .panel .dot label .d1{
+  background-color: #000000;
+  border: 0.1em solid #3FBCF6;
+}
+#radio1:checked ~ .text-control .control-panel .panel .dot label .d1:hover{
+  background-color: #000000;
+  border: 0.1em solid #FFFFFF;
+}
+
+#radio2:checked ~ .text-control .text .text-inside2 {
+  visibility: visible;
+  display: flex;
+  opacity: 1;
+  transform: translateX(0%);
+}
+#radio2:checked ~ .slider .img2 {
+  visibility: visible;
+  display: flex;
+  opacity: 1;
+  transform: translateX(-200%);
+}
+#radio2:checked ~ .text-control .control-panel .panel .dot label .d2{
+  background-color: #000000;
+  border: 0.1em solid #3FBCF6;
+}
+#radio2:checked ~ .text-control .control-panel .panel .dot label .d2:hover{
+  background-color: #000000;
+  border: 0.1em solid #FFFFFF;
+}
+
+#radio3:checked ~ .text-control .text .text-inside3 {
+  visibility: visible;
+  display: flex;
+  opacity: 1;
+  transform: translateX(0%);
+}
+#radio3:checked ~ .slider .img3 {
+  visibility: visible;
+  display: flex;
+  opacity: 1;
+  transform: translateX(-300%);
+}
+#radio3:checked ~ .text-control .control-panel .panel .dot label .d3{
+  background-color: #000000;
+  border: 0.1em solid #3FBCF6;
+}
+#radio3:checked ~ .text-control .control-panel .panel .dot label .d3:hover{
+  background-color: #000000;
+  border: 0.1em solid #FFFFFF;
+}
+
+#radio4:checked ~ .text-control .text .text-inside4 {
+  visibility: visible;
+  display: flex;
+  opacity: 1;
+  transform: translateX(0%);
+}
+#radio4:checked ~ .slider .img4 {
+  visibility: visible;
+  display: flex;
+  opacity: 1;
+  transform: translateX(-400%);
+}
+#radio4:checked ~ .text-control .control-panel .panel .dot label .d4{
+  background-color: #000000;
+  border: 0.1em solid #3FBCF6;
+}
+#radio4:checked ~ .text-control .control-panel .panel .dot label .d4:hover{
+  background-color: #000000;
+  border: 0.1em solid #FFFFFF;
+}
+
+
 
 @media (max-width: 2000px){ /*------------------------------------ max 2000px*/
 
@@ -165,7 +288,7 @@ a{
   }
 }
 
-@media (max-width: 1439px){  /* ---------------------- max 1024 */
+@media (max-width: 1439px){  /* ---------------------- max 1439px */
   main{
     flex-direction: column;
     justify-content: center;
@@ -178,7 +301,8 @@ a{
 }
 .case{
   width: 92%;
-  height: 27vw;
+  height: 100%;
+  justify-content: space-around;
   margin: 0 auto;
 }
 .screen{
@@ -193,15 +317,15 @@ a{
 .text-control{
   display: flex;
   width: 100%;
+  height: 30%;
   justify-content: space-between;
   flex-direction: column;
 }
 .text{
   display: flex;
   width: 100%;
-  height: 100%;
   padding-left: 2vw;
-  line-height: 3.4vw;
+  line-height: 2.4vw;
   overflow: hidden;
   order: 2;
 }
@@ -210,7 +334,9 @@ a{
 }
 .control-panel{
   display: flex;
+  width: 15vw;
   height: 5vw;
+  justify-content: center;
   align-self: center;
   order: 1;
 }
@@ -222,8 +348,22 @@ a{
   list-style: none;
 }
 .dot{
+  width: 5vw;
+  height: 4vw;
+}
+label{
+  width: 100%;
+  height: 5vw;
+  line-height: 3vw;
+  text-align: center;
+}
+.d1,
+.d2,
+.d3,
+.d4{
   width: 2vw;
   height: 2vw;
+  line-height: 2vw;
 }
 
 .dot1,
@@ -240,9 +380,7 @@ a{
   background-color: #000000;
   border: 0.2vw solid #3FBCF6;
 }
-.d1:hover .dot1{
-  border-color: #FFFFFF;
-}
+
 .linkToGitHub{
   height: 1vw;
   display: flex;
