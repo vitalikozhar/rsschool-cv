@@ -10,28 +10,116 @@
 </head>
 
 <body>
-  <case class="frame">
-    <div class="inner-ring"></div>
-    <main>
-      <div class="inner-case">
+  <div class="outside-frame">
+    <div class="flash"></div>
+    <div class="flash2"></div>
+    <div class="frameTime"><span class="current-time">00:00</span></div>
+    <div class="add-gradient"></div>
+    <div class="frame">
+      <div class="inner-ring"></div>
+      <div class="timeSongLine">
+        <input class="timeSongLine-progress-bar" type="range" id="progress-bar" value="0" min="0" max="100" step="0.1">
       </div>
-      <div class="control-panel">
-        <i class="fa-solid fa-play"></i>
-        <i class="fa-solid fa-backward"></i>
-        <i class="fa-solid fa-forward"></i>
+      <div class="current-song-time"><span class="cs-time"></span></div>
+      <div class="full-song-time"><span class="fs-time">--:--</span></div>
+      <div class="main">
+        <div class="inner-case"></div>
+        <div class="addPhoto"></div>
+        <div class="info-line">
+          <div class="line">
+            <pre class="line-pre"></pre>
+          </div>
+        </div>
+        <div class="control-panel">
+          <i class="fa-solid fa-play"></i>
+          <i class="fa-solid fa-pause"></i>
+          <i class="fa-solid fa-backward"></i>
+          <i class="fa-solid fa-forward"></i>
+        </div>
       </div>
-    </main>
-    <footer>
-      <div class="music-list">
-        <ul class="list">
-          <li class="composition1">KILL4ME<br>Marlin Manson</li>
-          <li class="composition2">The Kids Arend's Alright<br>The Offsprings</li>
-          <li class="composition3">POISON<br>Monoplay</li>
-          <li class="composition4">The Nobodies<br>Marlin Manson</li>
-        </ul>
-      </div>
-    </footer>
-  </case>
+      <footer>
+        <div class="music-list">
+          <ul class="list">
+            <li class="composition1">KILL4ME<br>Marlin Manson
+              <div class="full-box1">
+                <div class="box1 box">
+                  <div class="bar bar1"></div>
+                  <div class="bar bar2"></div>
+                </div>
+                <div class="box1 box">
+                  <div class="bar bar4"></div>
+                  <div class="bar bar3"></div>
+                </div>
+                <div class="box1 box">
+                  <div class="bar bar2"></div>
+                  <div class="bar bar1"></div>
+                </div>
+              </div>
+            </li>
+            <li class="composition2">The Kids Arend's Alright<br>The Offsprings
+              <div class="full-box2">
+                <div class="box2 box">
+                  <div class="bar bar1"></div>
+                  <div class="bar bar2"></div>
+                </div>
+                <div class="box2 box">
+                  <div class="bar bar4"></div>
+                  <div class="bar bar3"></div>
+                </div>
+                <div class="box2 box">
+                  <div class="bar bar2"></div>
+                  <div class="bar bar1"></div>
+                </div>
+              </div>
+            </li>
+            <li class="composition3">In Your Heart<br>The Franklin Electric
+              <div class="full-box3">
+                <div class="box3 box">
+                  <div class="bar bar1"></div>
+                  <div class="bar bar2"></div>
+                </div>
+                <div class="box3 box">
+                  <div class="bar bar4"></div>
+                  <div class="bar bar3"></div>
+                </div>
+                <div class="box3 box">
+                  <div class="bar bar2"></div>
+                  <div class="bar bar1"></div>
+                </div>
+              </div>
+            </li>
+            <li class="composition4">On the Floor<br>ORI
+              <div class="full-box4">
+                <div class="box4 box">
+                  <div class="bar bar1"></div>
+                  <div class="bar bar2"></div>
+                </div>
+                <div class="box4 box">
+                  <div class="bar bar4"></div>
+                  <div class="bar bar3"></div>
+                </div>
+                <div class="box4 box">
+                  <div class="bar bar2"></div>
+                  <div class="bar bar1"></div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="logo">
+          <ul class="logo-list">
+            <li class="github-link link"><a target="_blank" href="https://github.com/vitalikozhar?tab=repositories"><i
+                  class="fa-brands fa-github"></i></a></li>
+            <li class="linkRS link"><a target="_blank" href="https://rs.school/courses/javascript-preschool-ru"></a>
+            </li>
+            <li class="year">2024</li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="js/index.js"></script>
 </body>
 
 </html>
