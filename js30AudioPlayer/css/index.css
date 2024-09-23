@@ -649,3 +649,166 @@ footer{
 }
 }
 
+@media (max-width: 900px) {
+  .outside-frame{
+    width: 82.2vw;
+    height: 132.74vw;
+    border-radius: 43px;
+  }
+  .add-gradient{
+    width: 82.2vw;
+    height: 132.74vw;
+    border-radius: 40px;
+  }
+  .frame{
+    width: 82vw;
+    height: 133vw;
+    border-radius: 40px;
+  }
+  .flash{
+    width: 70vw;
+    height: 2.8vw;
+    bottom: 56vw;
+  }
+  .flash2{
+    width: 68.4vw;
+    height: 0.2vw;
+    bottom: 57vw;
+  }
+  .frameTime{
+    width: 33.4vw;
+    height: 15vw;
+    top: 54vw;
+    filter: blur(0.4vw);
+  }
+  .current-time{
+    font-size: 17vw;
+  }
+
+  .main{
+    margin-top: -3.8vw;
+    gap: 1.6vw;
+  }
+  .control-panel{
+    height: 13.4vw;
+  }
+  .inner-case{
+    height: 75.08vw;
+  }
+  .addPhoto{
+    height: 75.08vw;
+  }
+  .info-line{
+    height: 5.01vw;
+  }
+  .line{
+    font-size: 4vw;
+  }
+  .line-pre{
+    font-size: 2vw;
+  }
+  .inner-ring{
+    width: 23.4vw;
+    height: 23.4vw;
+  }
+  .fa-play{
+    font-size: 8vw;
+    top: 101%;
+  }
+  .fa-pause{
+    font-size: 9vw;
+    top: 99%;
+    left: 50.6%;
+  }
+  .fa-backward{
+    font-size: 6.68vw;
+  }
+  .fa-forward{
+    font-size: 6.68vw;
+  }
+  footer{
+    height: 36vw;
+  }
+  .music-list{
+    height: 27vw;
+  }
+  .composition1,
+  .composition2,
+  .composition3,
+  .composition4{
+    font-size: 2vw;
+  }
+
+  .box1,
+  .box2,
+  .box3,
+  .box4{
+    margin-left: 1vw;
+    width: 0.1vw;
+  }
+  .bar {
+    width: 0.8vw;
+    margin-left: 2vw;
+  }
+
+  .bar1 {
+    height: 0.2vw;
+  }
+
+  .bar2 {
+    height: 0.4vw;
+  }
+
+  .bar3 {
+    height: 0.5vw;
+  }
+
+  .bar4 {
+    height: 0.44vw;
+  }
+  .timeSongLine{
+    bottom: 2.4vw;
+  }
+  .timeSongLine-progress-bar::-webkit-slider-thumb {
+    width: 0.8vw;
+    height: 0.6vw;
+  }
+  .current-song-time{
+    bottom: 0.5vw;
+    font-size: 2vw;
+  }
+  .full-song-time{
+    right: 8vw;
+    bottom: 3vw;
+    font-size:2vw;
+  }
+  .logo{
+    bottom: -6vw;
+  }
+  .logo-list{
+    width: 20vw;
+    height: 4vw;
+  }
+  .github-link{
+    width: 4vw;
+    height: 4vw;
+  }
+  .github-link a{
+    width: 4vw;
+    height: 4vw;
+  }
+  .fa-brands{
+    font-size: 4vw;
+  }
+  .linkRS{
+    width: 4vw;
+    height: 4vw;
+  }
+  .linkRS a{
+    width: 4vw;
+    height: 4vw;
+  }
+  .year{
+    font-size: 3vw;
+  }
+  }
