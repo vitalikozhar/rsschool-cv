@@ -648,167 +648,166 @@ footer{
   font-size: 1.5vw;
 }
 }
-
-@media (max-width: 900px) {
+@media (max-width: 700px) {
   .outside-frame{
-    width: 82.2vw;
-    height: 132.74vw;
+    width: 61.80vw;
+    height: 99.56vw;
     border-radius: 43px;
   }
   .add-gradient{
-    width: 82.2vw;
-    height: 132.74vw;
+    width: 61.65vw;
+    height: 100.05vw;
     border-radius: 40px;
   }
   .frame{
-    width: 82vw;
-    height: 133vw;
+    width: 61.50vw;
+    height: 99.75vw;
     border-radius: 40px;
   }
   .flash{
-    width: 70vw;
-    height: 2.8vw;
-    bottom: 56vw;
+    width: 52.50vw;
+    height: 2.10vw;
+    bottom: 42.00vw;
   }
   .flash2{
-    width: 68.4vw;
-    height: 0.2vw;
-    bottom: 57vw;
+    width: 51.30vw;
+    height: 0.15vw;
+    bottom: 42.75vw;
   }
   .frameTime{
-    width: 33.4vw;
-    height: 15vw;
-    top: 54vw;
-    filter: blur(0.4vw);
+    width: 25.05vw;
+    height: 11.25vw;
+    top: 40.50vw;
+    filter: blur(0.60vw);
   }
   .current-time{
-    font-size: 17vw;
+    font-size: 12.75vw;
   }
 
   .main{
-    margin-top: -3.8vw;
-    gap: 1.6vw;
+    margin-top: -2.85vw;
+    gap: 1.20vw;
   }
   .control-panel{
-    height: 13.4vw;
+    height: 10.05vw;
   }
   .inner-case{
-    height: 75.08vw;
+    height: 56.31vw;
   }
   .addPhoto{
-    height: 75.08vw;
+    height: 56.28vw;
   }
   .info-line{
-    height: 5.01vw;
+    height: 3.76vw;
   }
   .line{
-    font-size: 4vw;
+    font-size: 3.00vw;
   }
   .line-pre{
-    font-size: 2vw;
+    font-size: 1.50vw;
   }
   .inner-ring{
-    width: 23.4vw;
-    height: 23.4vw;
+    width: 17.55vw;
+    height: 17.55vw;
   }
   .fa-play{
-    font-size: 8vw;
+    font-size: 6.00vw;
     top: 101%;
   }
   .fa-pause{
-    font-size: 9vw;
+    font-size: 6.75vw;
     top: 99%;
     left: 50.6%;
   }
   .fa-backward{
-    font-size: 6.68vw;
+    font-size: 5.01vw;
   }
   .fa-forward{
-    font-size: 6.68vw;
+    font-size: 5.01vw;
   }
   footer{
-    height: 36vw;
+    height: 27.00vw;
   }
   .music-list{
-    height: 27vw;
+    height: 20.25vw;
   }
   .composition1,
   .composition2,
   .composition3,
   .composition4{
-    font-size: 2vw;
+    font-size: 1.50vw;
   }
 
   .box1,
   .box2,
   .box3,
   .box4{
-    margin-left: 1vw;
-    width: 0.1vw;
+    margin-left: 0.75vw;
+    width: 0.08vw;
   }
   .bar {
-    width: 0.8vw;
-    margin-left: 2vw;
+    width: 0.60vw;
+    margin-left: 1.50vw;
   }
 
   .bar1 {
-    height: 0.2vw;
+    height: 0.15vw;
   }
 
   .bar2 {
-    height: 0.4vw;
+    height: 0.30vw;
   }
 
   .bar3 {
-    height: 0.5vw;
+    height: 0.38vw;
   }
 
   .bar4 {
-    height: 0.44vw;
+    height: 0.33vw;
   }
   .timeSongLine{
-    bottom: 2.4vw;
+    bottom: 1.80vw;
   }
   .timeSongLine-progress-bar::-webkit-slider-thumb {
-    width: 0.8vw;
-    height: 0.6vw;
+    width: 0.60vw;
+    height: 0.45vw;
   }
   .current-song-time{
-    bottom: 0.5vw;
-    font-size: 2vw;
+    bottom: 0.38vw;
+    font-size: 1.50vw;
   }
   .full-song-time{
-    right: 8vw;
-    bottom: 3vw;
-    font-size:2vw;
+    right: 6.00vw;
+    bottom: 2.25vw;
+    font-size: 1.50vw;
   }
   .logo{
-    bottom: -6vw;
+    bottom: -4.50vw;
   }
   .logo-list{
-    width: 20vw;
-    height: 4vw;
+    width: 15.00vw;
+    height: 3.00vw;
   }
   .github-link{
-    width: 4vw;
-    height: 4vw;
+    width: 3.00vw;
+    height: 3.00vw;
   }
   .github-link a{
-    width: 4vw;
-    height: 4vw;
+    width: 3.00vw;
+    height: 3.00vw;
   }
   .fa-brands{
-    font-size: 4vw;
+    font-size: 3.00vw;
   }
   .linkRS{
-    width: 4vw;
-    height: 4vw;
+    width: 3.00vw;
+    height: 3.00vw;
   }
   .linkRS a{
-    width: 4vw;
-    height: 4vw;
+    width: 3.00vw;
+    height: 3.00vw;
   }
   .year{
-    font-size: 3vw;
+    font-size: 2.25vw;
   }
-  }
+}
