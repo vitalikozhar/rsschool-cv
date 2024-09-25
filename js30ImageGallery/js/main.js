@@ -27,7 +27,11 @@ searchInput.addEventListener("input", () => {
 
 let fiveLetterWords = [];
 let sixLetterWords = [];
-fetch("http://127.0.0.1:5500/js30ImageGallery/words.json")
+
+const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const jsonPath = isLocal ? 'http://127.0.0.1:5500/js30ImageGallery/words.json' : '/rsschool-cv/js30ImageGallery/words.json';
+
+fetch(jsonPath)
   .then((response) => response.json())
   .then((data) => {
     fiveLetterWords = data.five_letter_words;
@@ -36,9 +40,12 @@ fetch("http://127.0.0.1:5500/js30ImageGallery/words.json")
   .catch((error) => console.error("Ошибка при загрузке words.JSON:", error));
 
 whiteBlock.addEventListener("click", changeWords);
+whiteBlock.addEventListener("touchstart", changeWords);
+
 
 function changeWords() {
   whiteBlock.removeEventListener("click", changeWords);
+  whiteBlock.removeEventListener("touchstart", changeWords);
   const index1 = Math.floor(Math.random() * fiveLetterWords.length);
   const index2 = Math.floor(Math.random() * sixLetterWords.length);
   const word1 = fiveLetterWords[index1];
@@ -62,7 +69,7 @@ function changeWords() {
   setTimeout(() => {
     searchInput.value = "";
     searchInput.style.opacity = "1";
-    searchInput.placeholder = "BEHOLD THE TRUTH";
+    searchInput.placeholder = "Who are you today?";
   }, 1000);
   setTimeout(() => {
     whitePepper.style.opacity = "1";
@@ -84,7 +91,7 @@ function changeWords() {
 const playAudio = new Audio("music/Gustavo.mp3");
 whiteBlock.addEventListener("click", music);
 function music() {
-  imageFinder.style.color = '#000000'
+  imageFinder.style.color = '#16161616'
   playAudio.play();
   setTimeout(() => {
     playAudio.pause();
