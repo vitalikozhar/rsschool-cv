@@ -1,47 +1,73 @@
-const page = document.querySelector("body");
+const page = document.querySelector('.loading');
 const searchInput = document.querySelector(".enter-text");
-const mainFrame = document.querySelector(".main-frame");
 const pepperLogo = document.querySelector(".fa-pepper-hot");
 const whitePepper = document.querySelector(".white-background h1");
 const whiteBlock = document.querySelector(".white-block");
 const material = document.querySelector(".material-symbols-outlined");
-const imageFinder = document.querySelector('.image-finder');
+const imageFinder = document.querySelector(".image-finder");
+const accessKey = 'LagzL3quEP0QQ7SBjeleGxctpcnH3pLIyGRibgcrW-k';
+const topPhotoLine = document.querySelector('.topPhotoLine');
+const bottomPhotoLine = document.querySelector('.bottomPhotoLine');
+const screenSaver = document.querySelector('.screen-saver');
+
+
+// ----------------------------------------------------------------page design
+
 
 window.addEventListener("load", () => {
-  page.style.opacity = "1";
-  page.style.visibility = "visible";
-  searchInput.focus();
+  setTimeout(() => {
+    screenSaver.style.opacity = '0';
+  }, 600);
+  setTimeout(() => {
+    page.style.opacity = "1";
+    page.style.visibility = "visible";
+    searchInput.focus();
+  }, 1300);
 });
 
 searchInput.addEventListener("input", () => {
   if (searchInput.value === "") {
-    mainFrame.style.opacity = "0";
     whiteBlock.style.backgroundColor = "#FFFFFF";
     whitePepper.style.opacity = 0.8;
+    topPhotoLine.style.opacity = '1';
+    bottomPhotoLine.style.opacity = '1'
   } else {
-    mainFrame.style.opacity = "0.7";
     whiteBlock.style.backgroundColor = "#FF0000";
     whitePepper.style.opacity = 0.2;
+    topPhotoLine.style.opacity = '0.3';
+    bottomPhotoLine.style.opacity = '0.3'
+
   }
 });
 
+// -------------------------------------------------------previewPhoto
+
+const previewPhoto0 = document.querySelector('.previewPhoto0');
+const previewPhoto1 = document.querySelector('.previewPhoto1');
+const previewPhoto2 = document.querySelector('.previewPhoto2');
+const previewPhoto3 = document.querySelector('.previewPhoto3');
+const previewPhoto4 = document.querySelector('.previewPhoto4');
+const preview = document.querySelectorAll('.preview');
+
+// --------------------------------------------------------random words JSON
+
 let fiveLetterWords = [];
 let sixLetterWords = [];
-
 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-const jsonPath = isLocal ? 'http://127.0.0.1:5500/js30ImageGallery/words.json' : '/rsschool-cv/js30ImageGallery/words.json';
+const jsonPath = isLocal ? 'http://127.0.0.1:5500/words.json' : '/rsschool-cv/js30ImageGallery/words.json';
 
 fetch(jsonPath)
   .then((response) => response.json())
   .then((data) => {
     fiveLetterWords = data.five_letter_words;
     sixLetterWords = data.six_letter_words;
+
+    whiteBlock.addEventListener("click", changeWords);
+    whiteBlock.addEventListener("touchstart", changeWords);
   })
   .catch((error) => console.error("Ошибка при загрузке words.JSON:", error));
 
-whiteBlock.addEventListener("click", changeWords);
-whiteBlock.addEventListener("touchstart", changeWords);
-
+// --------------------------------------------------------------------------------change random words
 
 function changeWords() {
   whiteBlock.removeEventListener("click", changeWords);
@@ -88,15 +114,44 @@ function changeWords() {
   }, 11000);
 }
 
+// --------------------------------------------------------add music
+
 const playAudio = new Audio("music/Gustavo.mp3");
 whiteBlock.addEventListener("click", music);
 function music() {
-  imageFinder.style.color = '#16161616'
+  imageFinder.style.color = "#16161616";
   playAudio.play();
   setTimeout(() => {
     playAudio.pause();
-    imageFinder.style.color = '#CDCDCD'
+    imageFinder.style.color = "#CDCDCD";
     whiteBlock.removeEventListener("click", music);
   }, 17000);
 }
 
+// -------------------------------------------------------unsplash.com
+
+
+function writeUrl(){
+  let searchTerm = searchInput.value === '' ? 'lomography film' : searchInput.value;
+  return `https://api.unsplash.com/search/photos?query=${searchTerm}&page=10&per_page=16&client_id=${accessKey}`;
+}
+
+let fetchedData;
+
+fetch(writeUrl())
+.then(response => response.json())
+.then(date => {
+  console.log(date);
+  fetchedData = date;
+   addPhotoPreview();
+})
+.catch(error => console.error('not find unsplash JSON', error));
+
+// -------------------------------------------------------add previewPhoto
+
+function addPhotoPreview(){
+  for(let i = 0; i < preview.length; i += 1){
+  photosUrl = fetchedData.results[i].urls.small;
+  preview[i].style.backgroundImage = `url(${photosUrl})`;
+  }
+ }
