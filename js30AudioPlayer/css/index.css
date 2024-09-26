@@ -17,6 +17,25 @@ body{
   align-items: center;
   letter-spacing: 0.08em;
 }
+.screensaver{
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: #FFFFFF;
+  z-index: 6;
+}
+.image-screen{
+  position: absolute;
+  width: 400px;
+  height: 270px;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(../img/simons-cat-cartoon.gif);
+  background-size: cover;
+  transition:  opacity 2s linear;
+}
 .outside-frame{
   position: relative;
   display: flex;

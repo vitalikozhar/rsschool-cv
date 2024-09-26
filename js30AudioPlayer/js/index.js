@@ -30,6 +30,18 @@ const timeSongLineProgressBar = document.querySelector(
 const csTime = document.querySelector(".cs-time");
 const fsTime = document.querySelector(".fs-time");
 const innerRing = document.querySelector(".inner-ring");
+const screensaver = document.querySelector('.screensaver');
+const imageScreen = document.querySelector('.image-screen');
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    imageScreen.style.opacity = '0';
+  }, 800);
+  setTimeout(() => {
+    screensaver.style.display = 'none';
+    imageScreen.style.display = 'none';
+  }, 2200);
+});
 
 const arraySong = [
   "music/KILL4ME.mp3",
