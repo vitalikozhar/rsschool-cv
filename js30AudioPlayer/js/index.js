@@ -17,8 +17,6 @@ class AudioPlayer {
 }
 let numberSong = 0;
 
-const playPlayer = document.querySelector(".fa-play");
-const stopPlayer = document.querySelector(".fa-pause");
 const faForward = document.querySelector(".fa-forward");
 const faBackward = document.querySelector(".fa-backward");
 const addGradient = document.querySelector(".add-gradient");
@@ -33,32 +31,34 @@ const csTime = document.querySelector(".cs-time");
 const fsTime = document.querySelector(".fs-time");
 const innerRing = document.querySelector(".inner-ring");
 
-stopPlayer.style.display = "none";
-
 const arraySong = [
   "music/KILL4ME.mp3",
   "music/OffspringKidsAlright.mp3",
   "music/Franklin.mp3",
   "music/ORIFloor.mp3",
+  "music/Linkin.mp3"
 ];
 const arrayNameInLine = [
   "KILL4ME    Marlin Manson",
   "The Kids Arend's Alright     The Offsprings",
   "In Your Heart    The Franklin Electric",
   "On the Floor    ORI",
+  "Faint   Linkin Park"
 ];
 
 const box1 = document.querySelector(".full-box1");
 const box2 = document.querySelector(".full-box2");
 const box3 = document.querySelector(".full-box3");
 const box4 = document.querySelector(".full-box4");
-const arrayEqualizer = [box1, box2, box3, box4];
+const box5 = document.querySelector(".full-box5");
+const arrayEqualizer = [box1, box2, box3, box4, box5];
 
 const arrayGradient = [
   "linear-gradient(to bottom,  #F7F7F7, #bebebe, #656565, #1b1b1b)",
   "linear-gradient(to bottom,  #F7F7F7, #af0000, #0063a4, #00111c)",
   "linear-gradient(to bottom,  #F7F7F7, #916161, #37191e, #00111c)",
   "linear-gradient(to bottom,  #aca396, #7c5151, #2d4a34, #160b00)",
+  "linear-gradient(to bottom,  #e4e4e4, #e4e4e4, #9e9479, #160b00)"
 ];
 
 const arrayPhoto = [
@@ -66,9 +66,10 @@ const arrayPhoto = [
   `url('img/os1.png')`,
   `url('img/heart.png')`,
   `url('img/4ori.png')`,
+  `url('img/lp.png')`,
 ];
 
-const bpm = [0.55, 0.6, 1.85, 2];
+const bpm = [0.55, 0.6, 1.85, 2, 0.44];
 
 let musicArray = [];
 for (let i = 0; i < arraySong.length; i += 1) {
@@ -84,12 +85,13 @@ for (let i = 0; i < arraySong.length; i += 1) {
   );
 }
 
-playPlayer.addEventListener("click", playMusic);
 
 function playMusic() {
   if (numberSong >= arraySong.length || numberSong < 0) {
     numberSong = 0;
   }
+  innerRing.textContent = '';
+  innerRing.textContent = `${numberSong + 1}`;
   addGradient.style.backgroundImage = `${musicArray[numberSong].gradient}`;
   innerRing.style.animation = 'rotate 8s linear infinite';
   musicArray[numberSong].play();
@@ -116,8 +118,6 @@ function playMusic() {
     }
   });
   flash.style.display = "flex";
-  playPlayer.style.display = "none";
-  stopPlayer.style.display = "flex";
   flash.style.animation = `redLight  ${musicArray[numberSong].bpm}s ease-in infinite`;
 
   // ------------------------------------progress bar-------------------------
@@ -169,13 +169,9 @@ function nextSong() {
   musicArray[numberSong].audio.addEventListener("ended", nextSong);
 }
 
-stopPlayer.addEventListener("click",stopMusic);
-
 function stopMusic() {
   innerRing.style.animation = 'rotate 0s linear infinite';
   musicArray[numberSong].pause();
-  playPlayer.style.display = "flex";
-  stopPlayer.style.display = "none";
   flash.style.display = "none";
   linePre.style.display = "none";
   innerCase.style.opacity = "0.2";
