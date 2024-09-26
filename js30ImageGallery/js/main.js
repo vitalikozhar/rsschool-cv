@@ -19,6 +19,7 @@ window.addEventListener("load", () => {
     screenSaver.style.opacity = '0';
   }, 600);
   setTimeout(() => {
+    screenSaver.style.display = 'none';
     page.style.opacity = "1";
     page.style.visibility = "visible";
     searchInput.focus();
