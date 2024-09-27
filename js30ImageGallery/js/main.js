@@ -14,6 +14,7 @@ const photoBlockFromUnSplash = document.querySelector(
   ".photoBlockFromUnSplash"
 );
 const nextPage = document.querySelector(".nextPage");
+const home = document.querySelector('.home');
 let preview;
 let fetchedData;
 let page = 1;
@@ -47,15 +48,16 @@ window.addEventListener("load", () => {
 
 function screenForLoading() {
   setTimeout(() => {
+    screenSaver.style.display = "flex";
     screenSaver.style.opacity = "0";
   }, 600);
 
   setTimeout(() => {
-    screenSaver.style.display = "none";
     loading.style.opacity = "1";
     loading.style.visibility = "visible";
     searchInput.focus();
-  }, 1300);
+    screenSaver.style.display = "none";
+  }, 1400);
 }
 
 searchInput.addEventListener("input", () => {
@@ -117,7 +119,7 @@ function changeWords() {
   }
   whitePepper.style.opacity = "0";
   material.style.opacity = "0";
-  searchInput.style.padding = "0 28vw";
+  searchInput.style.padding = "0 18vw";
   searchInput.style.opacity = "0";
   setTimeout(() => {
     searchInput.value = "";
@@ -204,10 +206,24 @@ searchInput.addEventListener("keydown", (event) => {
     iconSearch.style.transform = "translateY(10px)";
     iconSearch.style.top = "0";
     iconSearch.style.position = "fixed";
-    iconSearch.style.opacity = "0.7";
+    iconSearch.style.opacity = "0.8";
+    home.style.opacity ='1';
     fetchImages();
     photoBlockFromUnSplash.style.display = "flex";
+    nextPage.style.display ='flex';
   }
+});
+
+home.addEventListener('click', () => {
+  screenSaver.style.opacity = "0";
+  screenSaver.style.display = "none";
+  iconSearch.style.transform = "translateY(220%)";
+  iconSearch.style.top = "50%";
+  iconSearch.style.position = "absolute";
+  iconSearch.style.opacity = "1";
+  home.style.opacity ='0';
+  photoBlockFromUnSplash.style.display = "none";
+  nextPage.style.display ='none';
 });
 
 function addNextPage() {
