@@ -38,8 +38,15 @@
   background-image: url(../img/cat.gif);
   background-size: cover;
   font-size: 2vw;
-  color: #161616;
 }
+
+.imgScreen span{
+  position: absolute;
+  display: flex;
+  top: -4vw;
+
+}
+
 
  .loading{
   display: flex;
@@ -54,7 +61,7 @@
   transition: opacity 0.6s ease-in;
  }
 
- header{
+ .topLine{
   position: absolute;
   display: flex;
   overflow: hidden;
@@ -62,6 +69,7 @@
   height: 14svh;
   top: 0;
   left: 0;
+  z-index: 1;
  }
 
  .topPhotoLine{
@@ -98,13 +106,14 @@
   height: 50%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -60%);
  }
 
  .white-background{
   position: absolute;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
   width: 79%;
   top: 50%;
   left: 50%;
@@ -147,23 +156,25 @@
   transition: color 0.4s ease-in, opacity 0.4s ease-in;
 }
 
-.white-background .icon-search{
+main .icon-search{
+  position: absolute;
   display: flex;
-  width: 88%;
-  height: 3.5vw;
-  margin: 0 auto;
+  width: 60%;
   padding: 0 1vw;
+  top: 50%;
+  transform: translateY(220%);
   line-height: 4vw;
   font-size: 3vw;
   font-weight: 700;
   color: #cdcdcd91;
   background-color: #FFFFFF;
-  border-radius: 1.5vw;
+  border: 1px solid #F6F6F6;
+  border-radius: 1.1vw;
   transition: width 0.1s ease-in;
-  z-index: 1;
+  z-index: 3;
 }
 .icon-search:hover{
-  width: 87%;
+  width: 61%;
   cursor: pointer;
 }
 
@@ -219,7 +230,7 @@
   font-size: 3.7vw;
 }
 
-footer{
+.bottonLine{
   position: absolute;
   display: flex;
   overflow: hidden;
@@ -239,7 +250,52 @@ footer{
   transition: opacity 0.4s ease-in;
  }
 
-.github-logo{
+ .photoBlockFromUnSplash{
+  position: relative;
+  display: none;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  flex-wrap: wrap;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  background-color: #EBEBEB;
+  z-index: 1;
+  gap: 1vw;
+ }
+
+ .imageCard{
+  display: flex;
+  width: 19vw;
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+ }
+
+ .nextPage{
+  position: fixed;
+  display: flex;
+  width: 2vw;
+  height: 2vw;
+  bottom: 0;
+  opacity: 0.7;
+  background-color: #FFFFFF;
+  z-index: 7;
+  transition: all 0.6s linear;
+}
+
+.nextPage:hover{
+  cursor: pointer;
+  background-color: #00A5FF;
+}
+
+.fa-arrow-down{
+  font-size: 2vw;
+  opacity: 0.3;
+  margin: 0 auto;
+}
+
+/* .github-logo{
   display: flex;
   width: 1.5vw;
 }
@@ -263,10 +319,10 @@ background-size: cover;
 
 .year{
   font-size: 2vw;
-}
+} */
 
 
-@media (max-width: 500px){
+@media (max-width: 700px){
 .previewPhoto6,
 .previewPhoto7{
   display: none;

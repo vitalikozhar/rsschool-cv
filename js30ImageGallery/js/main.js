@@ -1,61 +1,87 @@
-const page = document.querySelector('.loading');
+const loading = document.querySelector(".loading");
 const searchInput = document.querySelector(".enter-text");
+const iconSearch = document.querySelector(".icon-search");
 const pepperLogo = document.querySelector(".fa-pepper-hot");
 const whitePepper = document.querySelector(".white-background h1");
 const whiteBlock = document.querySelector(".white-block");
 const material = document.querySelector(".material-symbols-outlined");
 const imageFinder = document.querySelector(".image-finder");
-const accessKey = 'LagzL3quEP0QQ7SBjeleGxctpcnH3pLIyGRibgcrW-k';
-const topPhotoLine = document.querySelector('.topPhotoLine');
-const bottomPhotoLine = document.querySelector('.bottomPhotoLine');
-const screenSaver = document.querySelector('.screen-saver');
-
-
+const accessKey = "LagzL3quEP0QQ7SBjeleGxctpcnH3pLIyGRibgcrW-k";
+const topPhotoLine = document.querySelector(".topPhotoLine");
+const bottomPhotoLine = document.querySelector(".bottomPhotoLine");
+const screenSaver = document.querySelector(".screen-saver");
+const photoBlockFromUnSplash = document.querySelector(
+  ".photoBlockFromUnSplash"
+);
+const nextPage = document.querySelector(".nextPage");
+let preview;
+let fetchedData;
+let page = 1;
+let limit = 0;
 // ----------------------------------------------------------------page design
 
-
 window.addEventListener("load", () => {
+  for (let i = 0; i < 8; i += 1) {
+    let newDivTop = document.createElement("div");
+    newDivTop.className = "preview";
+
+    let newDivBottom = document.createElement("div");
+    newDivBottom.className = "preview";
+
+    if (i === 6) {
+      newDivTop.classList.add("previewPhoto6");
+      newDivBottom.classList.add("previewPhoto6");
+    }
+    if (i === 7) {
+      newDivTop.classList.add("previewPhoto7");
+      newDivBottom.classList.add("previewPhoto7");
+    }
+    topPhotoLine.appendChild(newDivTop);
+    bottomPhotoLine.appendChild(newDivBottom);
+  }
+  preview = document.querySelectorAll(".preview");
+
+  fetchImages();
+  screenForLoading();
+});
+
+function screenForLoading() {
   setTimeout(() => {
-    screenSaver.style.opacity = '0';
+    screenSaver.style.opacity = "0";
   }, 600);
+
   setTimeout(() => {
-    screenSaver.style.display = 'none';
-    page.style.opacity = "1";
-    page.style.visibility = "visible";
+    screenSaver.style.display = "none";
+    loading.style.opacity = "1";
+    loading.style.visibility = "visible";
     searchInput.focus();
   }, 1300);
-});
+}
 
 searchInput.addEventListener("input", () => {
   if (searchInput.value === "") {
     whiteBlock.style.backgroundColor = "#FFFFFF";
     whitePepper.style.opacity = 0.8;
-    topPhotoLine.style.opacity = '1';
-    bottomPhotoLine.style.opacity = '1'
+    topPhotoLine.style.opacity = "1";
+    bottomPhotoLine.style.opacity = "1";
   } else {
     whiteBlock.style.backgroundColor = "#FF0000";
     whitePepper.style.opacity = 0.2;
-    topPhotoLine.style.opacity = '0.3';
-    bottomPhotoLine.style.opacity = '0.3'
-
+    topPhotoLine.style.opacity = "0.3";
+    bottomPhotoLine.style.opacity = "0.3";
   }
 });
-
-// -------------------------------------------------------previewPhoto
-
-const previewPhoto0 = document.querySelector('.previewPhoto0');
-const previewPhoto1 = document.querySelector('.previewPhoto1');
-const previewPhoto2 = document.querySelector('.previewPhoto2');
-const previewPhoto3 = document.querySelector('.previewPhoto3');
-const previewPhoto4 = document.querySelector('.previewPhoto4');
-const preview = document.querySelectorAll('.preview');
 
 // --------------------------------------------------------random words JSON
 
 let fiveLetterWords = [];
 let sixLetterWords = [];
-const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-const jsonPath = isLocal ? 'http://127.0.0.1:5500/words.json' : '/rsschool-cv/js30ImageGallery/words.json';
+const isLocal =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1";
+const jsonPath = isLocal
+  ? "http://127.0.0.1:5500/words.json"
+  : "/rsschool-cv/js30ImageGallery/words.json";
 
 fetch(jsonPath)
   .then((response) => response.json())
@@ -91,7 +117,7 @@ function changeWords() {
   }
   whitePepper.style.opacity = "0";
   material.style.opacity = "0";
-  searchInput.style.padding = "0 26vw";
+  searchInput.style.padding = "0 28vw";
   searchInput.style.opacity = "0";
   setTimeout(() => {
     searchInput.value = "";
@@ -131,28 +157,87 @@ function music() {
 
 // -------------------------------------------------------unsplash.com
 
-
-function writeUrl(){
-  let searchTerm = searchInput.value === '' ? 'lomography film' : searchInput.value;
-  return `https://api.unsplash.com/search/photos?query=${searchTerm}&page=10&per_page=16&client_id=${accessKey}`;
+function fetchImages() {
+  fetch(writeUrl())
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      fetchedData = data;
+      addPhotoPreview();
+      addPhotoToPhotoBlock();
+    })
+    .catch((error) => console.error("not find UnSplash JSON", error));
 }
 
-let fetchedData;
-
-fetch(writeUrl())
-.then(response => response.json())
-.then(date => {
-  console.log(date);
-  fetchedData = date;
-   addPhotoPreview();
-})
-.catch(error => console.error('not find unsplash JSON', error));
+function writeUrl() {
+  let nextPage = page;
+  let searchTerm =
+    searchInput.value === "" ? "lomography film" : searchInput.value;
+  return `https://api.unsplash.com/search/photos?query=${searchTerm}&page=${nextPage}&per_page=30&client_id=${accessKey}`;
+}
 
 // -------------------------------------------------------add previewPhoto
 
-function addPhotoPreview(){
-  for(let i = 0; i < preview.length; i += 1){
-  photosUrl = fetchedData.results[i].urls.small;
-  preview[i].style.backgroundImage = `url(${photosUrl})`;
+function addPhotoPreview() {
+  for (let i = 0; i < preview.length; i += 1) {
+    let photosUrl = fetchedData.results[i].urls.small;
+    preview[i].style.backgroundImage = `url(${photosUrl})`;
   }
- }
+}
+
+//  --------------------------------------------------------add photo in block
+let imageCard = document.querySelectorAll(".imageCard");
+
+searchInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    page = 1;
+    limit = 0;
+    if(imageCard.length > 0){
+    imageCard.forEach(element => {
+      element.remove();
+    });
+  }
+    addNextPage();
+    screenSaver.style.opacity = "1";
+    screenSaver.style.display = "flex";
+    screenForLoading();
+    iconSearch.style.transform = "translateY(10px)";
+    iconSearch.style.top = "0";
+    iconSearch.style.position = "fixed";
+    iconSearch.style.opacity = "0.7";
+    fetchImages();
+    photoBlockFromUnSplash.style.display = "flex";
+  }
+});
+
+function addNextPage() {
+  for (let i = 0; i < 30; i += 1) {
+    let photoCart = document.createElement("div");
+    photoCart.className = "imageCard";
+    photoBlockFromUnSplash.appendChild(photoCart);
+  }
+  imageCard = document.querySelectorAll(".imageCard");
+}
+addNextPage();
+
+function addPhotoToPhotoBlock() {
+  console.log(imageCard);
+  for (let i = 0 ; i < 30; i += 1) {
+    let photosUrl = fetchedData.results[i].urls.small;
+    console.log("i "  + i);
+    imageCard[i + limit].style.backgroundImage = `url(${photosUrl})`;
+  }
+}
+
+nextPage.addEventListener("click", () => {
+  page += 1;
+  limit += 30;
+  addNextPage();
+  fetchImages();
+  nextPage.style.backgroundColor = '#FF0000';
+  nextPage.style.height = '1vw';
+  setTimeout(() => {
+    nextPage.style.backgroundColor = '#FFFFFF';
+    nextPage.style.height = '2vw';
+  }, 400);
+});
