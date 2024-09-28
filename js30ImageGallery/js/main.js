@@ -4,7 +4,9 @@ const iconSearch = document.querySelector(".icon-search");
 const pepperLogo = document.querySelector(".fa-pepper-hot");
 const whitePepper = document.querySelector(".white-background h1");
 const whiteBlock = document.querySelector(".white-block");
-const material = document.querySelector(".material-symbols-outlined");
+const material = document.querySelector(
+  ".icon-search .material-symbols-outlined"
+);
 const imageFinder = document.querySelector(".image-finder");
 const accessKey = "LagzL3quEP0QQ7SBjeleGxctpcnH3pLIyGRibgcrW-k";
 const topPhotoLine = document.querySelector(".topPhotoLine");
@@ -14,11 +16,20 @@ const photoBlockFromUnSplash = document.querySelector(
   ".photoBlockFromUnSplash"
 );
 const nextPage = document.querySelector(".nextPage");
-const home = document.querySelector('.home');
+const home = document.querySelector(".home");
+const deleteImage = document.querySelector(".deleteImage");
+const frameModalWindow = document.querySelector(".frame-modal-window");
+const modalWindow = document.querySelector(".modal-window");
+const backIcon = document.querySelector(
+  ".frame-modal-window .material-symbols-outlined"
+);
+const setting = document.querySelector('.setting');
+const settingModalWindow = document.querySelector('.setting-modal-window');
 let preview;
 let fetchedData;
 let page = 1;
 let limit = 0;
+let deliteImageFlag = true;
 // ----------------------------------------------------------------page design
 
 window.addEventListener("load", () => {
@@ -163,7 +174,6 @@ function fetchImages() {
   fetch(writeUrl())
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       fetchedData = data;
       addPhotoPreview();
       addPhotoToPhotoBlock();
@@ -192,13 +202,14 @@ let imageCard = document.querySelectorAll(".imageCard");
 
 searchInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
+    window.scrollTo(0, 0);
     page = 1;
     limit = 0;
-    if(imageCard.length > 0){
-    imageCard.forEach(element => {
-      element.remove();
-    });
-  }
+    if (imageCard.length > 0) {
+      imageCard.forEach((element) => {
+        element.remove();
+      });
+    }
     addNextPage();
     screenSaver.style.opacity = "1";
     screenSaver.style.display = "flex";
@@ -207,23 +218,27 @@ searchInput.addEventListener("keydown", (event) => {
     iconSearch.style.top = "0";
     iconSearch.style.position = "fixed";
     iconSearch.style.opacity = "0.8";
-    home.style.opacity ='1';
+    home.style.opacity = "1";
+    setting.style.opacity = '1';
+    deleteImage.style.opacity = "1";
     fetchImages();
     photoBlockFromUnSplash.style.display = "flex";
-    nextPage.style.display ='flex';
+    nextPage.style.display = "flex";
   }
 });
 
-home.addEventListener('click', () => {
+home.addEventListener("click", () => {
   screenSaver.style.opacity = "0";
   screenSaver.style.display = "none";
   iconSearch.style.transform = "translateY(220%)";
   iconSearch.style.top = "50%";
   iconSearch.style.position = "absolute";
   iconSearch.style.opacity = "1";
-  home.style.opacity ='0';
+  home.style.opacity = "0";
+  setting.style.opacity = '0';
+  deleteImage.style.opacity = "0";
   photoBlockFromUnSplash.style.display = "none";
-  nextPage.style.display ='none';
+  nextPage.style.display = "none";
 });
 
 function addNextPage() {
@@ -237,23 +252,95 @@ function addNextPage() {
 addNextPage();
 
 function addPhotoToPhotoBlock() {
-  console.log(imageCard);
-  for (let i = 0 ; i < 30; i += 1) {
+  for (let i = 0; i < 30; i += 1) {
     let photosUrl = fetchedData.results[i].urls.small;
-    console.log("i "  + i);
+    let photosUrlRegular = fetchedData.results[i].urls.regular;
+    let photosUrlFull = fetchedData.results[i].urls.full;
     imageCard[i + limit].style.backgroundImage = `url(${photosUrl})`;
+    imageCard[i + limit].dataset.regular = photosUrlRegular;
+    imageCard[i + limit].dataset.full = photosUrlFull;
+    //  ----------------delite photo cards----------
+    imageCard.forEach((element) => {
+      element.addEventListener("click", zoom);
+    });
+    //  --------------^^delite photo cards----------
   }
 }
+
+let keySpaceFlag = false;
+
+function zoom() {
+  const currentBlock = this;
+  currentBlock.style.boxSizing = "border-box";
+  currentBlock.style.border = "0.3vw solid #00A5FF";
+  const spanDelete = currentBlock.querySelectorAll("span");
+  if (spanDelete.length > 0) spanDelete.remove();
+  if (!deliteImageFlag) {
+    currentBlock.style.display = "none";
+  } else {
+    keySpaceFlag = true;
+    frameModalWindow.style.visibility = "visible";
+    frameModalWindow.style.opacity = "1";
+    photoBlockFromUnSplash.style.filter = 'blur(6px)'
+    iconSearch.style.opacity = '0';
+    nextPage.style.opacity = '0';
+    modalWindow.style.backgroundImage = `url(${currentBlock.dataset.regular})`;
+  }
+}
+
+backIcon.addEventListener("click", closeModalWindow);
+
+document.addEventListener('keydown', (event) => {
+  if(event.key === ' ' && keySpaceFlag){
+    event.preventDefault();
+    closeModalWindow();
+    keySpaceFlag = false;
+  }
+});
+
+function closeModalWindow() {
+  frameModalWindow.style.visibility = "hidden";
+  frameModalWindow.style.opacity = "0";
+  iconSearch.style.opacity = '1';
+  nextPage.style.opacity = '1';
+  photoBlockFromUnSplash.style.filter = 'blur(0px)'
+};
 
 nextPage.addEventListener("click", () => {
   page += 1;
   limit += 30;
   addNextPage();
   fetchImages();
-  nextPage.style.backgroundColor = '#FF0000';
-  nextPage.style.height = '1vw';
+  nextPage.style.backgroundColor = "#FF0000";
+  nextPage.style.height = "1vw";
   setTimeout(() => {
-    nextPage.style.backgroundColor = '#FFFFFF';
-    nextPage.style.height = '2vw';
+    nextPage.style.backgroundColor = "#FFFFFF";
+    nextPage.style.height = "2vw";
   }, 400);
 });
+
+// -------------------------------------------------------delete photo
+deleteImage.addEventListener("click", () => {
+  if (deliteImageFlag) {
+    deleteImage.style.color = '#FF0000';
+    deliteImageFlag = false;
+  } else {
+    deleteImage.style.color = "#161616";
+    deliteImageFlag = true;
+  }
+});
+
+// --------------------------------------------------------------settings
+setting.addEventListener('mouseover', openSettingWindow);
+setting.addEventListener('mouseout', closeSettingWindow);
+
+function openSettingWindow(){
+  settingModalWindow.style.opacity = '0.9';
+  settingModalWindow.style.visibility = 'visible';
+}
+function closeSettingWindow(){
+  settingModalWindow.style.opacity = '0';
+  settingModalWindow.style.visibility = 'hidden';
+
+}
+// --

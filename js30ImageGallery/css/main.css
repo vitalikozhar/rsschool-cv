@@ -11,6 +11,9 @@
   display: flex;
   width: 100%;
   height: 100svh;
+  font-size: 1.4vw;
+  color: #B1B1B1;
+  font-family: "Montserrat", sans-serif;
   flex-direction: column;
   justify-content: space-between;
   background-color: #f6f6f6;
@@ -207,7 +210,7 @@ main .icon-search{
   color:#00a5ff;
   border: 0;
   border-radius: 4vw;
-  flex: 7;
+  flex: 8;
   transition: padding 6s ease-in-out;
 }
 
@@ -272,7 +275,12 @@ main .icon-search{
   aspect-ratio: 1 / 1;
   background-size: cover;
   background-position: center;
+  transition: transform 1s linear;
  }
+
+ .imageCard:hover {
+cursor: pointer;
+}
 
  .nextPage{
   position: fixed;
@@ -289,6 +297,7 @@ main .icon-search{
 .nextPage:hover{
   cursor: pointer;
   background-color: #00A5FF;
+  scale: 1.4;
 }
 
 .fa-arrow-down{
@@ -299,8 +308,120 @@ main .icon-search{
 
 .home{
   opacity: 0;
-  color: black;
+  color: #161616;
 }
+
+.home:hover{
+  color: #00a5ff;
+}
+
+.deleteImage{
+  opacity: 0;
+  color: #161616;
+}
+
+.deleteImage:hover{
+  color: #00A5FF;
+}
+
+.frame-modal-window{
+  position: fixed;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  width: 90%;
+  height: 90svh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 7;
+  transition: all 0.3s linear;
+}
+.modal-window{
+  position: absolute;
+  display: flex;
+  width: 98%;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.frame-modal-window .material-symbols-outlined{
+  width: 4vw;
+  height: 4vw;
+  font-size: 4vw;
+  color: #00A5FF;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+}
+
+.material-symbols-outlined:hover{
+cursor: pointer;
+}
+
+.setting{
+  opacity: 0;
+  color: #161616;
+}
+
+.setting:hover{
+  color: #00A5FF;
+}
+
+.setting-modal-window{
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  width: 45vw;
+  height: 100vw;
+  left: 0;
+  transition: opacity 0.4s ease-in;
+  z-index: 8;
+}
+
+.setting-list {
+  position: absolute;
+  display: flex;
+  width: 45vw;
+  height: 100svh;
+  justify-content: center;
+  border-top-right-radius: 3vw;
+  border-bottom-right-radius: 3vw;
+  background-color: #161616;
+  list-style: none;
+  flex-direction: column;
+  row-gap: 2vw;
+}
+
+.setting-list .setting-home,
+.setting-list .setting-deleteImage,
+.setting-list .setting-close,
+.setting-list .fa-arrow-down {
+  position: relative;
+  display: flex;
+  width: 100%;
+  color: #00a5ff;
+  font-size: 6vw;
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* .github-logo{
   display: flex;
