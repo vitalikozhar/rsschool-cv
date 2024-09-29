@@ -26,8 +26,8 @@ const backIcon = document.querySelector(
 );
 const setting = document.querySelector(".setting");
 const settingModalWindow = document.querySelector(".setting-modal-window");
-const autherPhoto = document.querySelector(".autherPhoto");
-const downloadLinkButton = document.querySelector('.downloadLinkButton');
+const authorPhoto = document.querySelector(".authorPhoto");
+const downloadLinkButton = document.querySelector(".downloadLinkButton");
 let currentBlock;
 let preview;
 let fetchedData;
@@ -283,7 +283,7 @@ function addPhotoToPhotoBlock() {
 let keySpaceFlag = false;
 
 function zoom() {
-  if(!keySpaceFlag)currentBlock = this;
+  if (!keySpaceFlag) currentBlock = this;
   currentBlock.style.boxSizing = "border-box";
   currentBlock.style.border = "0.3vw solid #00A5FF";
   const spanDelete = currentBlock.querySelectorAll("span");
@@ -298,10 +298,10 @@ function zoom() {
     iconSearch.style.opacity = "0";
     nextPage.style.opacity = "0";
     modalImg.style.backgroundImage = `url(${currentBlock.dataset.regular})`;
-    autherPhoto.innerHTML = "";
-    autherPhoto.innerHTML = `<a href="${currentBlock.dataset.authorLink}" target="_blank" rel="noopener noreferrer">photo by:&nbsp ${currentBlock.dataset.author}&nbsp </a><a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">&nbsp on UnSplash</a>`;
+    authorPhoto.innerHTML = "";
+    authorPhoto.innerHTML = `<a href="${currentBlock.dataset.authorLink}" target="_blank" rel="noopener noreferrer">photo by:&nbsp ${currentBlock.dataset.author}&nbsp </a><a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">&nbsp on UnSplash</a>`;
     downloadLinkButton.href = `${currentBlock.dataset.download}`;
-    downloadLinkButton.target = '_blank';
+    downloadLinkButton.target = "_blank";
   }
 }
 
@@ -319,8 +319,8 @@ function closeModalWindow() {
   keySpaceFlag = false;
   frameModalWindow.style.visibility = "hidden";
   frameModalWindow.style.opacity = "0";
-  iconSearch.style.opacity = "1";
-  nextPage.style.opacity = "1";
+  iconSearch.style.opacity = "0.8";
+  nextPage.style.opacity = "0.8";
   photoBlockFromUnSplash.style.filter = "blur(0px)";
 }
 
@@ -364,20 +364,20 @@ function openCloseSettingWindow() {
 
 // ----------------------------------------------------------- next / before (change Main Image)
 
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'ArrowLeft' && keySpaceFlag) {
+document.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowLeft" && keySpaceFlag) {
     let beforeImage = currentBlock.previousElementSibling;
     if (beforeImage) {
-    currentBlock = beforeImage;
-    zoom();
+      currentBlock = beforeImage;
+      zoom();
+    }
   }
-  }
-  if (event.key === 'ArrowRight' && keySpaceFlag) {
+  if (event.key === "ArrowRight" && keySpaceFlag) {
     let nextImage = currentBlock.nextElementSibling;
     if (nextImage) {
-    currentBlock = nextImage;
-    zoom();
-    }else{
+      currentBlock = nextImage;
+      zoom();
+    } else {
       nextPage.click();
     }
   }

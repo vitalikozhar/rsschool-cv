@@ -189,7 +189,7 @@ main .icon-search{
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
   top: 1.7vw;
   left: -2.7vw;
-  transition: background-color 0.6s ease-in;
+  transition: box-shadow 0.5s ease, top 0.5s ease, left 0.5s ease;
 }
 
 .white-block:hover{
@@ -291,7 +291,7 @@ main .icon-search{
   background-color: #FFFFFF;
   color: #000000;
   z-index: 7;
-  transition: all 0.6s linear;
+  transition: all 0.6s ease;
 }
 
 .nextPage:hover{
@@ -334,13 +334,16 @@ main .icon-search{
   height: 99svh;
   top: 50%;
   left: 50%;
+  background-color: #161616AA;
   transform: translate(-50%, -50%);
   z-index: 7;
-  transition: all 0.3s linear;
+  transition: all 0.3s ease;
 }
 .modal-window{
   position: absolute;
   display: flex;
+  flex-direction: column;
+  align-items: end;
   width: 99%;
   height: 93%;
   top: 50%;
@@ -362,7 +365,7 @@ main .icon-search{
   background-position: center;
 }
 
-.autherPhoto{
+.authorPhoto{
   position: absolute;
   display: flex;
   color: black;
@@ -371,25 +374,41 @@ main .icon-search{
   font-size: 1.1vw;
   padding: 0.5vw 2vw;
   opacity: 0.8;
-  background-color: #00000020;
   border-radius: 3px;
   z-index: 9;
 }
 
-.frame-modal-window .material-symbols-outlined,
-.downloadLinkButton{
-  width: 4vw;
-  height: 4vw;
-  font-size: 4vw;
+.frame-modal-window .material-symbols-outlined{
+  width: 3vw;
+  height: 3vw;
+  font-size: 3vw;
   color: #00A5FF;
-  border-radius: 50%;
+  background-color: #16161699;
+  border-radius: 10px;
+  margin: 2px;
+  opacity: 0.7;
+  z-index: 9;
+}
+
+.downloadLinkButton .download{
+  width: 3vw;
+  height: 2vw;
+  text-align: center;
+  font-size: 2vw;
+  color: #16161699;
   background-color: #FFFFFF;
+  border-radius: 10px;
+  opacity: 0.7;
+  margin: 2px;
   z-index: 9;
 }
 
 .material-symbols-outlined:hover{
 cursor: pointer;
 }
+.downloadLinkButton:hover{
+  cursor: pointer;
+  }
 
 .setting{
   color: #CDCDCD;
@@ -407,7 +426,7 @@ cursor: pointer;
   width: 50vw;
   height: 100vw;
   left: 0;
-  transition: opacity 0.4s ease-in;
+  transition: opacity 0.4s ease;
   z-index: 8;
 }
 
@@ -425,6 +444,7 @@ cursor: pointer;
   flex-direction: column;
   row-gap: 1vw;
 }
+
 .last-block{
   position: relative;
   display: flex;
