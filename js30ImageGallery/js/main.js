@@ -182,8 +182,6 @@ function fetchImages() {
     .then((response) => response.json())
     .then((data) => {
       fetchedData = data;
-      console.log('data');
-      console.log(data);
       addPhotoPreview();
       addPhotoToPhotoBlock();
     })
@@ -285,7 +283,7 @@ function addPhotoToPhotoBlock() {
 let keySpaceFlag = false;
 
 function zoom() {
-  currentBlock = this;
+  if(!keySpaceFlag)currentBlock = this;
   currentBlock.style.boxSizing = "border-box";
   currentBlock.style.border = "0.3vw solid #00A5FF";
   const spanDelete = currentBlock.querySelectorAll("span");
@@ -312,12 +310,13 @@ backIcon.addEventListener("click", closeModalWindow);
 document.addEventListener("keydown", (event) => {
   if (event.key === " " && keySpaceFlag) {
     event.preventDefault();
-    closeModalWindow();
     keySpaceFlag = false;
+    closeModalWindow();
   }
 });
 
 function closeModalWindow() {
+  keySpaceFlag = false;
   frameModalWindow.style.visibility = "hidden";
   frameModalWindow.style.opacity = "0";
   iconSearch.style.opacity = "1";
@@ -338,7 +337,7 @@ nextPage.addEventListener("click", () => {
   }, 400);
 });
 
-// -------------------------------------------------------delete photo
+// ------------------------------------------------------------delete photo
 deleteImage.addEventListener("click", () => {
   if (deliteImageFlag) {
     deleteImage.style.color = "#FF0000";
@@ -364,4 +363,24 @@ function openCloseSettingWindow() {
     openCloseSettingWindowFlag = true;
   }
 }
-// --
+
+// ----------------------------------------------------------- next / before (change Main Image)
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowLeft' && keySpaceFlag) {
+    let beforeImage = currentBlock.previousElementSibling;
+    if (beforeImage) {
+    currentBlock = beforeImage;
+    zoom();
+  }
+  }
+  if (event.key === 'ArrowRight' && keySpaceFlag) {
+    let nextImage = currentBlock.nextElementSibling;
+    if (nextImage) {
+    currentBlock = nextImage;
+    zoom();
+    }else{
+      nextPage.click();
+    }
+  }
+});

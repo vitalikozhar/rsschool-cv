@@ -50,7 +50,6 @@
 
 }
 
-
  .loading{
   display: flex;
   width: 100%;
@@ -376,7 +375,8 @@ main .icon-search{
   z-index: 9;
 }
 
-.frame-modal-window .material-symbols-outlined{
+.frame-modal-window .material-symbols-outlined,
+.downloadLinkButton{
   width: 4vw;
   height: 4vw;
   font-size: 4vw;
@@ -403,7 +403,7 @@ cursor: pointer;
   opacity: 0;
   visibility: hidden;
   display: flex;
-  width: 45vw;
+  width: 50vw;
   height: 100vw;
   left: 0;
   transition: opacity 0.4s ease-in;
@@ -492,9 +492,3 @@ height: 5vw;
 }
 }
 
-/* .unsplash-logo{
-display: flex;
-font-size: 1vw;
-align-self: center;
-flex: 1;
-} */
