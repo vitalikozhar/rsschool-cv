@@ -20,11 +20,15 @@ const home = document.querySelector(".home");
 const deleteImage = document.querySelector(".deleteImage");
 const frameModalWindow = document.querySelector(".frame-modal-window");
 const modalWindow = document.querySelector(".modal-window");
+const modalImg = document.querySelector(".modal-img");
 const backIcon = document.querySelector(
   ".frame-modal-window .material-symbols-outlined"
 );
-const setting = document.querySelector('.setting');
-const settingModalWindow = document.querySelector('.setting-modal-window');
+const setting = document.querySelector(".setting");
+const settingModalWindow = document.querySelector(".setting-modal-window");
+const autherPhoto = document.querySelector(".autherPhoto");
+const downloadLinkButton = document.querySelector('.downloadLinkButton');
+let currentBlock;
 let preview;
 let fetchedData;
 let page = 1;
@@ -78,7 +82,7 @@ searchInput.addEventListener("input", () => {
     topPhotoLine.style.opacity = "1";
     bottomPhotoLine.style.opacity = "1";
   } else {
-    whiteBlock.style.backgroundColor = "#FF0000";
+    whiteBlock.style.backgroundColor = "#00A5FF91";
     whitePepper.style.opacity = 0.2;
     topPhotoLine.style.opacity = "0.3";
     bottomPhotoLine.style.opacity = "0.3";
@@ -132,6 +136,8 @@ function changeWords() {
   material.style.opacity = "0";
   searchInput.style.padding = "0 18vw";
   searchInput.style.opacity = "0";
+  setting.style.opacity = "0";
+
   setTimeout(() => {
     searchInput.value = "";
     searchInput.style.opacity = "1";
@@ -151,7 +157,8 @@ function changeWords() {
     material.style.opacity = "1";
     searchInput.style.padding = "0 1vw";
     searchInput.placeholder = "image search...";
-  }, 11000);
+    setting.style.opacity = "1";
+  }, 10500);
 }
 
 // --------------------------------------------------------add music
@@ -175,6 +182,8 @@ function fetchImages() {
     .then((response) => response.json())
     .then((data) => {
       fetchedData = data;
+      console.log('data');
+      console.log(data);
       addPhotoPreview();
       addPhotoToPhotoBlock();
     })
@@ -183,8 +192,7 @@ function fetchImages() {
 
 function writeUrl() {
   let nextPage = page;
-  let searchTerm =
-    searchInput.value === "" ? "lomography film" : searchInput.value;
+  let searchTerm = searchInput.value === "" ? "milk  food" : searchInput.value;
   return `https://api.unsplash.com/search/photos?query=${searchTerm}&page=${nextPage}&per_page=30&client_id=${accessKey}`;
 }
 
@@ -211,6 +219,7 @@ searchInput.addEventListener("keydown", (event) => {
       });
     }
     addNextPage();
+    deleteImage.style.display = "flex";
     screenSaver.style.opacity = "1";
     screenSaver.style.display = "flex";
     screenForLoading();
@@ -219,7 +228,6 @@ searchInput.addEventListener("keydown", (event) => {
     iconSearch.style.position = "fixed";
     iconSearch.style.opacity = "0.8";
     home.style.opacity = "1";
-    setting.style.opacity = '1';
     deleteImage.style.opacity = "1";
     fetchImages();
     photoBlockFromUnSplash.style.display = "flex";
@@ -228,6 +236,7 @@ searchInput.addEventListener("keydown", (event) => {
 });
 
 home.addEventListener("click", () => {
+  deleteImage.style.display = "none";
   screenSaver.style.opacity = "0";
   screenSaver.style.display = "none";
   iconSearch.style.transform = "translateY(220%)";
@@ -235,7 +244,6 @@ home.addEventListener("click", () => {
   iconSearch.style.position = "absolute";
   iconSearch.style.opacity = "1";
   home.style.opacity = "0";
-  setting.style.opacity = '0';
   deleteImage.style.opacity = "0";
   photoBlockFromUnSplash.style.display = "none";
   nextPage.style.display = "none";
@@ -256,9 +264,16 @@ function addPhotoToPhotoBlock() {
     let photosUrl = fetchedData.results[i].urls.small;
     let photosUrlRegular = fetchedData.results[i].urls.regular;
     let photosUrlFull = fetchedData.results[i].urls.full;
+    let author = fetchedData.results[i].user.name;
+    let authorLink = fetchedData.results[i].user.links.html;
+    let downLoadocation = fetchedData.results[i].links.download;
     imageCard[i + limit].style.backgroundImage = `url(${photosUrl})`;
     imageCard[i + limit].dataset.regular = photosUrlRegular;
     imageCard[i + limit].dataset.full = photosUrlFull;
+    imageCard[i + limit].dataset.author = author;
+    imageCard[i + limit].dataset.authorLink = authorLink;
+    imageCard[i + limit].dataset.download = downLoadocation;
+
     //  ----------------delite photo cards----------
     imageCard.forEach((element) => {
       element.addEventListener("click", zoom);
@@ -270,7 +285,7 @@ function addPhotoToPhotoBlock() {
 let keySpaceFlag = false;
 
 function zoom() {
-  const currentBlock = this;
+  currentBlock = this;
   currentBlock.style.boxSizing = "border-box";
   currentBlock.style.border = "0.3vw solid #00A5FF";
   const spanDelete = currentBlock.querySelectorAll("span");
@@ -281,17 +296,21 @@ function zoom() {
     keySpaceFlag = true;
     frameModalWindow.style.visibility = "visible";
     frameModalWindow.style.opacity = "1";
-    photoBlockFromUnSplash.style.filter = 'blur(6px)'
-    iconSearch.style.opacity = '0';
-    nextPage.style.opacity = '0';
-    modalWindow.style.backgroundImage = `url(${currentBlock.dataset.regular})`;
+    photoBlockFromUnSplash.style.filter = "blur(6px)";
+    iconSearch.style.opacity = "0";
+    nextPage.style.opacity = "0";
+    modalImg.style.backgroundImage = `url(${currentBlock.dataset.regular})`;
+    autherPhoto.innerHTML = "";
+    autherPhoto.innerHTML = `<a href="${currentBlock.dataset.authorLink}" target="_blank" rel="noopener noreferrer">photo by:&nbsp ${currentBlock.dataset.author}&nbsp </a><a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">&nbsp on UnSplash</a>`;
+    downloadLinkButton.href = `${currentBlock.dataset.download}`;
+    downloadLinkButton.target = '_blank';
   }
 }
 
 backIcon.addEventListener("click", closeModalWindow);
 
-document.addEventListener('keydown', (event) => {
-  if(event.key === ' ' && keySpaceFlag){
+document.addEventListener("keydown", (event) => {
+  if (event.key === " " && keySpaceFlag) {
     event.preventDefault();
     closeModalWindow();
     keySpaceFlag = false;
@@ -301,10 +320,10 @@ document.addEventListener('keydown', (event) => {
 function closeModalWindow() {
   frameModalWindow.style.visibility = "hidden";
   frameModalWindow.style.opacity = "0";
-  iconSearch.style.opacity = '1';
-  nextPage.style.opacity = '1';
-  photoBlockFromUnSplash.style.filter = 'blur(0px)'
-};
+  iconSearch.style.opacity = "1";
+  nextPage.style.opacity = "1";
+  photoBlockFromUnSplash.style.filter = "blur(0px)";
+}
 
 nextPage.addEventListener("click", () => {
   page += 1;
@@ -322,7 +341,7 @@ nextPage.addEventListener("click", () => {
 // -------------------------------------------------------delete photo
 deleteImage.addEventListener("click", () => {
   if (deliteImageFlag) {
-    deleteImage.style.color = '#FF0000';
+    deleteImage.style.color = "#FF0000";
     deliteImageFlag = false;
   } else {
     deleteImage.style.color = "#161616";
@@ -330,17 +349,19 @@ deleteImage.addEventListener("click", () => {
   }
 });
 
-// --------------------------------------------------------------settings
-setting.addEventListener('mouseover', openSettingWindow);
-setting.addEventListener('mouseout', closeSettingWindow);
+// --------------------------------------------------------------button settings
+setting.addEventListener("click", openCloseSettingWindow);
 
-function openSettingWindow(){
-  settingModalWindow.style.opacity = '0.9';
-  settingModalWindow.style.visibility = 'visible';
-}
-function closeSettingWindow(){
-  settingModalWindow.style.opacity = '0';
-  settingModalWindow.style.visibility = 'hidden';
-
+let openCloseSettingWindowFlag = true;
+function openCloseSettingWindow() {
+  if (openCloseSettingWindowFlag) {
+    settingModalWindow.style.opacity = "0.9";
+    settingModalWindow.style.visibility = "visible";
+    openCloseSettingWindowFlag = false;
+  } else {
+    settingModalWindow.style.opacity = "0";
+    settingModalWindow.style.visibility = "hidden";
+    openCloseSettingWindowFlag = true;
+  }
 }
 // --

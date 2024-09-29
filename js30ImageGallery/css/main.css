@@ -162,7 +162,7 @@
 main .icon-search{
   position: absolute;
   display: flex;
-  width: 40%;
+  width: 45%;
   padding: 0 1vw;
   top: 50%;
   transform: translateY(220%);
@@ -173,11 +173,11 @@ main .icon-search{
   background-color: #FFFFFF;
   border: 1px solid #F6F6F6;
   border-radius: 4vw;
-  transition: width 0.1s ease-in;
+  transition: width 0.3s ease-in;
   z-index: 3;
 }
 .icon-search:hover{
-  width: 41%;
+  width: 44%;
   cursor: pointer;
 }
 
@@ -279,7 +279,7 @@ main .icon-search{
  }
 
  .imageCard:hover {
-cursor: pointer;
+  cursor: pointer;
 }
 
  .nextPage{
@@ -315,9 +315,10 @@ cursor: pointer;
   color: #00a5ff;
 }
 
-.deleteImage{
+.icon-search .deleteImage{
   opacity: 0;
-  color: #161616;
+  color: #CDCDCD;
+  display: none;
 }
 
 .deleteImage:hover{
@@ -329,8 +330,8 @@ cursor: pointer;
   display: flex;
   visibility: hidden;
   opacity: 0;
-  width: 90%;
-  height: 90svh;
+  width: 99%;
+  height: 99svh;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -340,14 +341,39 @@ cursor: pointer;
 .modal-window{
   position: absolute;
   display: flex;
-  width: 98%;
+  width: 99%;
+  height: 93%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-img{
+  position: absolute;
+  display: flex;
+  width: 100%;
   height: 90%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  justify-content: center;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.autherPhoto{
+  position: absolute;
+  display: flex;
+  color: black;
+  bottom: -3vw;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1vw;
+  padding: 0.5vw 2vw;
+  opacity: 0.8;
+  background-color: #00000020;
+  border-radius: 3px;
+  z-index: 9;
 }
 
 .frame-modal-window .material-symbols-outlined{
@@ -357,6 +383,7 @@ cursor: pointer;
   color: #00A5FF;
   border-radius: 50%;
   background-color: #FFFFFF;
+  z-index: 9;
 }
 
 .material-symbols-outlined:hover{
@@ -364,8 +391,7 @@ cursor: pointer;
 }
 
 .setting{
-  opacity: 0;
-  color: #161616;
+  color: #CDCDCD;
 }
 
 .setting:hover{
@@ -389,47 +415,54 @@ cursor: pointer;
   display: flex;
   width: 45vw;
   height: 100svh;
+  padding: 0 2vw;
   justify-content: center;
   border-top-right-radius: 3vw;
   border-bottom-right-radius: 3vw;
   background-color: #161616;
   list-style: none;
   flex-direction: column;
-  row-gap: 2vw;
+  row-gap: 1vw;
+}
+.last-block{
+  position: relative;
+  display: flex;
+  width: 45vw;
+  height: 7svh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  column-gap: 1vw;
+}
+
+.last-block .fa-xs{
+  display: flex;
+  font-size: 2.2vw;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+a{
+  text-decoration: none;
+  color: #FFFFFF;
 }
 
 .setting-list .setting-home,
 .setting-list .setting-deleteImage,
 .setting-list .setting-close,
-.setting-list .fa-arrow-down {
+.setting-list .fa-arrow-down,
+.setting-list .magic-button{
   position: relative;
   display: flex;
   width: 100%;
   color: #00a5ff;
-  font-size: 6vw;
+  font-size: 4vw;
   opacity: 1;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .github-logo{
-  display: flex;
-  width: 1.5vw;
-}
-
-.github-logo .fa-github{
-  font-size: 2.5vw;
+.setting-list .magic-button{
+  color: #FFFFFF;
+  font-weight: 600;
 }
 
 .rs-school{
@@ -440,15 +473,14 @@ background-image: url(../img/rss-logo.svg);
 background-size: cover;
 }
 
-.github-logo:hover,
-.rs-school:hover{
-  cursor: pointer;
+.year{
+  font-size: 1vw;
 }
 
-.year{
-  font-size: 2vw;
-} */
-
+.coverImage,
+.music{
+  font-size: 1vw;
+}
 
 @media (max-width: 700px){
 .previewPhoto6,
