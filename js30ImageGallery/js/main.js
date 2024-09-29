@@ -330,10 +330,8 @@ nextPage.addEventListener("click", () => {
   addNextPage();
   fetchImages();
   nextPage.style.backgroundColor = "#FF0000";
-  nextPage.style.height = "1vw";
   setTimeout(() => {
     nextPage.style.backgroundColor = "#FFFFFF";
-    nextPage.style.height = "2vw";
   }, 400);
 });
 
