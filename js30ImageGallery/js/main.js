@@ -1,6 +1,7 @@
 const loading = document.querySelector(".loading");
 const searchInput = document.querySelector(".enter-text");
 const iconSearch = document.querySelector(".icon-search");
+const labelWrap = document.querySelector('.label-wrap');
 const pepperLogo = document.querySelector(".fa-pepper-hot");
 const whitePepper = document.querySelector(".white-background h1");
 const whiteBlock = document.querySelector(".white-block");
@@ -28,15 +29,28 @@ const setting = document.querySelector(".setting");
 const settingModalWindow = document.querySelector(".setting-modal-window");
 const authorPhoto = document.querySelector(".authorPhoto");
 const downloadLinkButton = document.querySelector(".downloadLinkButton");
+const levelLow = document.querySelector('.level-Low');
+const levelMedium = document.querySelector('.level-medium');
+const levelHight = document.querySelector('.level-hight');
+
 let currentBlock;
 let preview;
 let fetchedData;
 let page = 1;
 let limit = 0;
 let deliteImageFlag = true;
+let gameOrSeachFlag = false;
+let selectedLebel;
+let counterImage = 30;
 // ----------------------------------------------------------------page design
 
 window.addEventListener("load", () => {
+  screenForLoading();
+});
+
+fetchImages();
+
+function makePreviewFrame (){
   for (let i = 0; i < 8; i += 1) {
     let newDivTop = document.createElement("div");
     newDivTop.className = "preview";
@@ -56,17 +70,14 @@ window.addEventListener("load", () => {
     bottomPhotoLine.appendChild(newDivBottom);
   }
   preview = document.querySelectorAll(".preview");
-
-  fetchImages();
-  screenForLoading();
-});
+}
+makePreviewFrame();
 
 function screenForLoading() {
   setTimeout(() => {
     screenSaver.style.display = "flex";
     screenSaver.style.opacity = "0";
   }, 600);
-
   setTimeout(() => {
     loading.style.opacity = "1";
     loading.style.visibility = "visible";
@@ -134,14 +145,14 @@ function changeWords() {
   }
   whitePepper.style.opacity = "0";
   material.style.opacity = "0";
-  searchInput.style.padding = "0 18vw";
+  searchInput.style.padding = "0 19vw";
   searchInput.style.opacity = "0";
   setting.style.opacity = "0";
 
   setTimeout(() => {
     searchInput.value = "";
     searchInput.style.opacity = "1";
-    searchInput.placeholder = "Who are you today?";
+    searchInput.placeholder = "Who r u today?";
   }, 1000);
   setTimeout(() => {
     whitePepper.style.opacity = "1";
@@ -187,10 +198,20 @@ function fetchImages() {
     })
     .catch((error) => console.error("not find UnSplash JSON", error));
 }
-
+let gameLevel = '';
 function writeUrl() {
-  let nextPage = page;
-  let searchTerm = searchInput.value === "" ? "milk  food" : searchInput.value;
+  let nextPage;
+  let searchTerm;
+  if(!gameOrSeachFlag){
+    console.log('test gameOrSeachFlag true');
+  nextPage = page;
+  searchTerm = searchInput.value === "" ? "milk  food" : searchInput.value;
+  }else{
+    nextPage = 1;
+    searchTerm = gameLevel;
+  }
+  console.log(gameOrSeachFlag);
+  console.log(`${searchTerm}`);
   return `https://api.unsplash.com/search/photos?query=${searchTerm}&page=${nextPage}&per_page=30&client_id=${accessKey}`;
 }
 
@@ -221,15 +242,20 @@ searchInput.addEventListener("keydown", (event) => {
     screenSaver.style.opacity = "1";
     screenSaver.style.display = "flex";
     screenForLoading();
-    iconSearch.style.transform = "translateY(10px)";
-    iconSearch.style.top = "0";
-    iconSearch.style.position = "fixed";
-    iconSearch.style.opacity = "0.8";
+    labelWrap.style.transform = "translateY(10px)";
+    labelWrap.style.top = "0";
+    labelWrap.style.position = "fixed";
+    labelWrap.style.opacity = "0.8";
     home.style.opacity = "1";
     deleteImage.style.opacity = "1";
     fetchImages();
     photoBlockFromUnSplash.style.display = "flex";
     nextPage.style.display = "flex";
+    gameMode.style.backgroundColor = '#161616';
+    if(gameOrSeachFlag){
+    iconSearch.style.display = 'none';
+    nextPage.style.display = 'none';
+    }
   }
 });
 
@@ -237,18 +263,19 @@ home.addEventListener("click", () => {
   deleteImage.style.display = "none";
   screenSaver.style.opacity = "0";
   screenSaver.style.display = "none";
-  iconSearch.style.transform = "translateY(220%)";
-  iconSearch.style.top = "50%";
-  iconSearch.style.position = "absolute";
-  iconSearch.style.opacity = "1";
+  labelWrap.style.transform = "translateY(110%)";
+  labelWrap.style.top = "50%";
+  labelWrap.style.position = "absolute";
+  labelWrap.style.opacity = "1";
   home.style.opacity = "0";
   deleteImage.style.opacity = "0";
   photoBlockFromUnSplash.style.display = "none";
   nextPage.style.display = "none";
+  gameMode.style.backgroundColor = '';
 });
 
 function addNextPage() {
-  for (let i = 0; i < 30; i += 1) {
+  for (let i = 0; i < counterImage; i += 1) {
     let photoCart = document.createElement("div");
     photoCart.className = "imageCard";
     photoBlockFromUnSplash.appendChild(photoCart);
@@ -258,7 +285,7 @@ function addNextPage() {
 addNextPage();
 
 function addPhotoToPhotoBlock() {
-  for (let i = 0; i < 30; i += 1) {
+  for (let i = 0; i < counterImage; i += 1) {
     let photosUrl = fetchedData.results[i].urls.small;
     let photosUrlRegular = fetchedData.results[i].urls.regular;
     let photosUrlFull = fetchedData.results[i].urls.full;
@@ -295,7 +322,7 @@ function zoom() {
     frameModalWindow.style.visibility = "visible";
     frameModalWindow.style.opacity = "1";
     photoBlockFromUnSplash.style.filter = "blur(6px)";
-    iconSearch.style.opacity = "0";
+    labelWrap.style.opacity = "0";
     nextPage.style.opacity = "0";
     modalImg.style.backgroundImage = `url(${currentBlock.dataset.regular})`;
     authorPhoto.innerHTML = "";
@@ -319,7 +346,7 @@ function closeModalWindow() {
   keySpaceFlag = false;
   frameModalWindow.style.visibility = "hidden";
   frameModalWindow.style.opacity = "0";
-  iconSearch.style.opacity = "0.8";
+  labelWrap.style.opacity = "0.8";
   nextPage.style.opacity = "0.8";
   photoBlockFromUnSplash.style.filter = "blur(0px)";
 }

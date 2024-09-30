@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,200,0,0" />
-    <link rel="icon" href="/rsschool-cv/js30ImageGallery/img/whitePepper.png" type="image/png" sizes="16x16">
-  </head>
+  <link rel="icon" href="/rsschool-cv/js30ImageGallery/img/whitePepper.png" type="image/png" sizes="16x16">
+</head>
 
 <body>
   <div class="screen-saver">
@@ -22,21 +22,24 @@
     </div>
     <main>
       <div class="photoBlockFromUnSplash"></div>
-      <label class="icon-search">
-        <span class="material-symbols-outlined">
-          search
-        </span>
-        <input type="search" class="enter-text" placeholder="  image search...">
-        <span class="material-symbols-outlined home">
-          home_app_logo
-        </span>
-        <span class="material-symbols-outlined deleteImage">
-          scan_delete
-        </span>
-        <span class="material-symbols-outlined setting">
-          settings
-        </span>
-      </label>
+      <div class="label-wrap">
+        <label class="icon-search">
+          <span class="material-symbols-outlined">
+            search
+          </span>
+          <input type="search" class="enter-text" placeholder="  image search...">
+          <span class="material-symbols-outlined home">
+            home_app_logo
+          </span>
+          <span class="material-symbols-outlined deleteImage">
+            scan_delete
+          </span>
+          <span class="material-symbols-outlined setting">
+            settings
+          </span>
+        </label>
+        <div class="game-mode"><span>game mode</span></div>
+      </div>
       <div class="background">
         <div class="white-background">
           <span class="image-finder">image</span>
@@ -95,11 +98,24 @@
         </ul>
       </div>
       <div class="nextPage"><i class="fa-solid fa-arrow-down"></i></div>
+      <div class="modal-window-game-mode">
+        <div class="window-game-mode">
+          <h2>select level</h2>
+          <ul class="level">
+            <li class="level-Low"><span>Old Penguin</span></li>
+            <li class="level-medium"><span>Cautious Hedgehog</span></li>
+            <li class="level-hight"><span>Wise Owl</span></li>
+          </ul>
+          <div class="seach-mode"><span>search mode</span></div>
+        </div>
+      </div>
     </main>
     <div class="bottonLine">
       <div class="bottomPhotoLine"></div>
     </div>
     <script src="js/main.js"></script>
+    <script src="js/mainGame.js"></script>
   </div>
 </body>
+
 </html>
