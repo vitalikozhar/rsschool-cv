@@ -268,19 +268,16 @@
   position: relative;
   display: none;
   width: 100%;
-  top: 50%;
-  left: 50%;
   flex-wrap: wrap;
   justify-content: center;
-  transform: translate(-50%, -50%);
-  background-color: #EBEBEB;
+  background-color: #FFFFFF;
   z-index: 1;
   gap: 1vw;
  }
 
  .imageCard{
   display: flex;
-  width: 19vw;
+  width: 19%;
   aspect-ratio: 1 / 1;
   background-size: cover;
   background-position: center;
@@ -615,6 +612,7 @@ height: 5vw;
 .imageCard{
   width: 32vw;
 }
+
 
 }
 

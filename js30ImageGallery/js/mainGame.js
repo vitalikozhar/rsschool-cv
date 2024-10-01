@@ -9,7 +9,10 @@ gameMode.addEventListener("click", () => {
   bottomPhotoLine.style.filter = "blur(5px)";
   labelWrap.style.opacity = "0";
   gameOrSeachFlag = true;
+  deleteImage.click();
+  photoBlockFromUnSplash.style.backgroundColor = '#F6F6F6';
 });
+
 seachMode.addEventListener("click", () => {
   location.reload();
 });
@@ -30,7 +33,7 @@ function level(numLevel) {
   if(numLevel === 1)gameLevel = 'green';
   if(numLevel === 2)gameLevel = 'yellow';
   if(numLevel === 3)gameLevel = 'red';
-  counterImage = 15;
+  counterImage = 10;
   hideGameModalWindow();
   const event = new KeyboardEvent("keydown", {
     key: "Enter",

@@ -1,7 +1,7 @@
 const loading = document.querySelector(".loading");
 const searchInput = document.querySelector(".enter-text");
 const iconSearch = document.querySelector(".icon-search");
-const labelWrap = document.querySelector('.label-wrap');
+const labelWrap = document.querySelector(".label-wrap");
 const pepperLogo = document.querySelector(".fa-pepper-hot");
 const whitePepper = document.querySelector(".white-background h1");
 const whiteBlock = document.querySelector(".white-block");
@@ -29,9 +29,10 @@ const setting = document.querySelector(".setting");
 const settingModalWindow = document.querySelector(".setting-modal-window");
 const authorPhoto = document.querySelector(".authorPhoto");
 const downloadLinkButton = document.querySelector(".downloadLinkButton");
-const levelLow = document.querySelector('.level-Low');
-const levelMedium = document.querySelector('.level-medium');
-const levelHight = document.querySelector('.level-hight');
+const levelLow = document.querySelector(".level-Low");
+const levelMedium = document.querySelector(".level-medium");
+const levelHight = document.querySelector(".level-hight");
+let imageCard = document.querySelectorAll(".imageCard");
 
 let currentBlock;
 let preview;
@@ -50,7 +51,7 @@ window.addEventListener("load", () => {
 
 fetchImages();
 
-function makePreviewFrame (){
+function makePreviewFrame() {
   for (let i = 0; i < 8; i += 1) {
     let newDivTop = document.createElement("div");
     newDivTop.className = "preview";
@@ -198,20 +199,17 @@ function fetchImages() {
     })
     .catch((error) => console.error("not find UnSplash JSON", error));
 }
-let gameLevel = '';
+let gameLevel = "";
 function writeUrl() {
   let nextPage;
   let searchTerm;
-  if(!gameOrSeachFlag){
-    console.log('test gameOrSeachFlag true');
-  nextPage = page;
-  searchTerm = searchInput.value === "" ? "milk  food" : searchInput.value;
-  }else{
+  if (!gameOrSeachFlag) {
+    nextPage = page;
+    searchTerm = searchInput.value === "" ? "milk  food" : searchInput.value;
+  } else {
     nextPage = 1;
     searchTerm = gameLevel;
   }
-  console.log(gameOrSeachFlag);
-  console.log(`${searchTerm}`);
   return `https://api.unsplash.com/search/photos?query=${searchTerm}&page=${nextPage}&per_page=30&client_id=${accessKey}`;
 }
 
@@ -225,7 +223,6 @@ function addPhotoPreview() {
 }
 
 //  --------------------------------------------------------add photo in block
-let imageCard = document.querySelectorAll(".imageCard");
 
 searchInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
@@ -251,13 +248,45 @@ searchInput.addEventListener("keydown", (event) => {
     fetchImages();
     photoBlockFromUnSplash.style.display = "flex";
     nextPage.style.display = "flex";
-    gameMode.style.backgroundColor = '#161616';
-    if(gameOrSeachFlag){
-    iconSearch.style.display = 'none';
-    nextPage.style.display = 'none';
+    gameMode.style.backgroundColor = "#161616";
+    if (gameOrSeachFlag) {
+      photoBlockFromUnSplash.style.alignSelf = "center";
+      photoBlockFromUnSplash.style.width = "83%";
+      nextPage.style.display = "none";
+      imageCard.forEach((el) => {
+        el.style.width = "16%";
+      });
+      topPhotoLine.style.opacity = "0";
+      bottomPhotoLine.style.opacity = "0";
+      iconSearch.style.visibility = 'hidden';
+
+      //  ------------------------------------------------mix cards for GAME MOD
+      imageCard = mixArray(imageCard);
     }
   }
 });
+
+function mixArray(imageCard) {
+  const imageCardArray = Array.from(imageCard);
+  for (let i = 20 - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [imageCardArray[i], imageCardArray[j]] = [
+      imageCardArray[j],
+      imageCardArray[i],
+    ];
+  }
+  return imageCardArray;
+}
+
+const mediaQuery = window.matchMedia("(max-aspect-ratio: 1/1)");
+window.addEventListener("resize", () => {
+  if (gameOrSeachFlag) {
+    setphotoBlockFromUnSplashWidth(mediaQuery);
+  }
+});
+function setphotoBlockFromUnSplashWidth(newWidth) {
+  photoBlockFromUnSplash.style.width = newWidth.matches ? "100%" : "83%";
+}
 
 home.addEventListener("click", () => {
   deleteImage.style.display = "none";
@@ -271,11 +300,16 @@ home.addEventListener("click", () => {
   deleteImage.style.opacity = "0";
   photoBlockFromUnSplash.style.display = "none";
   nextPage.style.display = "none";
-  gameMode.style.backgroundColor = '';
+  gameMode.style.backgroundColor = "";
 });
 
 function addNextPage() {
-  for (let i = 0; i < counterImage; i += 1) {
+  let localCounterImage = counterImage;
+  if (gameOrSeachFlag) {
+    localCounterImage *= 2;
+  }
+  for (let i = 0; i < localCounterImage; i += 1) {
+    console.log("image Card: " + i);
     let photoCart = document.createElement("div");
     photoCart.className = "imageCard";
     photoBlockFromUnSplash.appendChild(photoCart);
@@ -299,12 +333,20 @@ function addPhotoToPhotoBlock() {
     imageCard[i + limit].dataset.authorLink = authorLink;
     imageCard[i + limit].dataset.download = downLoadocation;
 
-    //  ----------------delite photo cards----------
-    imageCard.forEach((element) => {
-      element.addEventListener("click", zoom);
-    });
-    //  --------------^^delite photo cards----------
+    if (gameOrSeachFlag) {
+      imageCard[i + counterImage].style.backgroundImage = `url(${photosUrl})`;
+      imageCard[i + counterImage].dataset.regular = photosUrlRegular;
+      imageCard[i + counterImage].dataset.full = photosUrlFull;
+      imageCard[i + counterImage].dataset.author = author;
+      imageCard[i + counterImage].dataset.authorLink = authorLink;
+      imageCard[i + counterImage].dataset.download = downLoadocation;
+    }
   }
+  //  ----------------delite photo cards----------
+  imageCard.forEach((element) => {
+    element.addEventListener("click", zoom);
+  });
+  //  --------------^^delite photo cards----------
 }
 
 let keySpaceFlag = false;
@@ -316,7 +358,11 @@ function zoom() {
   const spanDelete = currentBlock.querySelectorAll("span");
   if (spanDelete.length > 0) spanDelete.remove();
   if (!deliteImageFlag) {
-    currentBlock.style.display = "none";
+    if (gameOrSeachFlag) {
+      currentBlock.style.visibility = "hidden";
+    } else {
+      currentBlock.style.display = "none";
+    }
   } else {
     keySpaceFlag = true;
     frameModalWindow.style.visibility = "visible";
