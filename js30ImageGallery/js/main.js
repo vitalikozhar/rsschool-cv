@@ -32,6 +32,13 @@ const downloadLinkButton = document.querySelector(".downloadLinkButton");
 const levelLow = document.querySelector(".level-Low");
 const levelMedium = document.querySelector(".level-medium");
 const levelHight = document.querySelector(".level-hight");
+const score = document.querySelector(".score");
+const timer = document.querySelector(".timer");
+const scoreFrame = document.querySelector(".scoreFrame");
+const timerFrame = document.querySelector(".timerFrame");
+const photoBlockFromUnSplashProtectScreen = document.querySelector(
+  ".photoBlockFromUnSplashProtectScreen"
+);
 let imageCard = document.querySelectorAll(".imageCard");
 
 let currentBlock;
@@ -40,11 +47,19 @@ let fetchedData;
 let page = 1;
 let limit = 0;
 let deliteImageFlag = true;
-let gameOrSeachFlag = false;
+let gameOrSearchFlag = false;
 let selectedLebel;
 let counterImage = 30;
+let counterGameScore = 0;
+let selectedLevel = 1;
 // ----------------------------------------------------------------page design
 
+if (localStorage.getItem('gameFlag') === 'true') {
+  localStorage.removeItem('gameFlag');
+  setTimeout(() => {
+    gameMode.click();
+  }, 500);
+}
 window.addEventListener("load", () => {
   screenForLoading();
 });
@@ -146,7 +161,11 @@ function changeWords() {
   }
   whitePepper.style.opacity = "0";
   material.style.opacity = "0";
-  searchInput.style.padding = "0 19vw";
+  if (mediaQuery) {
+    searchInput.style.padding = "0 20vw";
+  } else {
+    searchInput.style.padding = "0 19vw";
+  }
   searchInput.style.opacity = "0";
   setting.style.opacity = "0";
 
@@ -203,7 +222,7 @@ let gameLevel = "";
 function writeUrl() {
   let nextPage;
   let searchTerm;
-  if (!gameOrSeachFlag) {
+  if (!gameOrSearchFlag) {
     nextPage = page;
     searchTerm = searchInput.value === "" ? "milk  food" : searchInput.value;
   } else {
@@ -248,8 +267,9 @@ searchInput.addEventListener("keydown", (event) => {
     fetchImages();
     photoBlockFromUnSplash.style.display = "flex";
     nextPage.style.display = "flex";
-    gameMode.style.backgroundColor = "#161616";
-    if (gameOrSeachFlag) {
+
+    if (gameOrSearchFlag) {
+      labelWrap.style.transform = "translateY(-83px)";
       photoBlockFromUnSplash.style.alignSelf = "center";
       photoBlockFromUnSplash.style.width = "83%";
       nextPage.style.display = "none";
@@ -258,10 +278,26 @@ searchInput.addEventListener("keydown", (event) => {
       });
       topPhotoLine.style.opacity = "0";
       bottomPhotoLine.style.opacity = "0";
-      iconSearch.style.visibility = 'hidden';
+      // counterGameScore = 3;
+      newGame.style.display = 'flex';
+      gameMode.style.left = "28vw";
+      gameMode.style.top = "173px";
+      gameMode.style.backgroundColor = "#161616";
+      iconSearch.style.visibility = "hidden";
+      let startTimerEnter = 11;
+      let startIntervalTimerInner4 = setInterval(() => {
+        startTimerEnter -= 1;
+        timer.textContent = `TIME:${startTimerEnter}`;
+        if (startTimerEnter === 0) clearInterval(startIntervalTimerInner4);
+      }, 1000);
+      setTimeout(() => {
+        controlScoreAndBonus();
+      }, 11000);
 
       //  ------------------------------------------------mix cards for GAME MOD
       imageCard = mixArray(imageCard);
+      timerFrame.style.display = "flex";
+      scoreFrame.style.display = "flex";
     }
   }
 });
@@ -280,7 +316,7 @@ function mixArray(imageCard) {
 
 const mediaQuery = window.matchMedia("(max-aspect-ratio: 1/1)");
 window.addEventListener("resize", () => {
-  if (gameOrSeachFlag) {
+  if (gameOrSearchFlag) {
     setphotoBlockFromUnSplashWidth(mediaQuery);
   }
 });
@@ -305,11 +341,10 @@ home.addEventListener("click", () => {
 
 function addNextPage() {
   let localCounterImage = counterImage;
-  if (gameOrSeachFlag) {
+  if (gameOrSearchFlag) {
     localCounterImage *= 2;
   }
   for (let i = 0; i < localCounterImage; i += 1) {
-    console.log("image Card: " + i);
     let photoCart = document.createElement("div");
     photoCart.className = "imageCard";
     photoBlockFromUnSplash.appendChild(photoCart);
@@ -333,7 +368,7 @@ function addPhotoToPhotoBlock() {
     imageCard[i + limit].dataset.authorLink = authorLink;
     imageCard[i + limit].dataset.download = downLoadocation;
 
-    if (gameOrSeachFlag) {
+    if (gameOrSearchFlag) {
       imageCard[i + counterImage].style.backgroundImage = `url(${photosUrl})`;
       imageCard[i + counterImage].dataset.regular = photosUrlRegular;
       imageCard[i + counterImage].dataset.full = photosUrlFull;
@@ -345,11 +380,26 @@ function addPhotoToPhotoBlock() {
   //  ----------------delite photo cards----------
   imageCard.forEach((element) => {
     element.addEventListener("click", zoom);
+    if (gameOrSearchFlag) {
+      hideCardsGameMode(element);
+    }
   });
-  //  --------------^^delite photo cards----------
+}
+
+function hideCardsGameMode(element) {
+  setTimeout(() => {
+    element.style.border = `6.6vw solid #CDCDCD`;
+    element.style.opacity = `0.4`;
+  }, 11000);
 }
 
 let keySpaceFlag = false;
+let cardBefore = "$#$#$#$#9";
+let strLinkToImage = "$#$#$#$#9";
+let startTimer = 99;
+let clickCounter = 0;
+let result;
+let penalty = 0;
 
 function zoom() {
   if (!keySpaceFlag) currentBlock = this;
@@ -358,8 +408,20 @@ function zoom() {
   const spanDelete = currentBlock.querySelectorAll("span");
   if (spanDelete.length > 0) spanDelete.remove();
   if (!deliteImageFlag) {
-    if (gameOrSeachFlag) {
-      currentBlock.style.visibility = "hidden";
+    // ------------------------------------hidden blocks in gameMode / delete blocks in searchMode
+    if (gameOrSearchFlag) {
+      if (currentBlock.dataset.regular === strLinkToImage) {
+        counterGameScore += 10;
+        clickCounter += 1;
+
+        currentBlock.style.visibility = "hidden";
+        cardBefore.style.visibility = "hidden";
+      } else {
+        counterGameScore -= 3;
+        score.textContent = `SCORE:${counterGameScore}`;
+      }
+      cardBefore = currentBlock;
+      strLinkToImage = currentBlock.dataset.regular;
     } else {
       currentBlock.style.display = "none";
     }
@@ -375,6 +437,56 @@ function zoom() {
     authorPhoto.innerHTML = `<a href="${currentBlock.dataset.authorLink}" target="_blank" rel="noopener noreferrer">photo by:&nbsp ${currentBlock.dataset.author}&nbsp </a><a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">&nbsp on UnSplash</a>`;
     downloadLinkButton.href = `${currentBlock.dataset.download}`;
     downloadLinkButton.target = "_blank";
+  }
+}
+// ------------------------------------------ add BONUS and SCORE
+
+function controlScoreAndBonus() {
+  score.textContent = `SCORE:${counterGameScore}`;
+  if (strLinkToImage === "$#$#$#$#9") {
+      let startIntervalTimer = setInterval(() => {
+      startTimer -= 1;
+      timer.textContent = `BONUS:${startTimer}`;
+      if (startTimer < 1 || clickCounter === 10) {
+        clearInterval(startIntervalTimer);
+        score.textContent = `SCORE:${counterGameScore}`;
+        result = counterGameScore * selectedLevel + startTimer;
+        photoBlockFromUnSplashProtectScreen.style.display = "flex";
+        timerFrame.style.left = "53%";
+        scoreFrame.style.left = "33%";
+
+        imageCard.forEach((element) => {
+          if (element.style.visibility !== "hidden") {
+            penalty += 10;
+            console.log("penalty: " + penalty);
+          }
+        });
+
+        setTimeout(() => {
+            let startIntervalTimerInner = setInterval(() => {
+            startTimer -= 1;
+            timer.textContent = `BONUS:${startTimer}`;
+            if (startTimer < 1) clearInterval(startIntervalTimerInner);
+            if (penalty !== 0) {
+              timer.textContent = `PENALTY:-${penalty}`;
+            }
+          }, 100);
+
+          let startIntervalTimerInner2 = setInterval(() => {
+            counterGameScore += 1;
+            score.textContent = `SCORE:${counterGameScore}`;
+            if (counterGameScore >= result) {
+              clearInterval(startIntervalTimerInner2);
+            }
+            if (counterGameScore === 1) {
+              score.textContent = `RESULT:${counterGameScore - 1 - penalty}`;
+            } else {
+              score.textContent = `RESULT:${counterGameScore - penalty}`;
+            }
+          }, 100);
+        }, 2000);
+      }
+    }, 1000);
   }
 }
 

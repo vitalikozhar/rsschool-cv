@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Orbitron&family=Roboto+Mono:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron&family=Roboto+Mono:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&display=swap');
+/* font-family: "Sixtyfour Convergence", sans-serif; */
 
 *{
   margin: 0;
@@ -185,6 +187,10 @@
   transition: width 0.3s ease-in;
   z-index: 3;
 }
+
+.enter-text{
+  padding: 0 1vw;
+}
 .icon-search:hover{
   width: 95%;
   cursor: pointer;
@@ -264,6 +270,18 @@
   transition: opacity 0.4s ease-in;
  }
 
+ .photoBlockFromUnSplashProtectScreen{
+  position: absolute;
+  display: none;
+  width: 70%;
+  height: 85svh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: 2;
+ }
+
  .photoBlockFromUnSplash{
   position: relative;
   display: none;
@@ -281,7 +299,8 @@
   aspect-ratio: 1 / 1;
   background-size: cover;
   background-position: center;
-  transition: transform 1s linear;
+  box-sizing: border-box;
+  transition: opacity 0.3s ease;
  }
 
  .imageCard:hover {
@@ -513,26 +532,45 @@ background-size: cover;
 /* ---------------------------------------------------------game mod */
 
 .game-mode,
-.seach-mode{
+.search-mode{
   position: relative;
   display: flex;
-  width: 10vw;
   height: 2vw;
+  left: 0;
   justify-content: center;
   align-items: center;
-  color: #CDCDCDCD;
+  font-size: 1vw;
+  color: #FF0000A0;
   font-family: "Anton SC", sans-serif;
+  transition: scale 0.5s ease;
+  /* font-family: "Sixtyfour Convergence", sans-serif; */
+  white-space: nowrap;
 }
 
 .game-mode{
   border-radius: 10px;
+}
+
+.new-game{
+  position: relative;
+  display: none;
+  width: 12vw;
+  height: 2vw;
+  right: -17.5vw;
+  top: 130px;
+  justify-content: center;
+  align-items: center;
+  font-size: 1vw;
+  font-family: "Anton SC", sans-serif;
+  transition: scale 0.5s ease;
   white-space: nowrap;
 }
 
+.new-game:hover,
 .game-mode:hover,
-.seach-mode:hover{
-  color:#00A5FF;
+.search-mode:hover{
   cursor: pointer;
+  scale: 1.2;
 }
 
 .modal-window-game-mode{
@@ -576,6 +614,39 @@ background-size: cover;
 .window-game-mode li:hover{
 color: #EBEBEB;
 cursor: pointer;
+}
+
+.scoreFrame,
+.timerFrame{
+  position: absolute;
+  display: none;
+  width: 12.5%;
+  left: 1%;
+  /* top: 50%;
+  transform: translateY(-50%); */
+  background-color: #90d35a75;
+  border-radius: 5px;
+  z-index: 2;
+  transition: left 0.4s ease;
+
+}
+
+.timerFrame{
+  width: 12%;
+  left: 86.5%;
+}
+
+.score,
+.timer{
+  position: relative;
+  display: flex;
+  width: 100%;
+  left: -1vw;
+  font-size: 1.4vw;
+  padding: 11px;
+  white-space: nowrap;
+  font-family: "Sixtyfour Convergence", sans-serif;
+  align-items: center;
 }
 
 @media (max-aspect-ratio: 1/1){

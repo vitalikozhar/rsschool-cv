@@ -1,19 +1,29 @@
 const modalWindowGameMode = document.querySelector(".modal-window-game-mode");
-const seachMode = document.querySelector(".seach-mode");
+const searchMode = document.querySelector(".search-mode");
 const gameMode = document.querySelector(".game-mode");
+const newGame = document.querySelector('.new-game');
 
 gameMode.addEventListener("click", () => {
+  if(gameOrSearchFlag)searchMode.click();
+ setTimeout(() => {
+  gameMode.textContent = 'search mode';
+  gameMode.style.padding = '0 2vw';
   modalWindowGameMode.style.visibility = "visible";
   modalWindowGameMode.style.opacity = "1";
   topPhotoLine.style.filter = "blur(5px)";
   bottomPhotoLine.style.filter = "blur(5px)";
   labelWrap.style.opacity = "0";
-  gameOrSeachFlag = true;
-  deleteImage.click();
+  gameOrSearchFlag = true;
+  if (deliteImageFlag)deleteImage.click();
   photoBlockFromUnSplash.style.backgroundColor = '#F6F6F6';
+ }, 300);
 });
 
-seachMode.addEventListener("click", () => {
+newGame.addEventListener("click", () => {
+  localStorage.setItem('gameFlag', 'true');
+  gameMode.click();
+});
+searchMode.addEventListener("click", () => {
   location.reload();
 });
 
@@ -30,10 +40,32 @@ levelMedium.addEventListener("click", () => level(2));
 levelHight.addEventListener("click", () => level(3));
 
 function level(numLevel) {
-  if(numLevel === 1)gameLevel = 'green';
-  if(numLevel === 2)gameLevel = 'yellow';
-  if(numLevel === 3)gameLevel = 'red';
+  if(numLevel === 1){
+    gameLevel = 'color oil image';
+    startTimer = 51;
+    selectedLevel = 1;
+  }
+  if(numLevel === 2){
+    gameLevel = 'milk';
+    startTimer = 41;
+    selectedLevel = 2;
+  }
+  if(numLevel === 3){
+    gameLevel = 'lemon art';
+    startTimer = 31;
+    selectedLevel = 3;
+  }
+  setTimeout(() => {
+  timerFrame.style.left = '86.5%';
+  cardBefore = "$#$#$#$#9";
+  strLinkToImage = "$#$#$#$#9";
+  clickCounter = 0;
   counterImage = 10;
+  score.textContent = `SCORE:`;
+  photoBlockFromUnSplashProtectScreen.style.display = 'flex';
+setTimeout(() => {
+  photoBlockFromUnSplashProtectScreen.style.display = 'none';
+},11000);
   hideGameModalWindow();
   const event = new KeyboardEvent("keydown", {
     key: "Enter",
@@ -43,6 +75,7 @@ function level(numLevel) {
     bubbles: true
   });
   searchInput.dispatchEvent(event);
+  }, 400);
 }
 
 //  -
