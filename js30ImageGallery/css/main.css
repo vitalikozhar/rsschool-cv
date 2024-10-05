@@ -163,7 +163,7 @@
 .label-wrap{
   position: absolute;
   display: flex;
-  width: 58%;
+  width: 63%;
   padding: 0 1vw;
   top: 50%;
   align-items: center;
@@ -188,9 +188,6 @@
   z-index: 3;
 }
 
-.enter-text{
-  padding: 0 1vw;
-}
 .icon-search:hover{
   width: 95%;
   cursor: pointer;
@@ -540,8 +537,10 @@ background-size: cover;
   justify-content: center;
   align-items: center;
   font-size: 1vw;
-  color: #FF0000A0;
-  font-family: "Anton SC", sans-serif;
+  color: #CDCDCD;
+  background-color: #161616;
+  padding: 0 1vw;
+  /* font-family: "Anton SC", sans-serif; */
   transition: scale 0.5s ease;
   /* font-family: "Sixtyfour Convergence", sans-serif; */
   white-space: nowrap;
@@ -556,7 +555,7 @@ background-size: cover;
   display: none;
   width: 12vw;
   height: 2vw;
-  right: -17.5vw;
+  right: -15vw;
   top: 130px;
   justify-content: center;
   align-items: center;

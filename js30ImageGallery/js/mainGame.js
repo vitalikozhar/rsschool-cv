@@ -42,18 +42,18 @@ levelHight.addEventListener("click", () => level(3));
 function level(numLevel) {
   if(numLevel === 1){
     gameLevel = 'color oil image';
-    startTimer = 51;
+    startTimer = 46;
     selectedLevel = 1;
   }
   if(numLevel === 2){
     gameLevel = 'milk';
-    startTimer = 41;
-    selectedLevel = 2;
+    startTimer = 36;
+    selectedLevel = 1.5;
   }
   if(numLevel === 3){
     gameLevel = 'lemon art';
-    startTimer = 31;
-    selectedLevel = 3;
+    startTimer = 26;
+    selectedLevel = 2;
   }
   setTimeout(() => {
   timerFrame.style.left = '86.5%';

@@ -161,11 +161,7 @@ function changeWords() {
   }
   whitePepper.style.opacity = "0";
   material.style.opacity = "0";
-  if (mediaQuery) {
-    searchInput.style.padding = "0 20vw";
-  } else {
-    searchInput.style.padding = "0 19vw";
-  }
+  searchInput.style.padding = "0 20vw";
   searchInput.style.opacity = "0";
   setting.style.opacity = "0";
 
@@ -278,9 +274,8 @@ searchInput.addEventListener("keydown", (event) => {
       });
       topPhotoLine.style.opacity = "0";
       bottomPhotoLine.style.opacity = "0";
-      // counterGameScore = 3;
       newGame.style.display = 'flex';
-      gameMode.style.left = "28vw";
+      gameMode.style.left = "26.5vw";
       gameMode.style.top = "173px";
       gameMode.style.backgroundColor = "#161616";
       iconSearch.style.visibility = "hidden";
@@ -413,12 +408,14 @@ function zoom() {
       if (currentBlock.dataset.regular === strLinkToImage) {
         counterGameScore += 10;
         clickCounter += 1;
-
         currentBlock.style.visibility = "hidden";
         cardBefore.style.visibility = "hidden";
       } else {
         counterGameScore -= 3;
         score.textContent = `SCORE:${counterGameScore}`;
+      }
+      if(cardBefore !== "$#$#$#$#9"){
+        cardBefore.style.border = `6.6vw solid #CDCDCD`;
       }
       cardBefore = currentBlock;
       strLinkToImage = currentBlock.dataset.regular;
