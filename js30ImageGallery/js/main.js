@@ -584,7 +584,7 @@ deleteImage.addEventListener("click", () => {
     deleteImage.style.color = "#FF0000";
     deliteImageFlag = false;
   } else {
-    deleteImage.style.color = "#161616";
+    deleteImage.style.color = "#16161656";
     deliteImageFlag = true;
   }
 });

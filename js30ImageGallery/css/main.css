@@ -14,7 +14,7 @@
   width: 100%;
   height: 100svh;
   font-size: 1.4vw;
-  color: #B1B1B1;
+  color: #868686;
   font-family: "Montserrat", sans-serif;
   flex-direction: column;
   justify-content: space-between;
@@ -224,6 +224,16 @@
   border-radius: 4vw;
   flex: 8;
   transition: padding 6s ease-in-out;
+}
+
+.enter-text::-webkit-input-placeholder {
+  color: #CDCDCDCD;
+  opacity: 0.5;
+}
+
+.enter-text::-moz-placeholder {
+  color: #CDCDCDCD;
+  opacity: 0.5;
 }
 
 .enter-text:hover{
