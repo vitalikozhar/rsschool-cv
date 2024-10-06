@@ -39,9 +39,10 @@ const timerFrame = document.querySelector(".timerFrame");
 const photoBlockFromUnSplashProtectScreen = document.querySelector(
   ".photoBlockFromUnSplashProtectScreen"
 );
-const player = document.querySelectorAll('.player');
+const player = document.querySelectorAll(".player");
+const clearResults = document.querySelector('.clear-results');
 let imageCard = document.querySelectorAll(".imageCard");
-let hideImageCard = document.querySelectorAll('.hideImageCard');
+let hideImageCard = document.querySelectorAll(".hideImageCard");
 
 let playersNames;
 let currentBlock;
@@ -357,7 +358,7 @@ function addNextPage() {
     photoCart.appendChild(hidePhotoCart);
   }
   imageCard = document.querySelectorAll(".imageCard");
-  hideImageCard = document.querySelectorAll('.hideImageCard');
+  hideImageCard = document.querySelectorAll(".hideImageCard");
 }
 addNextPage();
 
@@ -395,12 +396,11 @@ function addPhotoToPhotoBlock() {
 }
 
 function hideCardsGameMode(element) {
-
   setTimeout(() => {
     element.style.border = `6.6vw solid #CDCDCD`;
-    let hideCardImage = element.querySelector('.hideImageCard')
-    hideCardImage.style.opacity = '1';
-    element.style.opacity = '0.5';
+    let hideCardImage = element.querySelector(".hideImageCard");
+    hideCardImage.style.opacity = "1";
+    element.style.opacity = "0.5";
   }, 11000);
 }
 
@@ -421,20 +421,22 @@ function zoom() {
   if (!deliteImageFlag) {
     // ------------------------------------hidden blocks in gameMode / delete blocks in searchMode
     if (gameOrSearchFlag) {
-      let hideCardImage2 = currentBlock.querySelector('.hideImageCard');
-      hideCardImage2.style.opacity = '0';
+      let hideCardImage2 = currentBlock.querySelector(".hideImageCard");
+      hideCardImage2.style.opacity = "0";
       if (currentBlock.dataset.regular === strLinkToImage) {
         counterGameScore += 10;
+        score.textContent = `SCORE:${counterGameScore}`;
         clickCounter += 1;
-        currentBlock.style.visibility = "hidden";0
+        currentBlock.style.visibility = "hidden";
+        0;
         cardBefore.style.visibility = "hidden";
       } else {
         counterGameScore -= 3;
         score.textContent = `SCORE:${counterGameScore}`;
       }
       if (cardBefore !== "$#$#$#$#9") {
-        let hideCardImage3 = cardBefore.querySelector('.hideImageCard');
-        hideCardImage3.style.opacity = '1';
+        let hideCardImage3 = cardBefore.querySelector(".hideImageCard");
+        hideCardImage3.style.opacity = "1";
       }
       cardBefore = currentBlock;
       strLinkToImage = currentBlock.dataset.regular;
@@ -461,6 +463,7 @@ function controlScoreAndBonus() {
   score.textContent = `SCORE:${counterGameScore}`;
   if (strLinkToImage === "$#$#$#$#9") {
     let startIntervalTimer = setInterval(() => {
+
       startTimer -= 1;
       timer.textContent = `BONUS:${startTimer}`;
       if (startTimer < 1 || clickCounter >= 10) {
@@ -475,42 +478,37 @@ function controlScoreAndBonus() {
         timerFrame.style.left = "53%";
         scoreFrame.style.left = "33%";
 
-        imageCard.forEach((element) => {
-          if (element.style.visibility !== "hidden") {
-            penalty += 10;
-          }
-        });
+          imageCard.forEach((element) => {
+            if (element.style.visibility !== "hidden") {
+              penalty += 10;
+            }
+          });
         if (playersNames === "") {
           playersNames = "Player";
         }
 
         let newResult = `${playersNames} ${Math.round(result - penalty)}`;
 
-        if(localStorage.getItem("results") !== null){
-        resultsOfGames.push(...localStorage.getItem("results").split(','));
+        if (localStorage.getItem("results") !== null) {
+          resultsOfGames.push(...localStorage.getItem("results").split(","));
 
-        let localFlag = true;
           for (let i = 0; i < resultsOfGames.length; i += 1) {
-            if (+resultsOfGames[i].split(" ").pop() < Math.round(result - penalty)) {
+            if (
+              +resultsOfGames[i].split(" ").pop() < Math.round(result - penalty)
+            ) {
               resultsOfGames.splice(i, 0, newResult);
-              localFlag = false
+              localFlag = false;
               break;
             }
           }
-          if(localFlag){
-            resultsOfGames.splice(-1, 0, newResult);
-          }
-      }else{
-        resultsOfGames = [newResult];
-      }
+        } else {
+          resultsOfGames = [newResult];
+        }
         resultsOfGames.length = 5;
         resultsOfGames.forEach((el, index) => {
-          player[index].textContent = resultsOfGames[index];
+          player[index].textContent = el;
         });
-        localStorage.setItem("results",`${resultsOfGames}`);
-        console.log(`${resultsOfGames}`);
-
-        // localStorage.removeItem('results');
+        localStorage.setItem("results", `${resultsOfGames}`);
 
         setTimeout(() => {
           let startIntervalTimerInner = setInterval(() => {
@@ -518,7 +516,7 @@ function controlScoreAndBonus() {
             timer.textContent = `BONUS:${startTimer}`;
             if (startTimer < 1) clearInterval(startIntervalTimerInner);
             if (penalty !== 0) {
-              timer.textContent = `PENALTY:-${penalty}`;
+              timer.textContent = `BONUS:${startTimer}`;
             }
           }, 100);
 
@@ -527,14 +525,19 @@ function controlScoreAndBonus() {
             score.textContent = `SCORE:${counterGameScore}`;
             if (counterGameScore >= result) {
               clearInterval(startIntervalTimerInner2);
+              setTimeout(() => {
+              if (counterGameScore === 1) {
+                score.textContent = `RESULT:${counterGameScore - 1 - penalty}`;
+                timer.textContent = `PENALTY:-${penalty}`;
+              } else {
+                score.textContent = `RESULT:${counterGameScore - penalty}`;
+                timer.textContent = `PENALTY:-${penalty}`;
+              }
+            }, 1500);
             }
-            if (counterGameScore === 1) {
-              score.textContent = `RESULT:${counterGameScore - 1 - penalty}`;
-            } else {
-              score.textContent = `RESULT:${counterGameScore - penalty}`;
-            }
+
           }, 100);
-        }, 2000);
+        }, 3000);
       }
     }, 1000);
   }

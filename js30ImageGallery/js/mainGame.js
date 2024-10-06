@@ -28,6 +28,12 @@ searchMode.addEventListener("click", () => {
   location.reload();
 });
 
+clearResults.addEventListener('click', () => {
+  localStorage.removeItem('results');
+  localStorage.setItem('gameFlag', 'true');
+  gameMode.click();
+});
+
 function hideGameModalWindow(){
   modalWindowGameMode.style.visibility = "hidden";
   modalWindowGameMode.style.opacity = "0";
