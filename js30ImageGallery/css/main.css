@@ -600,6 +600,10 @@ background-size: cover;
   border-radius: 10px;
 }
 
+.search-mode{
+  margin-top: 2vw;
+}
+
 .new-game{
   position: relative;
   display: none;
@@ -640,7 +644,7 @@ background-size: cover;
   position: fixed;
   display: flex;
   width: 70%;
-  height: 50svh;
+  height: 55svh;
   background-color: #161616DD;
   border-radius: 10px;
   flex-direction: column;
@@ -651,13 +655,19 @@ background-size: cover;
 .message-name{
   display: flex;
   align-items: center;
-  height: 1vw;
-  margin-top: 1vw;
+  height: 4vw;
   font-family: "Montserrat", sans-serif;
+}
+
+.message-name label{
+  display: flex;
+  width: 100%;
+  align-items: center;
 }
 
 .player-name{
   height: 2vw;
+  margin-left: 2vw;
 }
 
 .level{

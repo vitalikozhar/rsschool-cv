@@ -40,7 +40,7 @@ const photoBlockFromUnSplashProtectScreen = document.querySelector(
   ".photoBlockFromUnSplashProtectScreen"
 );
 const player = document.querySelectorAll(".player");
-const clearResults = document.querySelector('.clear-results');
+const clearResults = document.querySelector(".clear-results");
 let imageCard = document.querySelectorAll(".imageCard");
 let hideImageCard = document.querySelectorAll(".hideImageCard");
 
@@ -196,6 +196,9 @@ function changeWords() {
 // --------------------------------------------------------add music
 
 const playAudio = new Audio("music/Gustavo.mp3");
+const playMoney = new Audio("music/money.wav");
+const slotMachin = new Audio("music/slotMachin.wav");
+
 whiteBlock.addEventListener("click", music);
 function music() {
   imageFinder.style.color = "#16161616";
@@ -463,7 +466,6 @@ function controlScoreAndBonus() {
   score.textContent = `SCORE:${counterGameScore}`;
   if (strLinkToImage === "$#$#$#$#9") {
     let startIntervalTimer = setInterval(() => {
-
       startTimer -= 1;
       timer.textContent = `BONUS:${startTimer}`;
       if (startTimer < 1 || clickCounter >= 10) {
@@ -478,11 +480,11 @@ function controlScoreAndBonus() {
         timerFrame.style.left = "53%";
         scoreFrame.style.left = "33%";
 
-          imageCard.forEach((element) => {
-            if (element.style.visibility !== "hidden") {
-              penalty += 10;
-            }
-          });
+        imageCard.forEach((element) => {
+          if (element.style.visibility !== "hidden") {
+            penalty += 10;
+          }
+        });
         if (playersNames === "") {
           playersNames = "Player";
         }
@@ -511,12 +513,13 @@ function controlScoreAndBonus() {
         localStorage.setItem("results", `${resultsOfGames}`);
 
         setTimeout(() => {
+          slotMachin.play();
           let startIntervalTimerInner = setInterval(() => {
             startTimer -= 1;
             timer.textContent = `BONUS:${startTimer}`;
-            if (startTimer < 1) clearInterval(startIntervalTimerInner);
-            if (penalty !== 0) {
-              timer.textContent = `BONUS:${startTimer}`;
+            if (startTimer <= 1) {
+              clearInterval(startIntervalTimerInner);
+              timer.textContent = `BONUS:0`;
             }
           }, 100);
 
@@ -526,16 +529,18 @@ function controlScoreAndBonus() {
             if (counterGameScore >= result) {
               clearInterval(startIntervalTimerInner2);
               setTimeout(() => {
-              if (counterGameScore === 1) {
-                score.textContent = `RESULT:${counterGameScore - 1 - penalty}`;
-                timer.textContent = `PENALTY:-${penalty}`;
-              } else {
-                score.textContent = `RESULT:${counterGameScore - penalty}`;
-                timer.textContent = `PENALTY:-${penalty}`;
-              }
-            }, 1500);
+                if (counterGameScore === 1) {
+                  score.textContent = `RESULT:${
+                    counterGameScore - 1 - penalty
+                  }`;
+                  timer.textContent = `PENALTY:-${penalty}`;
+                } else {
+                  score.textContent = `RESULT:${counterGameScore - penalty}`;
+                  timer.textContent = `PENALTY:-${penalty}`;
+                }
+                playMoney.play();
+              }, 1500);
             }
-
           }, 100);
         }, 3000);
       }
