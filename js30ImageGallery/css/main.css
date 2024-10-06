@@ -678,6 +678,7 @@ background-size: cover;
 .player-name{
   height: 2vw;
   margin-left: 2vw;
+  font-size: 2vw;
 }
 
 .level{
