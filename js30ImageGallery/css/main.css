@@ -363,6 +363,9 @@
   background-color: #FFFFFF;
   color: #000000;
   z-index: 7;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+
   transition: all 0.6s ease;
 }
 
@@ -645,8 +648,21 @@ background-size: cover;
   align-items: center;
 }
 
+.message-name{
+  display: flex;
+  align-items: center;
+  height: 1vw;
+  margin-top: 1vw;
+  font-family: "Montserrat", sans-serif;
+}
+
+.player-name{
+  height: 2vw;
+}
+
 .level{
   display: flex;
+  height: 8vw;
   flex-direction: column;
   align-items: center;
   list-style: none;
