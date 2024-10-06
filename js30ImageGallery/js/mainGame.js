@@ -2,6 +2,7 @@ const modalWindowGameMode = document.querySelector(".modal-window-game-mode");
 const searchMode = document.querySelector(".search-mode");
 const gameMode = document.querySelector(".game-mode");
 const newGame = document.querySelector('.new-game');
+const playerName = document.querySelector('.player-name');
 
 gameMode.addEventListener("click", () => {
   if(gameOrSearchFlag)searchMode.click();
@@ -55,6 +56,7 @@ function level(numLevel) {
     startTimer = 26;
     selectedLevel = 2;
   }
+  playersNames = playerName.value;
   setTimeout(() => {
   timerFrame.style.left = '86.5%';
   cardBefore = "$#$#$#$#9";
@@ -78,4 +80,4 @@ setTimeout(() => {
   }, 400);
 }
 
-//  -
+

@@ -39,8 +39,11 @@ const timerFrame = document.querySelector(".timerFrame");
 const photoBlockFromUnSplashProtectScreen = document.querySelector(
   ".photoBlockFromUnSplashProtectScreen"
 );
+const player = document.querySelectorAll('.player');
 let imageCard = document.querySelectorAll(".imageCard");
+let hideImageCard = document.querySelectorAll('.hideImageCard');
 
+let playersNames;
 let currentBlock;
 let preview;
 let fetchedData;
@@ -52,10 +55,11 @@ let selectedLebel;
 let counterImage = 30;
 let counterGameScore = 0;
 let selectedLevel = 1;
+let resultsOfGames = [];
 // ----------------------------------------------------------------page design
 
-if (localStorage.getItem('gameFlag') === 'true') {
-  localStorage.removeItem('gameFlag');
+if (localStorage.getItem("gameFlag") === "true") {
+  localStorage.removeItem("gameFlag");
   setTimeout(() => {
     gameMode.click();
   }, 500);
@@ -274,7 +278,7 @@ searchInput.addEventListener("keydown", (event) => {
       });
       topPhotoLine.style.opacity = "0";
       bottomPhotoLine.style.opacity = "0";
-      newGame.style.display = 'flex';
+      newGame.style.display = "flex";
       gameMode.style.left = "26.5vw";
       gameMode.style.top = "173px";
       gameMode.style.backgroundColor = "#161616";
@@ -299,12 +303,16 @@ searchInput.addEventListener("keydown", (event) => {
 
 function mixArray(imageCard) {
   const imageCardArray = Array.from(imageCard);
-  for (let i = 20 - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [imageCardArray[i], imageCardArray[j]] = [
-      imageCardArray[j],
-      imageCardArray[i],
-    ];
+  let i = 3;
+  while (i > 0) {
+    for (let i = 20 - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [imageCardArray[i], imageCardArray[j]] = [
+        imageCardArray[j],
+        imageCardArray[i],
+      ];
+    }
+    i--;
   }
   return imageCardArray;
 }
@@ -343,8 +351,13 @@ function addNextPage() {
     let photoCart = document.createElement("div");
     photoCart.className = "imageCard";
     photoBlockFromUnSplash.appendChild(photoCart);
+
+    let hidePhotoCart = document.createElement("div");
+    hidePhotoCart.className = "hideImageCard";
+    photoCart.appendChild(hidePhotoCart);
   }
   imageCard = document.querySelectorAll(".imageCard");
+  hideImageCard = document.querySelectorAll('.hideImageCard');
 }
 addNextPage();
 
@@ -382,9 +395,12 @@ function addPhotoToPhotoBlock() {
 }
 
 function hideCardsGameMode(element) {
+
   setTimeout(() => {
     element.style.border = `6.6vw solid #CDCDCD`;
-    element.style.opacity = `0.4`;
+    let hideCardImage = element.querySelector('.hideImageCard')
+    hideCardImage.style.opacity = '1';
+    element.style.opacity = '0.5';
   }, 11000);
 }
 
@@ -405,17 +421,20 @@ function zoom() {
   if (!deliteImageFlag) {
     // ------------------------------------hidden blocks in gameMode / delete blocks in searchMode
     if (gameOrSearchFlag) {
+      let hideCardImage2 = currentBlock.querySelector('.hideImageCard');
+      hideCardImage2.style.opacity = '0';
       if (currentBlock.dataset.regular === strLinkToImage) {
         counterGameScore += 10;
         clickCounter += 1;
-        currentBlock.style.visibility = "hidden";
+        currentBlock.style.visibility = "hidden";0
         cardBefore.style.visibility = "hidden";
       } else {
         counterGameScore -= 3;
         score.textContent = `SCORE:${counterGameScore}`;
       }
-      if(cardBefore !== "$#$#$#$#9"){
-        cardBefore.style.border = `6.6vw solid #CDCDCD`;
+      if (cardBefore !== "$#$#$#$#9") {
+        let hideCardImage3 = cardBefore.querySelector('.hideImageCard');
+        hideCardImage3.style.opacity = '1';
       }
       cardBefore = currentBlock;
       strLinkToImage = currentBlock.dataset.regular;
@@ -441,26 +460,60 @@ function zoom() {
 function controlScoreAndBonus() {
   score.textContent = `SCORE:${counterGameScore}`;
   if (strLinkToImage === "$#$#$#$#9") {
-      let startIntervalTimer = setInterval(() => {
+    let startIntervalTimer = setInterval(() => {
       startTimer -= 1;
       timer.textContent = `BONUS:${startTimer}`;
-      if (startTimer < 1 || clickCounter === 10) {
+      if (startTimer < 1 || clickCounter >= 10) {
         clearInterval(startIntervalTimer);
         score.textContent = `SCORE:${counterGameScore}`;
         result = counterGameScore * selectedLevel + startTimer;
         photoBlockFromUnSplashProtectScreen.style.display = "flex";
+        photoBlockFromUnSplashProtectScreen.style.opacity = "0";
+        setTimeout(() => {
+          photoBlockFromUnSplashProtectScreen.style.opacity = "1";
+        }, 1000);
         timerFrame.style.left = "53%";
         scoreFrame.style.left = "33%";
 
         imageCard.forEach((element) => {
           if (element.style.visibility !== "hidden") {
             penalty += 10;
-            console.log("penalty: " + penalty);
           }
         });
+        if (playersNames === "") {
+          playersNames = "Player";
+        }
+
+        let newResult = `${playersNames} ${Math.round(result - penalty)}`;
+
+        if(localStorage.getItem("results") !== null){
+        resultsOfGames.push(...localStorage.getItem("results").split(','));
+
+        let localFlag = true;
+          for (let i = 0; i < resultsOfGames.length; i += 1) {
+            if (+resultsOfGames[i].split(" ").pop() < Math.round(result - penalty)) {
+              resultsOfGames.splice(i, 0, newResult);
+              localFlag = false
+              break;
+            }
+          }
+          if(localFlag){
+            resultsOfGames.splice(-1, 0, newResult);
+          }
+      }else{
+        resultsOfGames = [newResult];
+      }
+        resultsOfGames.length = 5;
+        resultsOfGames.forEach((el, index) => {
+          player[index].textContent = resultsOfGames[index];
+        });
+        localStorage.setItem("results",`${resultsOfGames}`);
+        console.log(`${resultsOfGames}`);
+
+        // localStorage.removeItem('results');
 
         setTimeout(() => {
-            let startIntervalTimerInner = setInterval(() => {
+          let startIntervalTimerInner = setInterval(() => {
             startTimer -= 1;
             timer.textContent = `BONUS:${startTimer}`;
             if (startTimer < 1) clearInterval(startIntervalTimerInner);
