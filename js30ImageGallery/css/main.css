@@ -127,7 +127,6 @@
 
  .image-finder{
   position: absolute;
-  display: flex;
   color: #B1B1B1;
   transform: translate(-20%, 112%);
   font-size: 0.95vw;
@@ -138,7 +137,6 @@
 
  .image-finder2{
   position: absolute;
-  display: flex;
   color: #B1B1B1;
   padding: 0 1vw;
   transform: translate(36%, 126%);
@@ -415,8 +413,8 @@
   display: flex;
   visibility: hidden;
   opacity: 0;
-  width: 99%;
-  height: 99svh;
+  width: 100%;
+  height: 100svh;
   top: 50%;
   left: 50%;
   background-color: #161616AA;
@@ -731,6 +729,81 @@ cursor: pointer;
 
 .messege{
   font-family: "Montserrat", sans-serif;
+}
+
+/* ------------------------------------------stream-music */
+
+.stream-music{
+  position: absolute;
+  display: flex;
+  bottom: -10%;
+  opacity: 0;
+}
+
+.lay{
+  position: absolute;
+  display: flex;
+  width: 4%;
+  aspect-ratio: 1 / 1;
+  color: #FFFFFF;
+  text-align: center;
+  color: #00a6ff82;
+  background-color: #FFFFFF;
+  right: 52.3%;
+  bottom: 39%;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 50%;
+  box-shadow: inset 0 0 10px #5753538c;
+  z-index: 3;
+}
+
+.lay:hover{
+  color: #5753535c;
+  box-shadow: inset 0 0 20px #5753538c;
+}
+
+.ring1,
+.ring2,
+.ring3{
+  position: absolute;
+  display: none;
+  width: 3.9%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 0.3px solid #ff000092;
+  right: 52.3%;
+  bottom: 39%;
+  animation: none;
+}
+
+.ring1{
+  background-color: rgba(255, 255, 255, 0.442);
+}
+.ring2{
+  background-color: rgba(133, 133, 133, 0.433);
+}
+.ring3{
+  background-color: rgba(0, 0, 0, 0.401);
+}
+
+@keyframes play-music{
+  0%{
+    transform: scale(1);
+    opacity: 0;
+  }
+  60%{
+    transform: scale(2);
+    opacity: 0.5;
+  }
+  100%{
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.white-background .lay{
+font-size: 2vw;
+line-height: 2.4vw;
 }
 
 @media (max-aspect-ratio: 1/1){

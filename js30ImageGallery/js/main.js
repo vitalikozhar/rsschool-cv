@@ -114,7 +114,7 @@ searchInput.addEventListener("input", () => {
     topPhotoLine.style.opacity = "1";
     bottomPhotoLine.style.opacity = "1";
   } else {
-    whiteBlock.style.backgroundColor = "#00A5FF91";
+    whiteBlock.style.backgroundColor = "#e1e1e191";
     whitePepper.style.opacity = 0.2;
     topPhotoLine.style.opacity = "0.3";
     bottomPhotoLine.style.opacity = "0.3";

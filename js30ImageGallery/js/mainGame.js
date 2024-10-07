@@ -3,7 +3,37 @@ const searchMode = document.querySelector(".search-mode");
 const gameMode = document.querySelector(".game-mode");
 const newGame = document.querySelector('.new-game');
 const playerName = document.querySelector('.player-name');
+const ring1 = document.querySelector('.ring1');
+const ring2 = document.querySelector('.ring2');
+const ring3 = document.querySelector('.ring3');
+const streamMusic = document.querySelector('.stream-music');
+const lay = document.querySelector('.lay');
+let layFlag = true;
 
+lay.addEventListener('click' , () => {
+  if (layFlag){
+    streamMusic.style.opacity = '0.5';
+    lay.style.boxShadow = 'inset 0 0 23px #575353DC';
+    layFlag = false;
+    ring1.style.display = 'flex';
+    ring2.style.display = 'flex';
+    ring3.style.display = 'flex';
+    ring1.style.animation = 'play-music 1.5s linear infinite';
+    ring2.style.animation = 'play-music 3s linear infinite';
+    ring3.style.animation = 'play-music 5s linear infinite';
+  }else{
+    streamMusic.style.opacity = '0';
+    lay.style.boxShadow = 'inset 0 0 10px #5753535c';
+    ring1.style.display = 'none';
+    ring2.style.display = 'none';
+    ring3.style.display = 'none';
+    ring1.style.animation = 'none';
+    ring2.style.animation = 'none';
+    ring3.style.animation = 'none';
+    layFlag = true;
+
+  }
+})
 gameMode.addEventListener("click", () => {
   if(gameOrSearchFlag)searchMode.click();
  setTimeout(() => {
