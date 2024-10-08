@@ -42,6 +42,7 @@ const photoBlockFromUnSplashProtectScreen = document.querySelector(
 const player = document.querySelectorAll(".player");
 const clearResults = document.querySelector(".clear-results");
 const playMusicRing = document.querySelector('.play-music-ring');
+const background = document.querySelector('.background');
 let imageCard = document.querySelectorAll(".imageCard");
 let hideImageCard = document.querySelectorAll(".hideImageCard");
 
@@ -274,6 +275,8 @@ searchInput.addEventListener("keydown", (event) => {
     fetchImages();
     photoBlockFromUnSplash.style.display = "flex";
     nextPage.style.display = "flex";
+    background.style.display = 'none';
+    musicBox.style.display = 'none';
 
     if (gameOrSearchFlag) {
       labelWrap.style.transform = "translateY(-83px)";
@@ -287,7 +290,7 @@ searchInput.addEventListener("keydown", (event) => {
       bottomPhotoLine.style.opacity = "0";
       newGame.style.display = "flex";
       gameMode.style.left = "26.5vw";
-      gameMode.style.top = "173px";
+      gameMode.style.top = "160px";
       gameMode.style.backgroundColor = "#161616";
       iconSearch.style.visibility = "hidden";
       let startTimerEnter = 11;
@@ -335,6 +338,8 @@ function setphotoBlockFromUnSplashWidth(newWidth) {
 }
 
 home.addEventListener("click", () => {
+  background.style.display = 'flex';
+  musicBox.style.display = 'flex';
   deleteImage.style.display = "none";
   screenSaver.style.opacity = "0";
   screenSaver.style.display = "none";
