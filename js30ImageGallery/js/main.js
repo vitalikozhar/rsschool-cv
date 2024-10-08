@@ -41,6 +41,7 @@ const photoBlockFromUnSplashProtectScreen = document.querySelector(
 );
 const player = document.querySelectorAll(".player");
 const clearResults = document.querySelector(".clear-results");
+const playMusicRing = document.querySelector('.play-music-ring');
 let imageCard = document.querySelectorAll(".imageCard");
 let hideImageCard = document.querySelectorAll(".hideImageCard");
 
@@ -148,6 +149,7 @@ fetch(jsonPath)
 function changeWords() {
   whiteBlock.removeEventListener("click", changeWords);
   whiteBlock.removeEventListener("touchstart", changeWords);
+  playMusicRing.style.opacity = '0';
   const index1 = Math.floor(Math.random() * fiveLetterWords.length);
   const index2 = Math.floor(Math.random() * sixLetterWords.length);
   const word1 = fiveLetterWords[index1];
@@ -190,6 +192,7 @@ function changeWords() {
     searchInput.style.padding = "0 1vw";
     searchInput.placeholder = "image search...";
     setting.style.opacity = "1";
+    playMusicRing.style.opacity = '1';
   }, 10500);
 }
 
