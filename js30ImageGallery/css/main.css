@@ -198,6 +198,8 @@
   width: 5vw;
   height: 5vw;
   background-color: #FFFFFF;
+  background-image: url(../img/dancing.gif);
+  background-size:auto;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
   top: 1.7vw;
   left: -2.7vw;
@@ -801,7 +803,7 @@ cursor: pointer;
   width: 4%;
   aspect-ratio: 1 / 1;
   text-align: center;
-  color: #16161616;
+  color: #ffffff00;
   background-color: #FFFFFF;
   right: 52.3%;
   bottom: 39%;

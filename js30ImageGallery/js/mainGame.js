@@ -51,6 +51,7 @@ lay.addEventListener("click", () => {
       musicArray[0].style.transform = "translate(-50%, 0)";
       upStream.style.opacity = "1";
       downStream.style.opacity = "1";
+      whiteBlock.style.backgroundSize = 'cover';
     }, 1500);
     lay.style.boxShadow = "inset 0 0 8px #575353DC";
     layFlag = false;
@@ -67,6 +68,7 @@ lay.addEventListener("click", () => {
     musicArray[0].style.transform = "translate(-50%,120%)";
     upStream.style.opacity = "0";
     downStream.style.opacity = "0";
+    whiteBlock.style.backgroundSize = 'auto';
     setTimeout(() => {
       musicBox.style.width = "0";
     }, 1000);
