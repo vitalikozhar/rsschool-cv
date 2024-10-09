@@ -45,6 +45,7 @@ const playMusicRing = document.querySelector('.play-music-ring');
 const background = document.querySelector('.background');
 let imageCard = document.querySelectorAll(".imageCard");
 let hideImageCard = document.querySelectorAll(".hideImageCard");
+let layFlag = true;
 
 let playersNames;
 let currentBlock;
@@ -76,9 +77,11 @@ fetchImages();
 function makePreviewFrame() {
   for (let i = 0; i < 8; i += 1) {
     let newDivTop = document.createElement("div");
+    newDivTop.className = '';
     newDivTop.className = "preview";
 
     let newDivBottom = document.createElement("div");
+    newDivBottom.className = '';
     newDivBottom.className = "preview";
 
     if (i === 6) {
@@ -232,7 +235,11 @@ function writeUrl() {
   let searchTerm;
   if (!gameOrSearchFlag) {
     nextPage = page;
+    if(!layFlag){
+      searchTerm = searchInput.value === "" ? "light night club" : searchInput.value;
+    }else{
     searchTerm = searchInput.value === "" ? "milk  food" : searchInput.value;
+    }
   } else {
     nextPage = 1;
     searchTerm = gameLevel;

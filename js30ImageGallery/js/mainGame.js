@@ -14,7 +14,7 @@ const upStream = document.querySelector(".music-box .up-stream");
 const downStream = document.querySelector(".music-box .down-stream");
 const lay = document.querySelector(".lay");
 const musicBox = document.querySelector(".music-box");
-let layFlag = true;
+const dancingScreen = document.querySelector('.dancing-screen');
 const musicArray = [streamMusic, streamMusic2, streamMusic3];
 
 downStream.addEventListener("click", () => {
@@ -45,13 +45,15 @@ upStream.addEventListener("click", () => {
 
 lay.addEventListener("click", () => {
   if (layFlag) {
+    topPhotoLine.style.opacity = '0';
+    bottomPhotoLine.style.opacity = '0';
+    dancingScreen.style.opacity = '0.5';
     musicBox.style.opacity = "0.7";
     musicBox.style.width = "65%";
     setTimeout(() => {
       musicArray[0].style.transform = "translate(-50%, 0)";
       upStream.style.opacity = "1";
       downStream.style.opacity = "1";
-      whiteBlock.style.backgroundSize = 'cover';
     }, 1500);
     lay.style.boxShadow = "inset 0 0 8px #575353DC";
     layFlag = false;
@@ -64,11 +66,18 @@ lay.addEventListener("click", () => {
     ring1.style.animation = "play-music 2s linear infinite";
     ring2.style.animation = "play-music 3s linear infinite";
     ring3.style.animation = "play-music 7s linear infinite";
+    fetchImages();
+    searchInput.click();
+    home.click();
+    labelWrap.style.opacity = '0.3';
+    gameMode.style.opacity = '0';
+    topPhotoLine.style.opacity = '1';
+    bottomPhotoLine.style.opacity = '1';
   } else {
+    dancingScreen.style.opacity = '0';
     musicArray[0].style.transform = "translate(-50%,120%)";
     upStream.style.opacity = "0";
     downStream.style.opacity = "0";
-    whiteBlock.style.backgroundSize = 'auto';
     setTimeout(() => {
       musicBox.style.width = "0";
     }, 1000);
@@ -86,6 +95,12 @@ lay.addEventListener("click", () => {
     ring2.style.animation = "none";
     ring3.style.animation = "none";
     layFlag = true;
+    fetchImages();
+    searchInput.click();
+    home.click();
+    labelWrap.style.opacity = '1';
+    gameMode.style.opacity = '1';
+
   }
 });
 gameMode.addEventListener("click", () => {
