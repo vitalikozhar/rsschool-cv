@@ -7,6 +7,7 @@
 - **Email**: [vox@mail.com](mailto:vox@mail.com)
 - **Discord**: ettti28 (@vitalikozhar)
 - **Telegram**: @ViT4L1
+- ** Tel**: +971561233098
 
 ---
 
