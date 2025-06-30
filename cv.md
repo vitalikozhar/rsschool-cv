@@ -19,7 +19,7 @@
 ### Education
 
 - **Belarusian Radio Engineering Institute of Informatics and Radio Electronics**
-- Completed **JavaScript / Front-end: (Stage 0, 1, 2, 3)** course at **The Rolling Scopes**
+- Completed **JavaScript / Front-end: (Stage 0, 1, 2)** course at **The Rolling Scopes**
 
 ### Work Experience
 
@@ -35,15 +35,16 @@
 
 ```javascript
 function func(age) {
-   const name = 'Mike'
-   const counter = function() {
-    return (age + Math.floor(Math.random() * 10));
-   }
-   return function() {
-    return {name, counter}
-   }
+  const name = 'Mike';
+  const counter = function () {
+    return age + Math.floor(Math.random() * 10);
+  };
+  return function () {
+    return { name, counter };
+  };
 }
 
 const info = func(5);
 console.log(info().name); // Mike
 console.log(info().counter()); // counter age
+```
