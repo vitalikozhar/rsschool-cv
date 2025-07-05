@@ -3,6 +3,11 @@
   src: url(../assets/fonts/Roboto-VariableFont_wdth\,wght.ttf);
 }
 
+@font-face {
+  font-family: Montserrat;
+  src: url(../assets/fonts/Montserrat-VariableFont_wght.ttf);
+}
+
 :root {
   --backside-color: #b3bcc3;
   --shadow-color: #6e85946e;
@@ -10,6 +15,8 @@
   --border-info-color: #c5ccd2;
   --border-info-color-hover: #00000022;
   --text-color: #383838;
+  --text-color-second: #ffffff99;
+  --glass-background: #b3bcc355;
 }
 
 * { 
@@ -17,6 +24,11 @@
   margin: 0;
   list-style: none;
   box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
 }
 
 body {
@@ -30,9 +42,9 @@ body {
   position: relative;
   display: flex;
   width: 60%;  
-  max-width: 1640px;
+  max-width: 1052px;
   min-width: 1000px;
-  margin: 3% auto;
+  margin: 3% 17%;
   flex-direction: column;
   align-items: center;
   box-shadow: 0 0 80px var(--shadow-color);
@@ -42,13 +54,12 @@ body {
 
 .backside-image {
   width: 100%;
-  height: 1500px;
-  background-image: url('../assets/image/image.png');
-  background-size: contain;
-  background-position: center;
+  height: 1330px;
+  background-image: url('../assets/image/image.webp');
+  background-position: top;
   background-repeat: no-repeat;
-  border: 2px solid var(--border-color);
-  border-radius: 7%;
+  border-top-left-radius: 7%;
+  border-top-right-radius: 7%;
   opacity: 0.7;
 }
 
@@ -60,7 +71,8 @@ header {
 }
 
 nav {
-  position: relative;
+  position: fixed;
+  top: 8%;
   font-size: 1.1rem;
 }
 
@@ -71,6 +83,13 @@ nav {
   top: 100px;
   left: -200px;
   gap: 30px;
+}
+
+.list-info a {
+ width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 40px;
 }
 
 .info-link {
@@ -89,15 +108,21 @@ nav {
   transition: border 0.15s ease-in, box-shadow 0.15s ease-in;
 }
 
-.info-link:hover {
+:is(.info-link, .info-text):hover {
   border: 2px solid #00000022;
   box-shadow: inset -2px -2px 16px 0px var(--border-info-color-hover)
 }
 
+.my-info {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
 .my-photo {
   position: absolute;
-  top: 200px;
-  right: 126px;
+  top: 220px;
+  left: 520px;
   width: 330px;
   height: 305px;
   background-image: url(../assets/image/my-photo.jpg);
@@ -112,32 +137,100 @@ nav {
 .info-about-me {
   display: flex;
   width: 100%;
-  margin-left: 155px;
+  padding-left: 155px;
   flex-direction: column;
 }
 
 .name {
-  font-size: 2.5rem;
-  margin: 275px 0 20px 0;
+  font-size: 2.2rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin: 275px 0 10px 30px;
+  color: var(--text-color);
 }
 
 .line {
   display: flex;
   width: 36%;
-  height: 5px;
+  height: 2.5px;
+  margin-left: 10px;
   justify-content: center;
   align-items: center;
   background-color: var(--border-info-color);
-  border-radius: 40%;
-  font-size: 2rem;
-  color: #ffffff99
+  font-size: 1.5rem;
+  color: var(--text-color-second);
+  box-shadow: 2px 2px 5px var(--shadow-color);
 }
 
 .position {
   font-size: 1.5rem;
-  margin: 10px 0 20px 0;
+  font-weight: 400;
+  margin: 20px 0 20px 12px;
 }
 
 main {
   position: absolute;
+  display: flex;
+  width: 80%;
+  height: 800px;
+  border-top: 3px solid var(--border-info-color);
+  top: 550px;
+  border-bottom: 3px solid var(--border-info-color);
+  box-shadow: inset -2px -2px 105px 5px var(--shadow-color);
+  border-radius: 7%;
+  justify-content: center;
+  overflow: scroll;
+  scroll-behavior: smooth; 
+}
+
+.main-info-case {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 1000px;
+  margin-bottom: 900px;
+  align-items: center;
+  gap: 40px;
+}
+
+.info-text {
+  width: 93%;
+  height: inherit;
+  font-size: 1.2rem;
+  font-weight: 300;
+  padding: 30px 5px;
+  margin: 20px 0;
+  background-color: var(--backside-color);
+  border-radius: 10px;
+  border: 3px solid var(--border-info-color);
+  box-shadow: -7px 4px 4px 5px var(--shadow-color);
+  scroll-margin-top: 40px;
+  transition: box-shadow 0.15s ease-in, border 0.15s ease-in;
+}
+
+.footer {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 206px;
+  padding-top: 180px;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 81px;
+  border-bottom-right-radius: 81px;
+  background-image: url(../assets/image/image.webp);
+  background-position: bottom;
+  opacity: 0.7;
+}
+
+.logo-rs-school,
+.logo-git-hub {
+  width: 50px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.logo-git-hub img {
+  width: 50%;
 }
