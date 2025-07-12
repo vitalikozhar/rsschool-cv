@@ -5,15 +5,113 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./src/styles/style.css">
+  <link rel="icon" href="./src/assets/image/favicon-16x16.png" type="image/png">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=compass_calibration" />
 </head>
 
 <body>
-  <header class="header"></header>
-  <main class="main">
-    <h1 class="title-CV">My CV will be here soon</h1>
-  </main>
-  <footer class="footer"></footer>
+  <div class="wrapper">
+    <div class="backside-image"></div>
+    <header class="header">
+      <nav>
+        <ul class="list-info">
+          <li class="contact-information info-link"><a href="#contact">Contact Information</a></li>
+          <li class="skills info-link"><a href="#skills">Skills</a></li>
+          <li class="education info-link"><a href="#education">Education</a></li>
+          <li class="work-experience info-link"><a href="#work">Work Experience</a></li>
+          <li class="additional-information info-link"><a href="#additional">Additional Information</a></li>
+        </ul>
+      </nav>
+      <div class="my-info">
+        <div class="info-about-me">
+          <h2 class="name">VITALI KOZHAR</h2>
+          <span class="line"></span>
+          <h1 class="position">Junior JavaScript Developer</h1>
+        </div>
+        <div class="my-photo"></div>
+      </div>
+    </header>
+    <main class="main">
+      <div class="main-info-case">
+        <div id="skills" class="skills-main info-text">
+          <h3>skills</h3>
+          <br><br>
+          <p>
+            - Software Development
+          </p>
+          <p>
+            - Knowledge of JavaScript, TypeScript, CSS, HTML
+          </p>
+        </div>
+        <div id="education" class="education-main info-text">
+          <h3>education</h3>
+          <br><br>
+          <p>
+            - Belarusian Radio Engineering Institute of Informatics and Radio Electronics
+          </p>
+          <p>
+            - Completed JavaScript / Front-end: (Stage 0, 1, 2) course at The Rolling Scopes
+          </p>
+        </div>
+        <div id="work" class="work-experience-main info-text">
+          <h3>work experience</h3>
+          <br><br>
+          <p>
+            - Radio Engineer in Military Technology Development (20+ years)
+            - Specialized in tracking and fire control systems for military equipment</p>
+        </div>
+        <div id="additional" class="additional-information-main info-text">
+          <h3>additional information</h3>
+          <br><br>
+          <p>
+            - Residing in Dubai, UAE for over 15 years
+            - Languages: Belarusian(native), Russian, English
+          </p>
+        </div>
+        <div id="contact" class="contact-information-main info-text">
+          <h3>contact information</h3>
+          <br><br>
+          <p>
+            - Email: vox@mail.com
+            <br>
+            - Discord: ettti28 (@vitalikozhar)
+            <br>
+            - Telegram: @ViT4L1
+            <br>
+            - Tel: +971561233098
+          </p>
+        </div>
+        <div class="code info-text">
+          <h3>code</h3>
+          <br><br>
+          <pre>
+           function func(age) {
+              const name = 'Mike';
+              const counter = function () {
+                return age + Math.floor(Math.random() * 10);
+              };
+              return function () {
+                return { name, counter };
+              };
+            }
+
+            const info = func(5);
+            console.log(info().name); // Mike
+            console.log(info().counter()); // counter age        
+          </pre>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <span>2025</span>
+      <a href="https://rs.school/courses/javascript-ru" class="logo-rs-school" target="_blank"><img
+          src="./src/assets/image/rs-school-logo.svg" alt="RS School logo"></a>
+      <a href="https://github.com/vitalikozhar" class="logo-git-hub" target="_blank"><img
+          src="./src/assets/image/github.svg" alt="Git Hub logo"></a>
+    </footer>
+  </div>
 </body>
 
 </html>
